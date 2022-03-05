@@ -384,7 +384,7 @@ ul#nav li.current a {
    -webkit-animation: css 2s ease;
 }
 .html5 {
-   width: 80%;
+   width: 89%;
    -moz-animation: html5 2s ease;
    -webkit-animation: html5 2s ease;
 }
@@ -405,7 +405,7 @@ ul#nav li.current a {
    -webkit-animation: html5 2s ease;
 }
 .jquery {
-   width: 50%;
+   width: 95%;
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
@@ -429,58 +429,53 @@ ul#nav li.current a {
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
-.jquery {
+.material-ui {
+   width: 60%;
+   -moz-animation: jquery 2s ease;
+   -webkit-animation: jquery 2s ease;
+}
+.redux {
    width: 50%;
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
-.jquery {
-   width: 50%;
+.react-native {
+   width: 55%;
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
-.jquery {
-   width: 50%;
+.angular {
+   width: 70%;
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
-.jquery {
-   width: 50%;
+.nodejs {
+   width: 75%;
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
-.jquery {
-   width: 50%;
-   -moz-animation: jquery 2s ease;
-   -webkit-animation: jquery 2s ease;
-}
-.jquery {
-   width: 50%;
+.mongodb {
+   width: 40%;
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
 .python {
-   width: 50%;
+   width: 60%;
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
 .django {
-   width: 50%;
+   width: 40%;
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
-.c {
-   width: 50%;
-   -moz-animation: jquery 2s ease;
-   -webkit-animation: jquery 2s ease;
-}
-.dotNet {
-   width: 50%;
+.dotnet {
+   width: 70%;
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
 .microsoft {
-   width: 50%;
+   width: 85%;
    -moz-animation: jquery 2s ease;
    -webkit-animation: jquery 2s ease;
 }
