@@ -96,7 +96,7 @@ let resumeData = {
       "skillname": "Redux"
     },
     {
-      "skillname": "React Native"
+      "skillname": "React-Native"
     },
     {
       "skillname": "Angular"
@@ -112,9 +112,6 @@ let resumeData = {
     },
     {
       "skillname": "Django"
-    },
-    {
-      "skillname": "C#"
     },
     {
       "skillname": "dotnet"
