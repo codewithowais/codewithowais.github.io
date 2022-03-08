@@ -17,9 +17,14 @@ let resumeData = {
       "className": "fa fa-github"
     },
     {
-      "name": "skype",
+      "name": "twitter",
       "url": "http://twitter.com/codewithowais",
       "className": "fa fa-twitter"
+    },
+    {
+      "name": "facebook",
+      "url": "http://facebook.com/codewithowais",
+      "className": "fa fa-facebook"
     }
   ],
   "aboutme": "I am Full Stack WEB and Mobile Apps Developer. and i would like to learn and code on new technologies ",
@@ -123,13 +128,13 @@ let resumeData = {
   "portfolio": [
     {
       "name": "project1",
-      "description": "mobileapp",
-      "imgurl": "images/portfolio/phone.jpg"
+      "description": "Expense Tracker",
+      "imgurl": "images/portfolio/ERMS.jpg"
     },
     {
       "name": "project2",
-      "description": "mobileapp",
-      "imgurl": "images/portfolio/project.jpg"
+      "description": "OLX",
+      "imgurl": "images/portfolio/OLX.jpg"
     },
     {
       "name": "project3",
@@ -143,6 +148,10 @@ let resumeData = {
     }
   ],
   "testimonials": [
+    {
+      "description": "This is a sample testimonial",
+      "name": "Some technical guy"
+    },
     {
       "description": "This is a sample testimonial",
       "name": "Some technical guy"
