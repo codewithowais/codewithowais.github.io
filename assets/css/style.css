@@ -402,6 +402,8 @@ h1, h2, h3, h4 {
   box-shadow: 0 6px 18px -8px var(--glow);
 }
 .brand__dot { color: var(--accent); }
+.brand__name { letter-spacing: -0.01em; }
+.brand__hl { color: var(--accent-text); }
 
 .nav__links {
   display: flex;
@@ -1173,6 +1175,8 @@ h1, h2, h3, h4 {
 
 @media (max-width: 560px) {
   :root { --nav-h: 64px; }
+  .nav__cta { display: none; } /* burger menu + contact cover this; keeps room for the wordmark */
+  .brand { font-size: 0.98rem; }
   .hero__cta { width: 100%; }
   .hero__cta .btn { flex: 1 1 auto; }
   .stat-grid { gap: 0.7rem; }
