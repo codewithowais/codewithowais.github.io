@@ -391,14 +391,16 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
 }
 .brand__mark {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 9px;
   display: grid;
   place-items: center;
   background: var(--accent);
   color: var(--accent-ink);
   font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: -0.03em;
   font-family: var(--font-display);
   box-shadow: 0 6px 18px -8px var(--glow);
 }
