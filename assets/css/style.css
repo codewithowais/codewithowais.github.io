@@ -561,6 +561,7 @@ h1, h2, h3, h4 {
   position: relative;
   border-radius: 50%;
   width: 100%;
+  height: auto; /* override the img height attribute so aspect-ratio keeps it a perfect circle */
   aspect-ratio: 1;
   object-fit: cover;
 }
