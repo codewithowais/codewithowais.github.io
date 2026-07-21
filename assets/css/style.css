@@ -67,14 +67,14 @@
   --text: #edeae3;
   --text-muted: #a8a39a;
   --text-faint: #928d83;
-  --accent: #e9a23b;
-  --accent-text: #eaa645; /* accent tuned for small text on dark (>= 4.5:1) */
-  --accent-bright: #f4bd63;
-  --accent-deep: #c9832a;
-  --accent-soft: rgba(233, 162, 59, 0.13);
-  --accent-line: rgba(233, 162, 59, 0.3);
-  --accent-ink: #100b03;
-  --glow: rgba(233, 162, 59, 0.16);
+  --accent: #e2674a; /* warm terracotta / coral */
+  --accent-text: #f0896b; /* brighter coral tuned for small text on dark (>= 4.5:1) */
+  --accent-bright: #ef8266;
+  --accent-deep: #c14e34;
+  --accent-soft: rgba(226, 103, 74, 0.14);
+  --accent-line: rgba(226, 103, 74, 0.32);
+  --accent-ink: #1c0a05;
+  --glow: rgba(226, 103, 74, 0.17);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 18px 40px -20px rgba(0, 0, 0, 0.8);
   --shadow-lg: 0 40px 80px -30px rgba(0, 0, 0, 0.85);
@@ -94,14 +94,14 @@
   --text: #201d18;
   --text-muted: #5b554b;
   --text-faint: #6d675c;
-  --accent: #b3701a;
-  --accent-text: #8a5410; /* darker accent for small text on paper (>= 4.5:1) */
-  --accent-bright: #c9832a;
-  --accent-deep: #935910;
-  --accent-soft: rgba(179, 112, 26, 0.1);
-  --accent-line: rgba(179, 112, 26, 0.32);
-  --accent-ink: #fff8ec;
-  --glow: rgba(179, 112, 26, 0.14);
+  --accent: #c14e34; /* deep terracotta for buttons/large text on paper */
+  --accent-text: #a83f28; /* darker terracotta for small text on paper (>= 4.5:1) */
+  --accent-bright: #d2693f;
+  --accent-deep: #9a3820;
+  --accent-soft: rgba(193, 78, 52, 0.1);
+  --accent-line: rgba(193, 78, 52, 0.32);
+  --accent-ink: #fff5ef;
+  --glow: rgba(193, 78, 52, 0.13);
   --shadow-sm: 0 1px 2px rgba(60, 45, 20, 0.08);
   --shadow-md: 0 18px 40px -24px rgba(60, 45, 20, 0.28);
   --shadow-lg: 0 40px 80px -34px rgba(60, 45, 20, 0.3);
@@ -1217,7 +1217,7 @@ h1, h2, h3, h4 {
     --bg: #ffffff; --bg-2: #ffffff;
     --surface: #ffffff; --surface-2: #f5f5f5;
     --text: #111111; --text-muted: #333333; --text-faint: #555555;
-    --accent: #8a5410; --accent-text: #7a4a0e;
+    --accent: #9a3820; --accent-text: #8a3018;
     --border: rgba(0,0,0,0.2); --border-strong: rgba(0,0,0,0.35);
   }
   body { background: #fff !important; color: #111 !important; }
