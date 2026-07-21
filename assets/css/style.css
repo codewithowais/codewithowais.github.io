@@ -117,6 +117,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h) + 12px);
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden; /* contain the off-canvas mobile drawer so it never adds horizontal scroll */
 }
 body {
   font-family: var(--font-body);
@@ -1177,6 +1178,7 @@ h1, h2, h3, h4 {
   :root { --nav-h: 64px; }
   .nav__cta { display: none; } /* burger menu + contact cover this; keeps room for the wordmark */
   .brand { font-size: 0.98rem; }
+  .nav__actions { gap: 0.45rem; }
   .hero__cta { width: 100%; }
   .hero__cta .btn { flex: 1 1 auto; }
   .stat-grid { gap: 0.7rem; }
@@ -1186,6 +1188,12 @@ h1, h2, h3, h4 {
   .portrait-badge { padding: 0.5em 0.75em; }
   .portrait-badge .num { font-size: 1.1rem; }
   body::before { background-size: 44px 44px; }
+}
+
+/* On small phones, collapse the wordmark to just the "O" mark so the nav never
+   overflows (the "codewithowais" wordmark in the display face is wide). */
+@media (max-width: 480px) {
+  .brand__name { display: none; }
 }
 
 @media (max-width: 380px) {
