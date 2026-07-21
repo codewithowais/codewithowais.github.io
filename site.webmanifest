@@ -1,0 +1,13 @@
+{
+  "name": "Muhammad Owais Ahmed — Senior Software Engineer",
+  "short_name": "Owais Ahmed",
+  "description": "Senior Software Engineer & Full-Stack / Flutter developer based in Karachi, Pakistan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0B0D",
+  "theme_color": "#0B0B0D",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/favicon.ico", "sizes": "64x64 32x32 24x24 16x16", "type": "image/x-icon" }
+  ]
+}
