@@ -41,6 +41,21 @@ git push origin gh-pages   # this repo serves from the gh-pages branch
 GitHub Pages publishes automatically within ~1 minute. Confirm Settings → Pages is set
 to "Deploy from branch" → root.
 
+## License & reuse
+
+The **site code** (HTML/CSS/JS) is open source under the [MIT License](LICENSE) —
+clone it, learn from it, or use it as a template for your own portfolio.
+
+Please **replace the personal content** when you reuse it: the profile photo,
+résumé, name, bio, project descriptions, and the `codewithowais` brand/links are
+not covered by the MIT grant. Bundled fonts (Bricolage Grotesque, Hanken Grotesk,
+JetBrains Mono) are under the SIL Open Font License 1.1.
+
+```bash
+# Use it as a starting point
+git clone https://github.com/codewithowais/codewithowais.github.io.git my-portfolio
+```
+
 ## Customising
 
 - **Colors / type:** CSS custom properties at the top of `assets/css/style.css`.
