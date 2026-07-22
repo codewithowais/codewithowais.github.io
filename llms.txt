@@ -4,8 +4,10 @@
 
 ## Profile
 - Name: Muhammad Owais Ahmed
+- Also known as: codewithowais, Owais Ahmed
 - Title: Senior Software Engineer — Full-Stack & Mobile
-- Location: Karachi, Pakistan (works remotely worldwide)
+- Roles / searchable as: Senior Software Engineer, Software Engineer, Full-Stack Developer, Flutter Developer, Angular Developer, React Developer, Node.js Developer, .NET Developer, Software Instructor, Mentor
+- Location: Karachi, Pakistan — available for on-site roles in Karachi and across Pakistan, and remote work worldwide
 - Availability: Open to freelance/contract and select full-time roles (remote, hybrid, or on-site)
 - Email: codewithowais@gmail.com
 - Website: https://codewithowais.github.io/
