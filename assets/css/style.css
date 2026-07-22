@@ -151,7 +151,10 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* clip (not hidden) so body does NOT become a second scroll container —
+     prevents the double vertical scrollbar while still containing the drawer */
   overflow-x: hidden;
+  overflow-x: clip;
   transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
 }
 img,
