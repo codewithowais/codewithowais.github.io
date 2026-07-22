@@ -39,9 +39,10 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="msapplication-TileColor" content="#e2674a" />
 
-  <!-- Performance -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <!-- Performance: preload above-the-fold fonts + LCP image (all self-hosted) -->
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hanken.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage.woff2" crossorigin />
+  <link rel="preload" as="image" href="/assets/img/profilepic.jpg?v=5" fetchpriority="high" />
 
   <!-- Icons / manifest -->
   <link rel="icon" href="/favicon.ico?v=5" sizes="any" />
@@ -70,12 +71,7 @@
   <meta name="twitter:image" content="https://codewithowais.github.io/assets/img/og-image.png" />
   <meta name="twitter:image:alt" content="Muhammad Owais Ahmed — Senior Software Engineer, Full-Stack & Flutter" />
 
-  <!-- Fonts: preconnect + display swap -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="/assets/css/style.css?v=5" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=6" />
 
   <!-- Structured data (Person + WebSite + ProfilePage + FAQPage) -->
   <script type="application/ld+json">
@@ -175,6 +171,7 @@
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- ===================== NAV ===================== -->
   <header class="nav" id="nav">
