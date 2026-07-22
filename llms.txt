@@ -1,0 +1,46 @@
+# Muhammad Owais Ahmed
+
+> Muhammad Owais Ahmed (handle: codewithowais) is a Senior Software Engineer based in Karachi, Pakistan, with 6 years of experience building production web and mobile applications across Angular, React, Node.js, .NET and Flutter. He is a founding engineer at the EdTech platform SimpliEd (25,000+ users), a Flutter instructor who has trained 1,200+ students at Jawan Pakistan, and a freelance developer available for hire.
+
+## Profile
+- Name: Muhammad Owais Ahmed
+- Title: Senior Software Engineer — Full-Stack & Mobile
+- Location: Karachi, Pakistan (works remotely worldwide)
+- Availability: Open to freelance/contract and select full-time roles (remote, hybrid, or on-site)
+- Email: codewithowais@gmail.com
+- Website: https://codewithowais.github.io/
+- GitHub: https://github.com/codewithowais
+- LinkedIn: https://www.linkedin.com/in/codewithowais/
+
+## Specializations
+- Full-stack web development (Angular, React, Node.js, .NET Core, Django)
+- Cross-platform mobile development (Flutter, Dart, React Native)
+- Backend & cloud architecture (Node.js, REST/GraphQL, microservices, AWS, Docker, CI/CD)
+- AI-powered products and workflow automation
+- Software instruction and mentorship
+
+## Technology stack
+- Languages: TypeScript, JavaScript (ES6+), Dart, C#, Python, SQL
+- Frontend: Angular, React.js, Flutter, React Native, RxJS, Redux, Tailwind CSS, Material UI
+- Backend: Node.js (Express, NestJS), .NET Core, Django, REST, GraphQL, Microservices
+- Databases: MongoDB, MS SQL Server, PostgreSQL, MySQL, Redis, Firebase
+- Cloud & DevOps: AWS (EC2, S3, RDS, Lambda), Docker, GitHub Actions, Linux
+
+## Experience
+- Senior Software Engineer / Founding Engineer — SimpliEd (Jun 2022 – Present, Karachi): EdTech platform serving 25,000+ users across 10 institutions; architected the Node.js + MongoDB backend, built Flutter QR-attendance and parent apps, ran AWS infrastructure and CI/CD, led a team of 5–6 engineers.
+- Associate Software Engineer — Dawateislami-IT (Aug 2020 – May 2022, Karachi): modernized legacy .NET Framework services to .NET Core; migrated server-rendered modules to an Angular SPA.
+- Flutter Development Instructor — Jawan Pakistan (Jan 2021 – Present, Remote): trained 1,200+ students across 11+ cohorts in cross-platform mobile development.
+
+## Education
+- BS Computer Science — Virtual University of Pakistan (2023–2027, expected)
+- Intermediate (Pre-Engineering) — Superior Govt College, Karachi (2018–2020)
+
+## Selected work
+- SimpliEd — School management EdTech platform (Angular, Node.js, Flutter, MongoDB, AWS)
+- SimpliEd Mobile — Flutter QR-attendance & parent–student apps (App Store / Play Store)
+- ERMS — Enterprise resource-management web app (.NET, Angular, SQL Server)
+- OLX Clone — Full-stack classifieds marketplace (React, Node.js, MongoDB)
+- Expense Tracker — Personal-finance mobile app (Flutter, Dart, Firebase)
+
+## Contact
+To hire or collaborate, email codewithowais@gmail.com or connect on LinkedIn: https://www.linkedin.com/in/codewithowais/
