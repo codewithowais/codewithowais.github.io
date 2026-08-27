@@ -928,10 +928,20 @@ h1, h2, h3, h4 {
 /* secondary projects grid */
 .projects__more {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.1rem;
   margin-top: 1.1rem;
 }
+.projects__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem 1rem;
+  margin-top: 1.6rem;
+  text-align: center;
+}
+.projects__foot-note { color: var(--text-faint); font-size: 0.92rem; }
 .pcard { display: flex; flex-direction: column; overflow: hidden; padding: 0; }
 .pcard:hover { border-color: var(--accent-line); transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .pcard__media {
