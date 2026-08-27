@@ -839,6 +839,25 @@ h1, h2, h3, h4 {
   transition: transform 0.7s var(--ease);
 }
 .project:hover .project__media img { transform: scale(1.04); }
+/* product-mockup media: transparent render floated on a tinted panel */
+.project__media--mockup {
+  display: grid;
+  place-items: center;
+  padding: clamp(1.4rem, 3.2vw, 2.6rem);
+  background:
+    radial-gradient(120% 130% at 50% 0%, var(--accent-soft), transparent 62%),
+    var(--surface-2);
+}
+.project__media--mockup img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 34px rgba(40, 30, 15, 0.16));
+}
+.project:hover .project__media--mockup img { transform: scale(1.02); }
 .project__media--placeholder {
   display: grid;
   place-items: center;
