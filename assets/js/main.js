@@ -484,6 +484,13 @@
     Array.prototype.slice.call(document.querySelectorAll(".projects__more .pcard"))
       .forEach(function (el) { initTilt(el, 11); });
 
+    // More surfaces: skills, services, experience, stat cards
+    ["#skills .skill-card", "#services .service", "#experience .exp", "#about .stat"]
+      .forEach(function (sel) {
+        Array.prototype.slice.call(document.querySelectorAll(sel))
+          .forEach(function (el) { initTilt(el, 8); });
+      });
+
     // Hero portrait: tilt the frame, counter-parallax the floating badges
     (function () {
       var wrap = document.querySelector(".hero__portrait");

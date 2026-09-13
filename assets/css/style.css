@@ -1693,3 +1693,41 @@ h1, h2, h3, h4 {
     .projects__more .pcard:hover { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
   }
 }
+
+/* =============================================================
+   STATIC 3D — renders even with Reduce Motion on (no animation)
+   ============================================================= */
+
+/* Portrait: always-on perspective + a fixed 3D angle so it reads as
+   dimensional even when motion is off (sway/hover override when allowed). */
+.hero__portrait { perspective: 760px; }
+.portrait-frame { transform-style: preserve-3d; transform: rotateY(-8deg) rotateX(4deg); }
+
+/* Featured screenshots sit at a fixed 3D angle; straighten toward you on hover. */
+.projects__list .project__media { perspective: 1200px; }
+.projects__list .project__media--mockup img,
+.projects__list .project__media--shot img {
+  transform: rotateY(-8deg) rotateX(2deg);
+  transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
+}
+.projects__list .project--reverse .project__media--mockup img,
+.projects__list .project--reverse .project__media--shot img {
+  transform: rotateY(8deg) rotateX(2deg);
+}
+.projects__list .project:hover .project__media--mockup img,
+.projects__list .project:hover .project__media--shot img {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+
+/* Interactive tilt on more card types (fine pointer + motion-OK) */
+@media (hover: hover) and (pointer: fine) {
+  @media (prefers-reduced-motion: no-preference) {
+    .skills__grid, .services__grid, .timeline, .stat-grid { perspective: 1000px; }
+    .skills__grid .skill-card, .services__grid .service, .timeline .exp, .stat-grid .stat {
+      transform-style: preserve-3d;
+      transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+      transition: transform 0.5s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+      will-change: transform;
+    }
+  }
+}
