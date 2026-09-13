@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://codewithowais.github.io/assets/img/og-image.png" />
   <meta name="twitter:image:alt" content="Muhammad Owais Ahmed — Senior Software Engineer, Full-Stack & Flutter" />
 
-  <link rel="stylesheet" href="/assets/css/style.css?v=10" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=11" />
 
   <!-- Structured data (Person + WebSite + ProfilePage + FAQPage) -->
   <script type="application/ld+json">
@@ -495,7 +495,7 @@
 
           <!-- FEATURED 2: Ledgerly (open-source AI finance app) -->
           <article class="card project project--reverse" data-reveal>
-            <div class="project__media">
+            <div class="project__media project__media--shot">
               <img src="/assets/img/projects/ledgerly-dashboard.jpg" alt="Ledgerly finance dashboard — net balance, income and expense cards, a cash-flow chart, and a spending-by-category breakdown" width="1400" height="875" loading="lazy" />
             </div>
             <div class="project__body">
@@ -541,57 +541,90 @@
             </div>
           </article>
 
-          <!-- FEATURED 3: Decidr (AI decision-making app) -->
-          <article class="card project" data-reveal>
-            <div class="project__media">
-              <img src="/assets/img/projects/decidr.jpg" alt="Decidr — AI decision-making assistant: weighted scoring, cognitive-bias detection, and what-if analysis" width="1400" height="875" loading="lazy" />
-            </div>
-            <div class="project__body">
-              <div class="project__tagrow">
-                <span class="project__type">AI · Next.js · Supabase</span>
-                <span class="tag tag--accent">Open source</span>
-              </div>
-              <h3 class="project__title">Decidr — AI Decision-Making Assistant</h3>
-              <p class="project__desc">
-                A decision-analysis app I built to turn messy choices into clear ones. You define your
-                options, weight what matters, and score each; it then surfaces trade-offs, sensitivity
-                analysis, and cognitive-bias checks so you can decide with confidence.
-              </p>
-              <div class="project__cols">
-                <div class="project__col">
-                  <h4>What it does</h4>
-                  <ul>
-                    <li>Weighted scoring across your own criteria</li>
-                    <li>What-if / sensitivity analysis on the weights</li>
-                    <li>Bias detection: anchoring, fear, short-term</li>
-                  </ul>
-                </div>
-                <div class="project__col">
-                  <h4>How it's built</h4>
-                  <ul>
-                    <li>Next.js App Router + TypeScript</li>
-                    <li>Supabase for auth and data</li>
-                    <li>Explainable scoring engine, unit-tested (Jest)</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="project__stack">
-                <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Tailwind</span>
-              </div>
-              <div class="project__actions">
-                <a class="link-arrow" href="https://decidr-black.vercel.app" target="_blank" rel="noopener noreferrer">
-                  Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                </a>
-                <a class="link-arrow" href="https://github.com/codewithowais/Decidr" target="_blank" rel="noopener noreferrer">
-                  View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
         </div>
 
         <!-- Secondary projects -->
         <div class="projects__more">
+          <article class="card pcard" data-reveal>
+            <div class="pcard__media">
+              <img src="/assets/img/projects/decidr.jpg" alt="Decidr — AI decision-making assistant landing page" width="1000" height="625" loading="lazy" />
+            </div>
+            <div class="pcard__body">
+              <div class="pcard__head">
+                <div>
+                  <h3 class="pcard__title">Decidr</h3>
+                  <div class="pcard__type">AI Decision Assistant · Next.js</div>
+                </div>
+              </div>
+              <p class="pcard__desc">Turn messy choices into clear ones: weight what matters, score your options, and get trade-offs, sensitivity analysis and cognitive-bias checks. Built on Next.js + Supabase.</p>
+              <div class="pcard__stack"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Supabase</span></div>
+              <div class="pcard__links">
+                <a class="link-arrow" href="https://decidr-black.vercel.app" target="_blank" rel="noopener noreferrer">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                <a class="link-arrow" href="https://github.com/codewithowais/Decidr" target="_blank" rel="noopener noreferrer">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card pcard" data-reveal style="--reveal-delay:80ms">
+            <div class="pcard__media">
+              <img src="/assets/img/projects/cadence.jpg" alt="Cadence — prompt-native AI video editor landing page" width="1000" height="625" loading="lazy" />
+            </div>
+            <div class="pcard__body">
+              <div class="pcard__head">
+                <div>
+                  <h3 class="pcard__title">Cadence</h3>
+                  <div class="pcard__type">AI Video Editor · Next.js</div>
+                </div>
+              </div>
+              <p class="pcard__desc">A prompt-native video editor: describe the edit in plain language and an AI "Director" cuts your footage, every step visible and editable. Projects are stored as edits-as-code.</p>
+              <div class="pcard__stack"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">AI</span></div>
+              <div class="pcard__links">
+                <a class="link-arrow" href="https://web-theta-five-lnuv05pt7e.vercel.app" target="_blank" rel="noopener noreferrer">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                <a class="link-arrow" href="https://github.com/codewithowais/Cadence" target="_blank" rel="noopener noreferrer">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card pcard" data-reveal style="--reveal-delay:160ms">
+            <div class="pcard__media">
+              <img src="/assets/img/projects/devpath.jpg" alt="DevPath — beginner-friendly learning and career hub landing page" width="1000" height="625" loading="lazy" />
+            </div>
+            <div class="pcard__body">
+              <div class="pcard__head">
+                <div>
+                  <h3 class="pcard__title">DevPath</h3>
+                  <div class="pcard__type">EdTech · Learning Platform</div>
+                </div>
+              </div>
+              <p class="pcard__desc">A beginner-friendly learning and career hub: ordered roadmaps, a Student-to-Senior career ladder, and 200+ plain-English lessons with a runnable code editor on every page.</p>
+              <div class="pcard__stack"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span></div>
+              <div class="pcard__links">
+                <a class="link-arrow" href="https://dev-path-by-codewithowais.vercel.app" target="_blank" rel="noopener noreferrer">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                <a class="link-arrow" href="https://github.com/codewithowais/dev-path" target="_blank" rel="noopener noreferrer">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card pcard" data-reveal style="--reveal-delay:240ms">
+            <div class="pcard__media">
+              <img src="/assets/img/projects/agentic.jpg" alt="Agentic AI — 16-week hands-on course syllabus site" width="1000" height="625" loading="lazy" />
+            </div>
+            <div class="pcard__body">
+              <div class="pcard__head">
+                <div>
+                  <h3 class="pcard__title">Agentic AI Course</h3>
+                  <div class="pcard__type">Teaching · Course Site</div>
+                </div>
+              </div>
+              <p class="pcard__desc">A 16-week, hands-on course on building AI agents, from a first tool-using agent to a deployed multi-agent system. A searchable syllabus and topic guide, written in plain words.</p>
+              <div class="pcard__stack"><span class="tag">LangGraph</span><span class="tag">Python</span><span class="tag">LLMs</span></div>
+              <div class="pcard__links">
+                <a class="link-arrow" href="https://codewithowais.github.io/agentic-ai/" target="_blank" rel="noopener noreferrer">Live site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                <a class="link-arrow" href="https://github.com/codewithowais/agentic-ai" target="_blank" rel="noopener noreferrer">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+              </div>
+            </div>
+          </article>
+
           <article class="card pcard" data-reveal>
             <div class="pcard__media pcard__media--icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>

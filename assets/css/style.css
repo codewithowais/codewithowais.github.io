@@ -858,6 +858,27 @@ h1, h2, h3, h4 {
   filter: drop-shadow(0 22px 34px rgba(40, 30, 15, 0.16));
 }
 .project:hover .project__media--mockup img { transform: scale(1.02); }
+/* framed screenshot media: full screenshot contained on a tinted panel */
+.project__media--shot {
+  display: grid;
+  place-items: center;
+  padding: clamp(1.1rem, 2.6vw, 2rem);
+  background:
+    radial-gradient(120% 130% at 50% 0%, var(--accent-soft), transparent 62%),
+    var(--surface-2);
+}
+.project__media--shot img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+.project:hover .project__media--shot img { transform: scale(1.02); }
 .project__media--placeholder {
   display: grid;
   place-items: center;
