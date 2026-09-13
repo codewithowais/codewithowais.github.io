@@ -1613,7 +1613,7 @@ h1, h2, h3, h4 {
 @media (hover: hover) and (pointer: fine) {
   @media (prefers-reduced-motion: no-preference) {
     /* Portrait 3D tilt + badge depth */
-    .hero__portrait { perspective: 900px; }
+    .hero__portrait { perspective: 600px; }
     .portrait-frame {
       transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
       transition: transform 0.5s var(--ease);
@@ -1627,14 +1627,14 @@ h1, h2, h3, h4 {
     .portrait-frame, .portrait-badge { transform-style: preserve-3d; }
 
     /* Featured project 3D tilt + media depth + tracked glare */
-    .projects__list { perspective: 1500px; }
+    .projects__list { perspective: 850px; }
     .projects__list .project {
       transform-style: preserve-3d;
       transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
       transition: transform 0.5s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease), background-color 0.4s var(--ease);
       will-change: transform;
     }
-    .projects__list .project .project__media { transform: translateZ(38px); }
+    .projects__list .project .project__media { transform: translateZ(70px); }
     .projects__list .project::before {
       content: "";
       position: absolute;
@@ -1665,10 +1665,25 @@ h1, h2, h3, h4 {
 .projects__list .project { box-shadow: var(--shadow-md); }
 .projects__more .pcard { box-shadow: var(--shadow-sm); }
 
+/* Always-on gentle 3D sway on the portrait (all devices, motion-safe) so the
+   dimensionality is visible without a mouse; the pointer tilt takes over on hover. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__portrait { perspective: 700px; }
+  .portrait-frame {
+    transform-style: preserve-3d;
+    animation: portraitSway 9s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes portraitSway {
+    0%, 100% { transform: rotateX(5deg) rotateY(-9deg); }
+    50%      { transform: rotateX(-5deg) rotateY(9deg); }
+  }
+}
+
 /* Secondary project grid: extend the 3D tilt */
 @media (hover: hover) and (pointer: fine) {
   @media (prefers-reduced-motion: no-preference) {
-    .projects__more { perspective: 1400px; }
+    .projects__more { perspective: 850px; }
     .projects__more .pcard {
       transform-style: preserve-3d;
       transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));

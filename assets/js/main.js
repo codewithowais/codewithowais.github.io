@@ -478,11 +478,11 @@
 
     // Featured case-study cards
     Array.prototype.slice.call(document.querySelectorAll(".projects__list .project"))
-      .forEach(function (el) { initTilt(el, 6); });
+      .forEach(function (el) { initTilt(el, 14); });
 
     // Secondary project grid cards
     Array.prototype.slice.call(document.querySelectorAll(".projects__more .pcard"))
-      .forEach(function (el) { initTilt(el, 5); });
+      .forEach(function (el) { initTilt(el, 11); });
 
     // Hero portrait: tilt the frame, counter-parallax the floating badges
     (function () {
@@ -493,15 +493,16 @@
       var rect = null, raf = 0, lx = 0, ly = 0;
       function apply() {
         raf = 0;
-        frame.style.setProperty("--ry", (lx * 9).toFixed(2) + "deg");
-        frame.style.setProperty("--rx", (-ly * 9).toFixed(2) + "deg");
+        frame.style.setProperty("--ry", (lx * 18).toFixed(2) + "deg");
+        frame.style.setProperty("--rx", (-ly * 18).toFixed(2) + "deg");
         badges.forEach(function (b, i) {
-          var d = i === 0 ? 26 : -22;
+          var d = i === 0 ? 46 : -40;
           b.style.transform = "translate3d(" + (lx * d).toFixed(1) + "px," + (ly * d).toFixed(1) + "px,0)";
         });
       }
       wrap.addEventListener("pointerenter", function () {
         rect = wrap.getBoundingClientRect();
+        frame.style.animation = "none";           // pause idle sway, take manual control
         frame.style.transition = "transform 0.12s linear";
       });
       wrap.addEventListener("pointermove", function (e) {
@@ -516,6 +517,7 @@
         frame.style.transition = "";
         frame.style.setProperty("--rx", "0deg");
         frame.style.setProperty("--ry", "0deg");
+        frame.style.animation = "";               // resume idle sway
         badges.forEach(function (b) { b.style.transform = ""; });
       });
     })();
