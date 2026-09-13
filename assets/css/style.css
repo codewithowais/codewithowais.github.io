@@ -103,8 +103,6 @@
   --shadow-md: 0 18px 40px -20px rgba(0, 0, 0, 0.8);
   --shadow-lg: 0 40px 80px -30px rgba(0, 0, 0, 0.85);
   --grid-line: rgba(255, 255, 255, 0.028);
-  --shadow-3d: 0 2px 6px -2px rgba(0, 0, 0, 0.5), 0 24px 50px -24px rgba(0, 0, 0, 0.85);
-  --edge-hi: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 /* ---------- Light theme ---------- */
@@ -132,8 +130,6 @@
   --shadow-md: 0 18px 40px -24px rgba(60, 45, 20, 0.28);
   --shadow-lg: 0 40px 80px -34px rgba(60, 45, 20, 0.3);
   --grid-line: rgba(26, 22, 15, 0.035);
-  --shadow-3d: 0 2px 6px -3px rgba(60, 45, 20, 0.18), 0 24px 50px -28px rgba(60, 45, 20, 0.3);
-  --edge-hi: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 /* ---------- Reset ---------- */
@@ -172,8 +168,7 @@ ul { list-style: none; padding: 0; }
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 4px;
-  box-shadow: 0 0 0 5px var(--accent-soft);
+  border-radius: 3px;
 }
 ::selection { background: var(--accent); color: var(--accent-ink); }
 
@@ -943,17 +938,13 @@ h1, h2, h3, h4 {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--text);
+  border-bottom: 1px solid var(--border-strong);
   padding: 4px 0;
   min-height: 24px;
-  background-image: linear-gradient(var(--accent), var(--accent));
-  background-size: 0% 1.5px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  border-bottom: 1px solid var(--border-strong);
-  transition: color 0.3s var(--ease), border-color 0.3s var(--ease), gap 0.3s var(--ease), background-size 0.4s var(--ease);
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease), gap 0.3s var(--ease);
 }
 .link-arrow svg { width: 14px; height: 14px; transition: transform 0.3s var(--ease); }
-.link-arrow:hover { color: var(--accent-text); border-color: transparent; gap: 0.6em; background-size: 100% 1.5px; }
+.link-arrow:hover { color: var(--accent-text); border-color: var(--accent); gap: 0.6em; }
 
 /* secondary projects grid */
 .projects__more {
@@ -1256,17 +1247,11 @@ h1, h2, h3, h4 {
    ============================================================= */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(26px) scale(0.985);
-  filter: blur(6px);
-  transition: opacity 0.7s var(--ease-out), transform 0.8s var(--ease-out), filter 0.7s var(--ease-out);
+  transform: translateY(26px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform;
 }
-[data-reveal].is-in { opacity: 1; transform: none; filter: none; }
-[data-reveal].reveal-left { transform: translateX(-30px) scale(0.985); }
-[data-reveal].reveal-right { transform: translateX(30px) scale(0.985); }
-[data-reveal].reveal-left.is-in,
-[data-reveal].reveal-right.is-in { transform: none; }
+[data-reveal].is-in { opacity: 1; transform: none; }
 
 /* hero entrance (runs on load) */
 .hero [data-enter] {
@@ -1373,7 +1358,7 @@ h1, h2, h3, h4 {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  [data-reveal] { opacity: 1 !important; transform: none !important; filter: none !important; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
   .hero [data-enter] { opacity: 1 !important; transform: none !important; animation: none !important; }
   .tech-marquee__track { animation: none !important; }
   .status-dot { animation: none !important; }
@@ -1398,389 +1383,3 @@ h1, h2, h3, h4 {
   a { color: #111 !important; }
 }
 
-/* =============================================================
-   ENHANCEMENTS — additive polish (theme-aware, reduced-motion safe)
-   ============================================================= */
-
-/* Card cursor spotlight (fine pointer only) */
-@media (hover: hover) and (pointer: fine) {
-  .card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s var(--ease);
-    background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), var(--accent-soft), transparent 60%);
-    z-index: 0;
-  }
-  .card:hover::after { opacity: 1; }
-  .card > * { position: relative; z-index: 1; }
-}
-
-/* Accent "ignition" line on non-image cards */
-.skill-card, .service { overflow: hidden; }
-.skill-card::before, .service::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 22px; right: 22px;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
-  transform: scaleX(0);
-  transform-origin: left;
-  opacity: 0;
-  transition: transform 0.55s var(--ease), opacity 0.4s var(--ease);
-  z-index: 2;
-}
-.skill-card:hover::before, .service:hover::before { transform: scaleX(1); opacity: 1; }
-
-/* Hero signature: drawn underline under "Ahmed" + rotating warm halo */
-.hero__title .accent { position: relative; }
-.hero__title .accent::after {
-  content: "";
-  position: absolute;
-  left: 0.02em; right: 0.02em;
-  bottom: 0.05em;
-  height: 0.08em;
-  border-radius: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: heroUnderline 0.8s var(--ease-out) 1.05s forwards;
-}
-@keyframes heroUnderline { to { transform: scaleX(1); } }
-.hero__portrait { position: relative; }
-.hero__portrait::before {
-  content: "";
-  position: absolute;
-  inset: -12%;
-  z-index: -1;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, transparent, var(--glow), transparent 42%);
-  filter: blur(26px);
-  opacity: 0.8;
-  animation: haloSpin 16s linear infinite;
-}
-@keyframes haloSpin { to { transform: rotate(360deg); } }
-
-/* Section rhythm: giant ghost number */
-.section-head { position: relative; }
-.section-head::before {
-  content: attr(data-index);
-  position: absolute;
-  top: -0.55em;
-  right: 0;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(4rem, 12vw, 9rem);
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--text);
-  opacity: 0.04;
-  pointer-events: none;
-  z-index: 0;
-}
-.section-head > * { position: relative; z-index: 1; }
-@media (max-width: 640px) { .section-head::before { display: none; } }
-
-/* Theme toggle: physical rotate + accent hover */
-.theme-toggle:active svg { transform: rotate(-35deg) scale(0.9); }
-.theme-toggle:hover { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
-
-/* Primary button sheen */
-.btn--primary { position: relative; overflow: hidden; isolation: isolate; }
-.btn--primary::before {
-  content: "";
-  position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 0.6s var(--ease);
-}
-.btn--primary:hover::before { transform: translateX(120%); }
-
-/* Tag hover = quiet accent */
-.tag { transition: color 0.25s var(--ease), border-color 0.25s var(--ease), background-color 0.25s var(--ease); }
-.tag:hover { color: var(--accent-text); border-color: var(--accent-line); background: var(--accent-soft); }
-
-/* Tech marquee subtle hover lift */
-.tech-marquee__item { transition: color 0.3s var(--ease); }
-.tech-marquee:hover .tech-marquee__item { color: var(--text-muted); }
-
-/* Idle float on portrait badges + hero portrait scroll parallax */
-@media (prefers-reduced-motion: no-preference) {
-  .portrait-badge--tl { animation: floatY 6s ease-in-out infinite; }
-  .portrait-badge--br { animation: floatY 6s ease-in-out infinite 0.8s; }
-  @keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-}
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) and (min-width: 861px) {
-    .hero__portrait { animation: heroDrift linear both; animation-timeline: scroll(root); animation-range: 0 60vh; }
-    @keyframes heroDrift { to { transform: translateY(34px); } }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__title .accent::after { animation: none; transform: scaleX(1); }
-  .hero__portrait::before { animation: none; }
-  .theme-toggle:active svg { transform: none; }
-  .btn--primary::before { display: none; }
-}
-
-/* ===== Command palette (⌘K) ===== */
-.cmdk-hint {
-  position: fixed; left: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem);
-  z-index: 90; display: inline-flex; align-items: center; gap: 0.4em;
-  padding: 0.5em 0.8em; border-radius: var(--r-pill);
-  border: 1px solid var(--border); background: var(--surface);
-  color: var(--text-muted); font-family: var(--font-mono); font-size: 0.76rem;
-  box-shadow: var(--shadow-sm); cursor: pointer;
-  transition: color 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease);
-}
-.cmdk-hint:hover { color: var(--accent); border-color: var(--accent-line); transform: translateY(-2px); }
-.cmdk-hint kbd {
-  font-family: var(--font-mono); font-size: 0.72rem; line-height: 1;
-  padding: 0.2em 0.4em; border-radius: 5px; border: 1px solid var(--border);
-  background: var(--surface-2); color: var(--text);
-}
-@media (max-width: 560px) { .cmdk-hint span { display: none; } }
-
-.cmdk { position: fixed; inset: 0; z-index: 300; display: grid; align-items: start; justify-items: center; }
-.cmdk[hidden] { display: none; }
-.cmdk__scrim { position: absolute; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(3px); }
-.cmdk__panel {
-  position: relative; margin-top: 14vh; width: min(560px, 92vw);
-  background: var(--surface); border: 1px solid var(--border-strong);
-  border-radius: var(--r-lg); box-shadow: var(--shadow-lg); overflow: hidden;
-  animation: cmdkIn 0.28s var(--ease-out);
-}
-@keyframes cmdkIn { from { opacity: 0; transform: translateY(-10px) scale(0.98); } to { opacity: 1; transform: none; } }
-.cmdk__input {
-  width: 100%; padding: 1.1rem 1.3rem; border: none; background: transparent;
-  color: var(--text); font-size: 1.05rem; font-family: var(--font-body);
-  border-bottom: 1px solid var(--border);
-}
-.cmdk__input:focus { outline: none; }
-.cmdk__input::placeholder { color: var(--text-faint); }
-.cmdk__list { max-height: 46vh; overflow-y: auto; padding: 0.4rem; list-style: none; margin: 0; }
-.cmdk__opt {
-  display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 0.9rem;
-  border-radius: var(--r-md); cursor: pointer; color: var(--text-muted);
-}
-.cmdk__opt .k {
-  font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-text);
-  letter-spacing: 0.08em; text-transform: uppercase; margin-left: auto;
-}
-.cmdk__opt[aria-selected="true"] { background: var(--accent-soft); color: var(--text); }
-.cmdk__opt[aria-selected="true"] .k { color: var(--accent); }
-.cmdk__foot {
-  display: flex; gap: 1.2rem; padding: 0.7rem 1.1rem; border-top: 1px solid var(--border);
-  font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-faint);
-}
-.cmdk__foot kbd { border: 1px solid var(--border); border-radius: 4px; padding: 0.05em 0.4em; }
-@media (prefers-reduced-motion: reduce) { .cmdk__panel { animation: none; } }
-
-/* =============================================================
-   3D / DIMENSIONAL LAYER (fine pointer + motion-OK gated)
-   ============================================================= */
-
-/* Hero aurora: slow terracotta gradient-mesh behind the hero */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: -18% -12% 8%;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(46% 56% at 16% 30%, var(--accent-soft), transparent 60%),
-    radial-gradient(40% 50% at 84% 20%, var(--glow), transparent 58%),
-    radial-gradient(52% 60% at 60% 78%, var(--accent-soft), transparent 64%),
-    radial-gradient(34% 40% at 40% 8%, var(--glow), transparent 60%);
-  filter: blur(52px);
-  opacity: 1;
-}
-:root:not([data-theme="light"]) .hero::before { opacity: 0.9; }
-@media (prefers-reduced-motion: no-preference) {
-  .hero::before { animation: heroAurora 22s ease-in-out infinite alternate; }
-  @keyframes heroAurora {
-    0% { transform: translate3d(0, 0, 0) scale(1); }
-    100% { transform: translate3d(2.5%, -2%, 0) scale(1.08); }
-  }
-}
-@media (prefers-reduced-motion: reduce) { .hero::before { animation: none; } }
-
-@media (hover: hover) and (pointer: fine) {
-  @media (prefers-reduced-motion: no-preference) {
-    /* Portrait 3D tilt + badge depth */
-    .hero__portrait { perspective: 600px; }
-    .portrait-frame {
-      transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-      transition: transform 0.5s var(--ease);
-      will-change: transform;
-    }
-    .portrait-badge {
-      animation: none;
-      transition: transform 0.5s var(--ease), box-shadow 0.4s var(--ease);
-      will-change: transform;
-    }
-    .portrait-frame, .portrait-badge { transform-style: preserve-3d; }
-
-    /* Featured project 3D tilt + media depth + tracked glare */
-    .projects__list { perspective: 850px; }
-    .projects__list .project {
-      transform-style: preserve-3d;
-      transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-      transition: transform 0.5s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease), background-color 0.4s var(--ease);
-      will-change: transform;
-    }
-    .projects__list .project .project__media { transform: translateZ(70px); }
-    .projects__list .project::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity 0.4s var(--ease);
-      background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), color-mix(in srgb, var(--text) 8%, transparent), transparent 60%);
-    }
-    .projects__list .project:hover::before { opacity: 1; }
-  }
-
-  /* Lifted surfaces on hover (static, pointer-gated) */
-  .skill-card:hover, .service:hover, .pcard:hover, .stat:hover,
-  .projects__list .project:hover { box-shadow: var(--shadow-3d), var(--edge-hi); }
-}
-
-/* 3D press on primary buttons */
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .btn--primary { box-shadow: 0 8px 24px -10px var(--glow), 0 3px 0 -1px var(--accent-deep); }
-  .btn--primary:hover { box-shadow: 0 14px 34px -12px var(--glow), 0 4px 0 -1px var(--accent-deep); }
-  .btn--primary:active { transform: translateY(2px) scale(0.99); box-shadow: 0 6px 16px -10px var(--glow), 0 1px 0 -1px var(--accent-deep); }
-}
-
-/* Resting elevation so cards read as dimensional even without hover (all devices) */
-.projects__list .project { box-shadow: var(--shadow-md); }
-.projects__more .pcard { box-shadow: var(--shadow-sm); }
-
-/* Always-on gentle 3D sway on the portrait (all devices, motion-safe) so the
-   dimensionality is visible without a mouse; the pointer tilt takes over on hover. */
-@media (prefers-reduced-motion: no-preference) {
-  .hero__portrait { perspective: 700px; }
-  .portrait-frame {
-    transform-style: preserve-3d;
-    animation: portraitSway 9s ease-in-out infinite;
-    will-change: transform;
-  }
-  @keyframes portraitSway {
-    0%, 100% { transform: rotateX(5deg) rotateY(-9deg); }
-    50%      { transform: rotateX(-5deg) rotateY(9deg); }
-  }
-}
-
-/* Secondary project grid: extend the 3D tilt */
-@media (hover: hover) and (pointer: fine) {
-  @media (prefers-reduced-motion: no-preference) {
-    .projects__more { perspective: 850px; }
-    .projects__more .pcard {
-      transform-style: preserve-3d;
-      transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-      transition: transform 0.5s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
-      will-change: transform;
-    }
-    .projects__more .pcard:hover { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
-  }
-}
-
-/* =============================================================
-   STATIC 3D — renders even with Reduce Motion on (no animation)
-   ============================================================= */
-
-/* One light source: top-left, slightly in front. Every tilted object gets a
-   cast shadow on its own (un-rotated) plane so it reads as a solid object. */
-
-/* Portrait: fixed 3D angle, warm directional cast, grounded shadow */
-.hero__portrait { perspective: 760px; }
-.portrait-frame {
-  transform-style: preserve-3d;
-  transform: rotateY(-15deg) rotateX(7deg);
-  backface-visibility: hidden;
-  box-shadow: var(--shadow-lg), 26px 32px 56px -30px var(--glow);
-}
-.hero__portrait::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 14%; right: -2%;
-  bottom: -4%;
-  height: 22%;
-  border-radius: 50%;
-  background: radial-gradient(60% 100% at 50% 0%, rgba(0, 0, 0, 0.34), transparent 72%);
-  filter: blur(15px);
-  transform: rotateX(62deg) translateZ(-30px);
-  pointer-events: none;
-}
-:root[data-theme="light"] .hero__portrait::after {
-  background: radial-gradient(60% 100% at 50% 0%, rgba(60, 45, 20, 0.2), transparent 72%);
-}
-/* badges ride forward on their own Z-plane */
-.portrait-badge--tl { transform: translateZ(70px); }
-.portrait-badge--br { transform: translateZ(46px); }
-
-/* Featured screenshots: grounded, lit product shots (static) */
-.projects__list .project__media { perspective: 1400px; }
-.projects__list .project__media--mockup img,
-.projects__list .project__media--shot img {
-  transform: rotateY(-15deg) rotateX(3deg) scale(0.9);
-  transform-origin: 85% 50%;               /* hinge on the far edge — no near-edge slide */
-  backface-visibility: hidden;
-  transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.22)) drop-shadow(24px 28px 34px rgba(40, 30, 15, 0.3));
-}
-:root:not([data-theme="light"]) .projects__list .project__media--mockup img,
-:root:not([data-theme="light"]) .projects__list .project__media--shot img {
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5)) drop-shadow(24px 28px 42px rgba(0, 0, 0, 0.6));
-}
-.projects__list .project--reverse .project__media--mockup img,
-.projects__list .project--reverse .project__media--shot img {
-  transform: rotateY(15deg) rotateX(3deg) scale(0.9);
-  transform-origin: 15% 50%;
-}
-/* the tinted panel becomes a soft recess the shot lifts out of */
-.projects__list .project__media--mockup,
-.projects__list .project__media--shot {
-  box-shadow: inset 0 2px 12px -6px rgba(0, 0, 0, 0.3);
-}
-:root[data-theme="light"] .projects__list .project__media--mockup,
-:root[data-theme="light"] .projects__list .project__media--shot {
-  box-shadow: inset 0 2px 12px -8px rgba(60, 45, 20, 0.14);
-}
-/* straighten toward the viewer on hover */
-.projects__list .project:hover .project__media--mockup img,
-.projects__list .project:hover .project__media--shot img {
-  transform: rotateY(0deg) rotateX(0deg) scale(1);
-}
-
-/* Cohesive static elevation + lit top edge on the rest of the cards */
-.projects__more .pcard {
-  box-shadow: var(--shadow-sm), 0 18px 34px -22px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-}
-:root[data-theme="light"] .projects__more .pcard {
-  box-shadow: var(--shadow-sm), 0 18px 34px -24px rgba(60, 45, 20, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-.skill-card, .service, .stat, .projects__list .project { box-shadow: var(--shadow-md), var(--edge-hi); }
-
-/* Interactive tilt on more card types (fine pointer + motion-OK) */
-@media (hover: hover) and (pointer: fine) {
-  @media (prefers-reduced-motion: no-preference) {
-    .skills__grid, .services__grid, .timeline, .stat-grid { perspective: 1000px; }
-    .skills__grid .skill-card, .services__grid .service, .timeline .exp, .stat-grid .stat {
-      transform-style: preserve-3d;
-      transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-      transition: transform 0.5s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
-      will-change: transform;
-    }
-  }
-}
