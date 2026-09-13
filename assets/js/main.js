@@ -143,6 +143,20 @@
   updateOnScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
+  /* ---------- Ghost section numbers: mirror the eyebrow number onto the head ---------- */
+  Array.prototype.slice.call(document.querySelectorAll(".section-head")).forEach(function (h) {
+    var eb = h.querySelector(".eyebrow");
+    var m = eb && eb.textContent.match(/\d+/);
+    if (m) h.setAttribute("data-index", m[0]);
+  });
+
+  /* ---------- Auto-stagger: incremental reveal delay for grouped children ---------- */
+  Array.prototype.slice.call(document.querySelectorAll("[data-stagger]")).forEach(function (group) {
+    var step = parseInt(group.getAttribute("data-stagger"), 10) || 90;
+    Array.prototype.slice.call(group.querySelectorAll(":scope > [data-reveal]"))
+      .forEach(function (el, i) { el.style.setProperty("--reveal-delay", (i * step) + "ms"); });
+  });
+
   /* ---------- Scroll reveal ---------- */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
   if (prefersReduced || !("IntersectionObserver" in window)) {
@@ -227,7 +241,7 @@
     "Full-Stack Developer",
     "Flutter & Mobile Developer",
     "Software Instructor",
-    "Freelance & AI-focused Dev"
+    "AI-focused Builder"
   ];
   if (roleEl && !prefersReduced) {
     var ri = 0, ci = 0, deleting = false, paused = false, timer = null;
@@ -342,4 +356,90 @@
       });
     });
   }
+
+  /* ---------- Card cursor spotlight (fine pointer, no reduced motion) ---------- */
+  if (!prefersReduced && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    Array.prototype.slice.call(document.querySelectorAll(".card")).forEach(function (card) {
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        card.style.setProperty("--my", (e.clientY - r.top) + "px");
+      });
+    });
+  }
+
+  /* ---------- ⌘K command palette ---------- */
+  (function () {
+    var modal = document.getElementById("cmdk");
+    var input = document.getElementById("cmdkInput");
+    var list = document.getElementById("cmdkList");
+    var hint = document.getElementById("cmdkHint");
+    if (!modal || !input || !list) return;
+
+    var COMMANDS = [
+      { label: "About", href: "#about", hint: "go" },
+      { label: "Experience", href: "#experience", hint: "go" },
+      { label: "Work", href: "#projects", hint: "go" },
+      { label: "Skills", href: "#skills", hint: "go" },
+      { label: "Services", href: "#services", hint: "go" },
+      { label: "Teaching", href: "#teaching", hint: "go" },
+      { label: "Contact", href: "#contact", hint: "go" },
+      { label: "Download résumé", href: "/assets/muhammad-owais-ahmed-resume.pdf", hint: "file", ext: true },
+      { label: "Email Owais", href: "mailto:codewithowais@gmail.com", hint: "action", ext: true },
+      { label: "GitHub", href: "https://github.com/codewithowais", hint: "open", ext: true },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/codewithowais/", hint: "open", ext: true },
+      { label: "Toggle theme", action: "theme", hint: "action" }
+    ];
+
+    var results = COMMANDS.slice(), sel = 0, lastFocus = null;
+
+    function render() {
+      list.innerHTML = "";
+      results.forEach(function (c, i) {
+        var li = document.createElement("li");
+        li.className = "cmdk__opt";
+        li.setAttribute("role", "option");
+        li.setAttribute("aria-selected", i === sel ? "true" : "false");
+        li.innerHTML = '<span></span><span class="k"></span>';
+        li.firstChild.textContent = c.label;
+        li.lastChild.textContent = c.hint;
+        li.addEventListener("click", function () { sel = i; run(); });
+        list.appendChild(li);
+      });
+    }
+    function filter(q) {
+      q = q.trim().toLowerCase();
+      results = q ? COMMANDS.filter(function (c) { return c.label.toLowerCase().indexOf(q) > -1; }) : COMMANDS.slice();
+      sel = 0; render();
+    }
+    function open() {
+      lastFocus = document.activeElement;
+      modal.hidden = false; document.body.style.overflow = "hidden";
+      input.value = ""; filter(""); input.focus();
+    }
+    function close() {
+      modal.hidden = true; document.body.style.overflow = "";
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    function run() {
+      var c = results[sel]; if (!c) return;
+      close();
+      if (c.action === "theme" && toggle) { toggle.click(); return; }
+      if (c.ext) { window.open(c.href, c.href.charAt(0) === "#" ? "_self" : "_blank", "noopener"); return; }
+      if (c.href) { window.location.hash = c.href; }
+    }
+
+    if (hint) hint.addEventListener("click", open);
+    document.addEventListener("keydown", function (e) {
+      if ((e.metaKey || e.ctrlKey) && (e.key === "k" || e.key === "K")) { e.preventDefault(); modal.hidden ? open() : close(); return; }
+      if (modal.hidden) return;
+      if (e.key === "Escape") { e.preventDefault(); close(); }
+      else if (e.key === "ArrowDown") { e.preventDefault(); sel = Math.min(sel + 1, results.length - 1); render(); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); sel = Math.max(sel - 1, 0); render(); }
+      else if (e.key === "Enter") { e.preventDefault(); run(); }
+    });
+    input.addEventListener("input", function () { filter(input.value); });
+    Array.prototype.slice.call(modal.querySelectorAll("[data-cmdk-close]"))
+      .forEach(function (el) { el.addEventListener("click", close); });
+  })();
 })();
