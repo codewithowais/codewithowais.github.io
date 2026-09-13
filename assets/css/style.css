@@ -1700,19 +1700,19 @@ h1, h2, h3, h4 {
 
 /* Portrait: always-on perspective + a fixed 3D angle so it reads as
    dimensional even when motion is off (sway/hover override when allowed). */
-.hero__portrait { perspective: 760px; }
-.portrait-frame { transform-style: preserve-3d; transform: rotateY(-8deg) rotateX(4deg); }
+.hero__portrait { perspective: 680px; }
+.portrait-frame { transform-style: preserve-3d; transform: rotateY(-15deg) rotateX(7deg); }
 
 /* Featured screenshots sit at a fixed 3D angle; straighten toward you on hover. */
-.projects__list .project__media { perspective: 1200px; }
+.projects__list .project__media { perspective: 1100px; }
 .projects__list .project__media--mockup img,
 .projects__list .project__media--shot img {
-  transform: rotateY(-8deg) rotateX(2deg);
+  transform: rotateY(-16deg) rotateX(4deg) scale(0.96);
   transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
 }
 .projects__list .project--reverse .project__media--mockup img,
 .projects__list .project--reverse .project__media--shot img {
-  transform: rotateY(8deg) rotateX(2deg);
+  transform: rotateY(16deg) rotateX(4deg) scale(0.96);
 }
 .projects__list .project:hover .project__media--mockup img,
 .projects__list .project:hover .project__media--shot img {
