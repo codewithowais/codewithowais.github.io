@@ -103,6 +103,8 @@
   --shadow-md: 0 18px 40px -20px rgba(0, 0, 0, 0.8);
   --shadow-lg: 0 40px 80px -30px rgba(0, 0, 0, 0.85);
   --grid-line: rgba(255, 255, 255, 0.028);
+  --shadow-3d: 0 2px 6px -2px rgba(0, 0, 0, 0.5), 0 24px 50px -24px rgba(0, 0, 0, 0.85);
+  --edge-hi: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 /* ---------- Light theme ---------- */
@@ -130,6 +132,8 @@
   --shadow-md: 0 18px 40px -24px rgba(60, 45, 20, 0.28);
   --shadow-lg: 0 40px 80px -34px rgba(60, 45, 20, 0.3);
   --grid-line: rgba(26, 22, 15, 0.035);
+  --shadow-3d: 0 2px 6px -3px rgba(60, 45, 20, 0.18), 0 24px 50px -28px rgba(60, 45, 20, 0.3);
+  --edge-hi: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 /* ---------- Reset ---------- */
@@ -1576,3 +1580,81 @@ h1, h2, h3, h4 {
 }
 .cmdk__foot kbd { border: 1px solid var(--border); border-radius: 4px; padding: 0.05em 0.4em; }
 @media (prefers-reduced-motion: reduce) { .cmdk__panel { animation: none; } }
+
+/* =============================================================
+   3D / DIMENSIONAL LAYER (fine pointer + motion-OK gated)
+   ============================================================= */
+
+/* Hero aurora: slow terracotta gradient-mesh behind the hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -12% -10% 20%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 48% at 18% 32%, var(--accent-soft), transparent 62%),
+    radial-gradient(32% 42% at 82% 22%, var(--glow), transparent 60%),
+    radial-gradient(44% 52% at 62% 74%, var(--accent-soft), transparent 66%);
+  filter: blur(46px);
+  opacity: 0.75;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero::before { animation: heroAurora 22s ease-in-out infinite alternate; }
+  @keyframes heroAurora {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(2.5%, -2%, 0) scale(1.08); }
+  }
+}
+@media (prefers-reduced-motion: reduce) { .hero::before { animation: none; } }
+
+@media (hover: hover) and (pointer: fine) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Portrait 3D tilt + badge depth */
+    .hero__portrait { perspective: 900px; }
+    .portrait-frame {
+      transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+      transition: transform 0.5s var(--ease);
+      will-change: transform;
+    }
+    .portrait-badge {
+      animation: none;
+      transition: transform 0.5s var(--ease), box-shadow 0.4s var(--ease);
+      will-change: transform;
+    }
+    .portrait-frame, .portrait-badge { transform-style: preserve-3d; }
+
+    /* Featured project 3D tilt + media depth + tracked glare */
+    .projects__list { perspective: 1500px; }
+    .projects__list .project {
+      transform-style: preserve-3d;
+      transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+      transition: transform 0.5s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease), background-color 0.4s var(--ease);
+      will-change: transform;
+    }
+    .projects__list .project .project__media { transform: translateZ(38px); }
+    .projects__list .project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.4s var(--ease);
+      background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), color-mix(in srgb, var(--text) 8%, transparent), transparent 60%);
+    }
+    .projects__list .project:hover::before { opacity: 1; }
+  }
+
+  /* Lifted surfaces on hover (static, pointer-gated) */
+  .skill-card:hover, .service:hover, .pcard:hover, .stat:hover,
+  .projects__list .project:hover { box-shadow: var(--shadow-3d), var(--edge-hi); }
+}
+
+/* 3D press on primary buttons */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .btn--primary { box-shadow: 0 8px 24px -10px var(--glow), 0 3px 0 -1px var(--accent-deep); }
+  .btn--primary:hover { box-shadow: 0 14px 34px -12px var(--glow), 0 4px 0 -1px var(--accent-deep); }
+  .btn--primary:active { transform: translateY(2px) scale(0.99); box-shadow: 0 6px 16px -10px var(--glow), 0 1px 0 -1px var(--accent-deep); }
+}

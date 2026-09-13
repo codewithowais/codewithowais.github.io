@@ -442,4 +442,78 @@
     Array.prototype.slice.call(modal.querySelectorAll("[data-cmdk-close]"))
       .forEach(function (el) { el.addEventListener("click", close); });
   })();
+
+  /* ---------- 3D tilt + parallax (fine pointer, motion-OK only) ---------- */
+  if (!prefersReduced && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+
+    function initTilt(el, maxDeg) {
+      var rect = null, raf = 0, lx = 0, ly = 0;
+      function apply() {
+        raf = 0;
+        el.style.setProperty("--ry", (lx * maxDeg).toFixed(2) + "deg");
+        el.style.setProperty("--rx", (-ly * maxDeg).toFixed(2) + "deg");
+        el.style.setProperty("--gx", (lx * 100 + 50).toFixed(1) + "%");
+        el.style.setProperty("--gy", (ly * 100 + 50).toFixed(1) + "%");
+      }
+      el.addEventListener("pointerenter", function () {
+        rect = el.getBoundingClientRect();
+        el.style.transition = "transform 0.12s linear";
+      });
+      el.addEventListener("pointermove", function (e) {
+        if (!rect) rect = el.getBoundingClientRect();
+        lx = (e.clientX - rect.left) / rect.width - 0.5;
+        ly = (e.clientY - rect.top) / rect.height - 0.5;
+        if (!raf) raf = requestAnimationFrame(apply);
+      });
+      el.addEventListener("pointerleave", function () {
+        rect = null;
+        if (raf) { cancelAnimationFrame(raf); raf = 0; }
+        el.style.transition = "";
+        el.style.setProperty("--rx", "0deg");
+        el.style.setProperty("--ry", "0deg");
+        el.style.removeProperty("--gx");
+        el.style.removeProperty("--gy");
+      });
+    }
+
+    // Featured case-study cards
+    Array.prototype.slice.call(document.querySelectorAll(".projects__list .project"))
+      .forEach(function (el) { initTilt(el, 5); });
+
+    // Hero portrait: tilt the frame, counter-parallax the floating badges
+    (function () {
+      var wrap = document.querySelector(".hero__portrait");
+      var frame = wrap && wrap.querySelector(".portrait-frame");
+      if (!wrap || !frame) return;
+      var badges = Array.prototype.slice.call(wrap.querySelectorAll(".portrait-badge"));
+      var rect = null, raf = 0, lx = 0, ly = 0;
+      function apply() {
+        raf = 0;
+        frame.style.setProperty("--ry", (lx * 9).toFixed(2) + "deg");
+        frame.style.setProperty("--rx", (-ly * 9).toFixed(2) + "deg");
+        badges.forEach(function (b, i) {
+          var d = i === 0 ? 26 : -22;
+          b.style.transform = "translate3d(" + (lx * d).toFixed(1) + "px," + (ly * d).toFixed(1) + "px,0)";
+        });
+      }
+      wrap.addEventListener("pointerenter", function () {
+        rect = wrap.getBoundingClientRect();
+        frame.style.transition = "transform 0.12s linear";
+      });
+      wrap.addEventListener("pointermove", function (e) {
+        if (!rect) rect = wrap.getBoundingClientRect();
+        lx = (e.clientX - rect.left) / rect.width - 0.5;
+        ly = (e.clientY - rect.top) / rect.height - 0.5;
+        if (!raf) raf = requestAnimationFrame(apply);
+      });
+      wrap.addEventListener("pointerleave", function () {
+        rect = null;
+        if (raf) { cancelAnimationFrame(raf); raf = 0; }
+        frame.style.transition = "";
+        frame.style.setProperty("--rx", "0deg");
+        frame.style.setProperty("--ry", "0deg");
+        badges.forEach(function (b) { b.style.transform = ""; });
+      });
+    })();
+  }
 })();
