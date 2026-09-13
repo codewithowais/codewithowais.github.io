@@ -1698,26 +1698,79 @@ h1, h2, h3, h4 {
    STATIC 3D — renders even with Reduce Motion on (no animation)
    ============================================================= */
 
-/* Portrait: always-on perspective + a fixed 3D angle so it reads as
-   dimensional even when motion is off (sway/hover override when allowed). */
-.hero__portrait { perspective: 680px; }
-.portrait-frame { transform-style: preserve-3d; transform: rotateY(-15deg) rotateX(7deg); }
+/* One light source: top-left, slightly in front. Every tilted object gets a
+   cast shadow on its own (un-rotated) plane so it reads as a solid object. */
 
-/* Featured screenshots sit at a fixed 3D angle; straighten toward you on hover. */
-.projects__list .project__media { perspective: 1100px; }
+/* Portrait: fixed 3D angle, warm directional cast, grounded shadow */
+.hero__portrait { perspective: 760px; }
+.portrait-frame {
+  transform-style: preserve-3d;
+  transform: rotateY(-15deg) rotateX(7deg);
+  backface-visibility: hidden;
+  box-shadow: var(--shadow-lg), 26px 32px 56px -30px var(--glow);
+}
+.hero__portrait::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 14%; right: -2%;
+  bottom: -4%;
+  height: 22%;
+  border-radius: 50%;
+  background: radial-gradient(60% 100% at 50% 0%, rgba(0, 0, 0, 0.34), transparent 72%);
+  filter: blur(15px);
+  transform: rotateX(62deg) translateZ(-30px);
+  pointer-events: none;
+}
+:root[data-theme="light"] .hero__portrait::after {
+  background: radial-gradient(60% 100% at 50% 0%, rgba(60, 45, 20, 0.2), transparent 72%);
+}
+/* badges ride forward on their own Z-plane */
+.portrait-badge--tl { transform: translateZ(70px); }
+.portrait-badge--br { transform: translateZ(46px); }
+
+/* Featured screenshots: grounded, lit product shots (static) */
+.projects__list .project__media { perspective: 1400px; }
 .projects__list .project__media--mockup img,
 .projects__list .project__media--shot img {
-  transform: rotateY(-16deg) rotateX(4deg) scale(0.96);
+  transform: rotateY(-15deg) rotateX(3deg) scale(0.9);
+  transform-origin: 85% 50%;               /* hinge on the far edge — no near-edge slide */
+  backface-visibility: hidden;
   transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.22)) drop-shadow(24px 28px 34px rgba(40, 30, 15, 0.3));
+}
+:root:not([data-theme="light"]) .projects__list .project__media--mockup img,
+:root:not([data-theme="light"]) .projects__list .project__media--shot img {
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5)) drop-shadow(24px 28px 42px rgba(0, 0, 0, 0.6));
 }
 .projects__list .project--reverse .project__media--mockup img,
 .projects__list .project--reverse .project__media--shot img {
-  transform: rotateY(16deg) rotateX(4deg) scale(0.96);
+  transform: rotateY(15deg) rotateX(3deg) scale(0.9);
+  transform-origin: 15% 50%;
 }
+/* the tinted panel becomes a soft recess the shot lifts out of */
+.projects__list .project__media--mockup,
+.projects__list .project__media--shot {
+  box-shadow: inset 0 2px 12px -6px rgba(0, 0, 0, 0.3);
+}
+:root[data-theme="light"] .projects__list .project__media--mockup,
+:root[data-theme="light"] .projects__list .project__media--shot {
+  box-shadow: inset 0 2px 12px -8px rgba(60, 45, 20, 0.14);
+}
+/* straighten toward the viewer on hover */
 .projects__list .project:hover .project__media--mockup img,
 .projects__list .project:hover .project__media--shot img {
-  transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+  transform: rotateY(0deg) rotateX(0deg) scale(1);
 }
+
+/* Cohesive static elevation + lit top edge on the rest of the cards */
+.projects__more .pcard {
+  box-shadow: var(--shadow-sm), 0 18px 34px -22px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+:root[data-theme="light"] .projects__more .pcard {
+  box-shadow: var(--shadow-sm), 0 18px 34px -24px rgba(60, 45, 20, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.skill-card, .service, .stat, .projects__list .project { box-shadow: var(--shadow-md), var(--edge-hi); }
 
 /* Interactive tilt on more card types (fine pointer + motion-OK) */
 @media (hover: hover) and (pointer: fine) {
