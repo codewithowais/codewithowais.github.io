@@ -478,6 +478,10 @@
 
     // Featured case-study cards
     Array.prototype.slice.call(document.querySelectorAll(".projects__list .project"))
+      .forEach(function (el) { initTilt(el, 6); });
+
+    // Secondary project grid cards
+    Array.prototype.slice.call(document.querySelectorAll(".projects__more .pcard"))
       .forEach(function (el) { initTilt(el, 5); });
 
     // Hero portrait: tilt the frame, counter-parallax the floating badges

@@ -1589,16 +1589,18 @@ h1, h2, h3, h4 {
 .hero::before {
   content: "";
   position: absolute;
-  inset: -12% -10% 20%;
+  inset: -18% -12% 8%;
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(38% 48% at 18% 32%, var(--accent-soft), transparent 62%),
-    radial-gradient(32% 42% at 82% 22%, var(--glow), transparent 60%),
-    radial-gradient(44% 52% at 62% 74%, var(--accent-soft), transparent 66%);
-  filter: blur(46px);
-  opacity: 0.75;
+    radial-gradient(46% 56% at 16% 30%, var(--accent-soft), transparent 60%),
+    radial-gradient(40% 50% at 84% 20%, var(--glow), transparent 58%),
+    radial-gradient(52% 60% at 60% 78%, var(--accent-soft), transparent 64%),
+    radial-gradient(34% 40% at 40% 8%, var(--glow), transparent 60%);
+  filter: blur(52px);
+  opacity: 1;
 }
+:root:not([data-theme="light"]) .hero::before { opacity: 0.9; }
 @media (prefers-reduced-motion: no-preference) {
   .hero::before { animation: heroAurora 22s ease-in-out infinite alternate; }
   @keyframes heroAurora {
@@ -1657,4 +1659,22 @@ h1, h2, h3, h4 {
   .btn--primary { box-shadow: 0 8px 24px -10px var(--glow), 0 3px 0 -1px var(--accent-deep); }
   .btn--primary:hover { box-shadow: 0 14px 34px -12px var(--glow), 0 4px 0 -1px var(--accent-deep); }
   .btn--primary:active { transform: translateY(2px) scale(0.99); box-shadow: 0 6px 16px -10px var(--glow), 0 1px 0 -1px var(--accent-deep); }
+}
+
+/* Resting elevation so cards read as dimensional even without hover (all devices) */
+.projects__list .project { box-shadow: var(--shadow-md); }
+.projects__more .pcard { box-shadow: var(--shadow-sm); }
+
+/* Secondary project grid: extend the 3D tilt */
+@media (hover: hover) and (pointer: fine) {
+  @media (prefers-reduced-motion: no-preference) {
+    .projects__more { perspective: 1400px; }
+    .projects__more .pcard {
+      transform-style: preserve-3d;
+      transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+      transition: transform 0.5s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+      will-change: transform;
+    }
+    .projects__more .pcard:hover { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
+  }
 }
