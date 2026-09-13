@@ -1383,3 +1383,89 @@ h1, h2, h3, h4 {
   a { color: #111 !important; }
 }
 
+
+/* =============================================================
+   EDITORIAL KINETIC HERO (Behance-inspired, warm terracotta)
+   ============================================================= */
+.hero__inner { position: relative; z-index: 1; }
+.hero__topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap; margin-bottom: clamp(1.4rem, 3.2vw, 2.6rem);
+}
+.hero__status { margin-bottom: 0; }
+.hero__stamp {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--text-faint);
+}
+
+.hero__title {
+  font-size: clamp(2.6rem, 10vw, 7rem);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0 0 clamp(1.6rem, 4vw, 2.8rem);
+}
+.hero__title .line { display: block; overflow: visible; }
+.hero__title .line:last-child { margin-left: clamp(0.4rem, 5vw, 4rem); }
+.hero__title .accent {
+  color: var(--accent-ink);
+  background: var(--accent);
+  padding: 0 0.1em 0.04em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.hero__belt {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.hero__belt-main { max-width: 58ch; }
+
+/* portrait as an angled photo card (static, editorial) */
+.hero__portrait { justify-self: end; max-width: 300px; width: 100%; }
+.portrait-frame {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r-md);
+  padding: 0;
+  background: none;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-lg);
+  transform: rotate(-4deg);
+  transition: transform 0.5s var(--ease);
+}
+.hero__portrait:hover .portrait-frame { transform: rotate(0deg); }
+.portrait-frame::before { display: none; }
+.portrait-frame img {
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.portrait-badge--tl { top: -5%; left: -16%; }
+.portrait-badge--br { bottom: 8%; right: -14%; }
+
+/* plus-sign grid markers */
+.hero__marks { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero__marks .mark {
+  position: absolute; font-family: var(--font-mono); font-weight: 400;
+  color: var(--accent-line); font-size: 1.5rem; line-height: 1;
+}
+.mark--1 { top: 32%; left: 3%; }
+.mark--2 { top: 20%; right: 36%; }
+.mark--3 { bottom: 32%; left: 48%; }
+.mark--4 { top: 48%; right: 6%; }
+
+@media (max-width: 860px) {
+  .hero__belt { grid-template-columns: 1fr; }
+  .hero__portrait { order: -1; justify-self: start; max-width: 200px; margin-bottom: 0.5rem; }
+  .portrait-badge--tl { left: -6%; }
+  .portrait-badge--br { right: -6%; }
+  .hero__title .line:last-child { margin-left: 0; }
+  .hero__marks .mark { display: none; }
+}
+@media (max-width: 560px) { .hero__stamp { display: none; } }
