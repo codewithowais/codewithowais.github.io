@@ -1273,11 +1273,10 @@ h1, h2, h3, h4 {
    ============================================================= */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  transition: opacity 0.7s var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
 }
-[data-reveal].is-in { opacity: 1; transform: none; }
+[data-reveal].is-in { opacity: 1; }
 
 /* hero entrance (runs on load) */
 .hero [data-enter] {
@@ -1726,4 +1725,101 @@ h1, h2, h3, h4 {
   .project::after, .pcard::after { display: none; }
   .hero.intro-anim .hero__title .line__inner,
   .hero.intro-anim .hero__title .accent::after { transition-duration: 0.001s; }
+}
+
+/* =============================================================
+   PHASE 1.5 — MAX WOW: aurora, gradient name, marquee, 3D tilt,
+   cursor + scroll parallax, dramatic reveals.
+   Motion is gated so reduced-motion users get calm by default,
+   but the Replay control adds `.motion-on` to force the full show.
+   ============================================================= */
+
+/* ---- Living aurora background ---- */
+.hero__aurora {
+  position: absolute;
+  inset: -12%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  filter: blur(46px) saturate(128%);
+  transform: translate3d(calc(var(--par-x, 0) * 26px), calc(var(--par-y, 0) * 26px), 0);
+  transition: transform 0.4s var(--ease-out);
+}
+.hero__aurora .blob { position: absolute; border-radius: 50%; opacity: 0.55; }
+.blob--1 { width: 52vw; height: 52vw; max-width: 720px; max-height: 720px; top: -14%; right: -6%;
+  background: radial-gradient(circle at 30% 30%, var(--accent-bright), transparent 62%); animation: blob1 22s ease-in-out infinite alternate; }
+.blob--2 { width: 44vw; height: 44vw; max-width: 620px; max-height: 620px; top: 18%; left: -12%;
+  background: radial-gradient(circle at 60% 40%, #e9a24f, transparent 62%); animation: blob2 27s ease-in-out infinite alternate; }
+.blob--3 { width: 40vw; height: 40vw; max-width: 560px; max-height: 560px; bottom: -20%; left: 28%;
+  background: radial-gradient(circle at 50% 50%, var(--accent-deep), transparent 60%); animation: blob3 31s ease-in-out infinite alternate; }
+:root[data-theme="light"] .hero__aurora { opacity: 0.6; }
+:root[data-theme="light"] .hero__aurora .blob { opacity: 0.42; }
+@keyframes blob1 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(-8%,7%,0) scale(1.22); } }
+@keyframes blob2 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(11%,-7%,0) scale(1.16); } }
+@keyframes blob3 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(-7%,-11%,0) scale(1.26); } }
+
+/* Hero cursor parallax on portrait + marks (individual props to avoid clashing with the entrance animation) */
+.hero__portrait { translate: calc(var(--par-x, 0) * -20px) calc(var(--par-y, 0) * -15px); transition: translate 0.4s var(--ease-out); }
+.hero__marks { translate: calc(var(--par-x, 0) * 14px) calc(var(--par-y, 0) * 12px); transition: translate 0.4s var(--ease-out); }
+
+/* ---- Animated gradient name ---- */
+.hero__title .accent {
+  background: linear-gradient(100deg, var(--accent-deep), var(--accent-bright), var(--accent));
+  background-size: 220% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: accentShift 7s ease-in-out infinite;
+}
+@keyframes accentShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+/* ---- Giant name marquee band ---- */
+.namebelt { overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); padding: 0.5rem 0; }
+.namebelt__track { display: flex; width: max-content; animation: beltScroll 34s linear infinite; }
+.namebelt:hover .namebelt__track { animation-play-state: paused; }
+.namebelt__item {
+  font-family: var(--font-display, inherit);
+  font-weight: 800; text-transform: uppercase; white-space: nowrap;
+  font-size: clamp(1.7rem, 5.2vw, 3.4rem); letter-spacing: -0.02em; padding-right: 0.35em;
+  color: transparent; -webkit-text-stroke: 1px var(--text-faint);
+}
+.namebelt__item em { font-style: normal; -webkit-text-stroke: 0; color: var(--accent); padding: 0 0.15em; }
+@keyframes beltScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---- 3D tilt cards with glare ---- */
+.project, .pcard {
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
+  transform-style: preserve-3d;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+  will-change: transform;
+}
+.project:hover, .pcard:hover {
+  --lift: -8px;
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
+  box-shadow: var(--shadow-lg);
+}
+.project::before, .pcard::before {
+  content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.22), transparent 45%);
+  transition: opacity 0.3s var(--ease);
+}
+.project:hover::before, .pcard:hover::before { opacity: 1; }
+
+/* ---- Dramatic scroll reveals (translate/scale/filter = independent of tilt transform) ---- */
+[data-reveal] {
+  opacity: 0;
+  translate: 0 52px; scale: 0.98; filter: blur(5px);
+  transition: opacity 0.85s var(--ease-out), translate 0.95s var(--ease-out),
+    scale 0.95s var(--ease-out), filter 0.8s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal].is-in { opacity: 1; translate: 0 0; scale: 1; filter: none; }
+
+/* ---- Reduced motion: calm by default; `.motion-on` (via Replay) unlocks the full show ---- */
+@media (prefers-reduced-motion: reduce) {
+  :root:not(.motion-on) .hero__aurora .blob,
+  :root:not(.motion-on) .hero__glow,
+  :root:not(.motion-on) .namebelt__track,
+  :root:not(.motion-on) .hero__title .accent { animation: none; }
+  :root:not(.motion-on) [data-reveal] { transition: none; translate: 0 0; scale: 1; filter: none; opacity: 1; }
+  :root:not(.motion-on) .project, :root:not(.motion-on) .pcard { will-change: auto; }
 }

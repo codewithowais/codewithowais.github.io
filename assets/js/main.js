@@ -8,7 +8,22 @@
 
   var root = document.documentElement;
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia("(pointer: fine)").matches;
   var mobileMq = window.matchMedia("(max-width: 860px)");
+
+  /* Motion state. Calm by default under Reduce Motion; the Replay control
+     flips `forcedMotion` (persisted per session) so the owner/visitor can
+     opt into the full show. `.motion-on` on <html> unlocks CSS animations. */
+  var forcedMotion = false;
+  try { forcedMotion = sessionStorage.getItem("force-motion") === "1"; } catch (e) {}
+  var motionOn = !prefersReduced || forcedMotion;
+  if (motionOn) root.classList.add("motion-on");
+  function enableMotion() {
+    forcedMotion = true;
+    motionOn = true;
+    try { sessionStorage.setItem("force-motion", "1"); } catch (e) {}
+    root.classList.add("motion-on");
+  }
 
   /* ---------- Cinematic hero intro (title sequence) ----------
      Masked name reveal + self-drawing accent + typing stamp.
@@ -19,8 +34,29 @@
     if (!hero) return;
     var stamp = document.getElementById("heroStamp");
     var replayBtn = document.getElementById("replayIntro");
+    var accentEl = hero.querySelector(".hero__title .accent");
+    var accentText = accentEl ? accentEl.textContent : "";
     var stampText = stamp ? stamp.textContent : "";
     var stampTimer = null;
+    var scrambleTimer = null;
+
+    function scrambleAccent() {
+      if (!accentEl) return;
+      if (scrambleTimer) { clearInterval(scrambleTimer); }
+      var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@";
+      var frame = 0, total = 20;
+      scrambleTimer = setInterval(function () {
+        frame++;
+        var out = "";
+        for (var i = 0; i < accentText.length; i++) {
+          out += (frame / total > i / accentText.length)
+            ? accentText.charAt(i)
+            : chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        accentEl.textContent = out;
+        if (frame >= total) { clearInterval(scrambleTimer); accentEl.textContent = accentText; }
+      }, 45);
+    }
 
     function typeStamp() {
       if (!stamp) return;
@@ -34,9 +70,10 @@
     }
 
     function playIntro(force) {
-      if (prefersReduced && !force) {
+      if (!motionOn && !force) {
         hero.classList.remove("intro-armed", "intro-anim");
         if (stamp) stamp.textContent = stampText;
+        if (accentEl) accentEl.textContent = accentText;
         return;
       }
       // 1) Arm to the hidden start state with no transition.
@@ -52,15 +89,70 @@
         hero.classList.add("intro-anim");
         hero.classList.remove("intro-armed");
       }, 40);
-      // 3) Type the stamp once the name is on its way in.
+      // 3) Type the stamp + scramble the accent as the name rises in.
       if (stampTimer) clearTimeout(stampTimer);
       stampTimer = setTimeout(typeStamp, 480);
+      setTimeout(scrambleAccent, 360);
     }
 
     if (replayBtn) {
-      replayBtn.addEventListener("click", function () { playIntro(true); });
+      // Replay = "show me everything": unlock full motion, then play.
+      replayBtn.addEventListener("click", function () { enableMotion(); playIntro(true); });
     }
     playIntro(false); // auto-play only when motion is welcome
+  })();
+
+  /* ---------- Hero cursor parallax (aurora / portrait / marks) ---------- */
+  (function heroParallax() {
+    var hero = document.querySelector(".hero");
+    if (!hero || !finePointer) return;
+    var raf = null, tx = 0, ty = 0;
+    function apply() {
+      raf = null;
+      hero.style.setProperty("--par-x", tx.toFixed(3));
+      hero.style.setProperty("--par-y", ty.toFixed(3));
+    }
+    hero.addEventListener("mousemove", function (e) {
+      if (!motionOn) return;
+      var r = hero.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      if (!raf) raf = requestAnimationFrame(apply);
+    });
+    hero.addEventListener("mouseleave", function () {
+      tx = 0; ty = 0;
+      if (!raf) raf = requestAnimationFrame(apply);
+    });
+  })();
+
+  /* ---------- 3D tilt + glare on project cards ---------- */
+  (function cardTilt() {
+    if (!finePointer) return;
+    var cards = document.querySelectorAll(".project, .pcard");
+    Array.prototype.forEach.call(cards, function (card) {
+      var raf = null, rx = 0, ry = 0, mx = 50, my = 50;
+      function apply() {
+        raf = null;
+        card.style.setProperty("--rx", rx.toFixed(2) + "deg");
+        card.style.setProperty("--ry", ry.toFixed(2) + "deg");
+        card.style.setProperty("--mx", mx.toFixed(1) + "%");
+        card.style.setProperty("--my", my.toFixed(1) + "%");
+      }
+      card.addEventListener("mousemove", function (e) {
+        if (!motionOn) return;
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width;
+        var py = (e.clientY - r.top) / r.height;
+        ry = (px - 0.5) * 14;
+        rx = -(py - 0.5) * 10;
+        mx = px * 100; my = py * 100;
+        if (!raf) raf = requestAnimationFrame(apply);
+      });
+      card.addEventListener("mouseleave", function () {
+        rx = 0; ry = 0;
+        if (!raf) raf = requestAnimationFrame(apply);
+      });
+    });
   })();
 
   /* ---------- Theme toggle (persist + system preference) ----------
