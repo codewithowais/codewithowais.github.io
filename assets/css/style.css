@@ -1409,12 +1409,19 @@ h1, h2, h3, h4 {
 .hero__title .line { display: block; overflow: visible; }
 .hero__title .line:last-child { margin-left: clamp(0.3rem, 2.4vw, 1.6rem); }
 .hero__title .accent {
-  color: var(--accent-ink);
+  color: var(--accent);
+  position: relative;
+}
+/* a thin terracotta rule under the accent word — editorial, not a heavy block */
+.hero__title .accent::after {
+  content: "";
+  position: absolute;
+  left: 0.02em;
+  right: 0.02em;
+  bottom: 0.02em;
+  height: 0.07em;
   background: var(--accent);
-  padding: 0.04em 0.16em 0.1em;
-  border-radius: 3px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  border-radius: 2px;
 }
 
 .hero__belt {
