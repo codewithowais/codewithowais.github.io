@@ -65,7 +65,7 @@
   /* Radii */
   --r-sm: 8px;
   --r-md: 14px;
-  --r-lg: 22px;
+  --r-lg: 16px;
   --r-pill: 999px;
 
   /* Motion */
@@ -1491,4 +1491,104 @@ h1, h2, h3, h4 {
   letter-spacing: -0.025em;
   line-height: 1.06;
   font-size: clamp(1.9rem, 1.1rem + 2.8vw, 3.3rem);
+}
+
+/* =============================================================
+   EDITORIAL COHESION — carry the hero's voice into every section
+   (refinement only: geometry, structure, consistency — no effects)
+   ============================================================= */
+
+/* H2 — per-section chapter divider: hairline + terracotta "+" register mark */
+.section > .container {
+  position: relative;
+  border-top: 1px solid var(--border);
+  padding-top: clamp(2.4rem, 4vw, 3.4rem);
+}
+.section > .container::before {
+  content: "+";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--accent);
+  background: var(--bg);
+  padding-right: 0.5rem;
+}
+.section { padding-block: clamp(3rem, 7vw, 6rem); }
+
+/* H3 — one restrained hover recipe across cards */
+.stat:hover,
+.skill-card:hover,
+.pcard:hover,
+.service:hover,
+.exp:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.pcard:hover .pcard__media img,
+.project:hover .project__media img { transform: scale(1.03); }
+.project:hover .project__media--mockup img,
+.project:hover .project__media--shot img { transform: scale(1.015); }
+
+/* M1 — one bullet language (decorative lists match the experience diamond) */
+.project__col li { padding-left: 1.35rem; }
+.project__col li::before {
+  content: "";
+  top: 0.55em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  font-size: 0;
+}
+.tech-marquee__item::after { content: "+"; font-size: 0.85rem; }
+
+/* M2 — experience reads as a real timeline (restrained spine) */
+@media (min-width: 861px) {
+  .exp { position: relative; }
+  .exp__meta { position: relative; padding-left: 1.4rem; }
+  .exp__meta::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.35rem;
+    bottom: -1.4rem;
+    width: 1px;
+    background: var(--border);
+  }
+  .timeline > .exp:last-child .exp__meta::before { bottom: 0; }
+  .exp__meta::after {
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: 0.3rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+}
+
+/* M3 — section-head rhythm + intro measure */
+.section-head { margin-bottom: clamp(2rem, 3.5vw, 3rem); }
+.section-title { margin-top: var(--space-3); }
+.section-intro { max-width: 58ch; margin-top: var(--space-3); }
+
+/* N1 — the one motion touch: eyebrow marker draws in on reveal */
+@media (prefers-reduced-motion: no-preference) {
+  .section-head[data-reveal] .eyebrow::before {
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 0.45s var(--ease-out) 0.15s;
+  }
+  .section-head[data-reveal].is-in .eyebrow::before { transform: scaleX(1); }
 }
