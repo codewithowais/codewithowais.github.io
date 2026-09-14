@@ -1,26 +1,124 @@
 @import "tailwindcss";
 
+/* =============================================================
+   DESIGN TOKENS — warm editorial (cream + terracotta)
+   Light (cream) is the default; dark via [data-theme="dark"].
+   ============================================================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f4f1ea;
+  --bg-2: #efe9dd;
+  --surface: #fbf9f4;
+  --surface-2: #f3eee4;
+  --border: rgba(26, 22, 15, 0.12);
+  --border-strong: rgba(26, 22, 15, 0.22);
+  --text: #1a160f;
+  --muted: #5b554b;
+  --faint: #8a8377;
+  --accent: #c14e34;
+  --accent-text: #a83f28;
+  --accent-bright: #d2693f;
+  --accent-deep: #9a3820;
+  --accent-soft: rgba(193, 78, 52, 0.1);
+  --accent-line: rgba(193, 78, 52, 0.32);
+  --glow: rgba(226, 140, 90, 0.5);
+  --shadow-md: 0 12px 30px -12px rgba(26, 22, 15, 0.22);
+  --shadow-lg: 0 30px 60px -20px rgba(26, 22, 15, 0.3);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-h: 72px;
+  color-scheme: light;
 }
 
+:root[data-theme="dark"] {
+  --bg: #0b0b0d;
+  --bg-2: #101014;
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #f2efe9;
+  --muted: #a8a39a;
+  --faint: #6f6a62;
+  --accent: #e2674a;
+  --accent-text: #f0896b;
+  --accent-bright: #ef8266;
+  --accent-deep: #c14e34;
+  --accent-soft: rgba(226, 103, 74, 0.14);
+  --accent-line: rgba(226, 103, 74, 0.32);
+  --glow: rgba(226, 103, 74, 0.42);
+  --shadow-md: 0 12px 30px -12px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 30px 70px -20px rgba(0, 0, 0, 0.75);
+  color-scheme: dark;
+}
+
+/* Map tokens into Tailwind v4 so `bg-canvas`, `text-ink`, `text-accent`, etc. work */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-canvas: var(--bg);
+  --color-canvas-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-deep: var(--accent-deep);
+
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-hanken);
+  --font-mono: var(--font-jetbrains);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* { border-color: var(--border); }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-hanken), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--accent); color: #fff; }
+
+/* Focus */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+/* Utility layer helpers */
+@layer utilities {
+  .font-display { font-family: var(--font-bricolage), system-ui, sans-serif; }
+  .font-mono { font-family: var(--font-jetbrains), ui-monospace, monospace; }
+  .text-gradient {
+    background: linear-gradient(100deg, var(--accent-deep), var(--accent-bright), var(--accent));
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: accentShift 7s ease-in-out infinite;
+  }
+  .grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 140px 140px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =============================================================
+   KEYFRAMES
+   ============================================================= */
+@keyframes accentShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes beltScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes blob1 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(-8%,7%,0) scale(1.22); } }
+@keyframes blob2 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(11%,-7%,0) scale(1.16); } }
+@keyframes blob3 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(-7%,-11%,0) scale(1.26); } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(70,209,127,0.6); } 70% { box-shadow: 0 0 0 8px rgba(70,209,127,0); } 100% { box-shadow: 0 0 0 0 rgba(70,209,127,0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
