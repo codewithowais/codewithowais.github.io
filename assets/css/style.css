@@ -586,6 +586,32 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 .hero__lead strong { color: var(--text); font-weight: 600; }
+
+/* Availability / relocation — a scannable signal for recruiters (esp. Gulf/KSA/UAE) */
+.hero__avail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.7rem;
+  margin: calc(var(--space-6) * -0.5) 0 var(--space-6);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+.hero__avail-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  color: var(--accent-text);
+  border: 1px solid var(--accent-line);
+  background: var(--accent-soft);
+  padding: 0.32em 0.7em;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+}
+.hero__avail-text strong { color: var(--text); font-weight: 600; }
+
 .hero__cta { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
 .hero__socials { display: flex; gap: 0.5rem; margin-left: 0.3rem; }
 
@@ -1591,4 +1617,113 @@ h1, h2, h3, h4 {
     transition: transform 0.45s var(--ease-out) 0.15s;
   }
   .section-head[data-reveal].is-in .eyebrow::before { transform: scaleX(1); }
+}
+
+/* =============================================================
+   PHASE 1 — "WOW": cinematic hero title sequence, depth, motion
+   Everything degrades to a rich static state; motion is enhancement.
+   ============================================================= */
+
+/* --- Ambient grain over the hero (static, subtle depth) --- */
+.hero__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+:root[data-theme="light"] .hero__grain { opacity: 0.22; }
+
+/* --- Masked hero name reveal --- */
+.hero__title .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.hero__title .line__inner { display: block; }
+.hero__title .accent::after { transform-origin: left center; }
+
+/* Armed = pushed below the mask (set with no transition, then released) */
+.hero.intro-armed .hero__title .line__inner { transform: translateY(115%); }
+.hero.intro-armed .hero__title .accent::after { transform: scaleX(0); }
+
+/* Anim = enable the transitions so the release animates */
+.hero.intro-anim .hero__title .line__inner {
+  transition: transform 0.95s var(--ease-out);
+  transition-delay: var(--line-delay, 0ms);
+}
+.hero.intro-anim .hero__title .accent::after {
+  transition: transform 0.7s var(--ease-out) 0.55s;
+}
+
+/* --- Replay control --- */
+.hero__topbar-right { display: inline-flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; justify-content: flex-end; }
+.hero__replay {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.4em 0.75em;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease),
+    background-color 0.3s var(--ease), transform 0.18s var(--ease);
+}
+.hero__replay svg { width: 11px; height: 11px; }
+.hero__replay:hover { color: var(--accent-text); border-color: var(--accent-line); background: var(--accent-soft); }
+.hero__replay:active { transform: scale(0.95); }
+.hero__replay:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* --- Depth & tactile micro-interactions --- */
+.project { overflow: hidden; }
+.project:hover { transform: translateY(-4px); }
+
+/* Diagonal light-sweep across cards on hover */
+.project::after,
+.pcard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(115deg, transparent 34%, rgba(255, 255, 255, 0.14) 50%, transparent 64%);
+  transform: translateX(-32%);
+  transition: opacity 0.5s var(--ease), transform 1s var(--ease-out);
+}
+:root[data-theme="light"] .project::after,
+:root[data-theme="light"] .pcard::after {
+  background: linear-gradient(115deg, transparent 34%, rgba(255, 255, 255, 0.5) 50%, transparent 64%);
+}
+.project:hover::after,
+.pcard:hover::after { opacity: 1; transform: translateX(32%); }
+
+/* Button press feedback */
+.btn:active { transform: translateY(1px) scale(0.99); }
+
+/* Breathing ambient glow — only when motion is welcome */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__glow { animation: heroBreathe 9s ease-in-out infinite alternate; will-change: transform, opacity; }
+}
+@keyframes heroBreathe {
+  from { transform: translate3d(0, 0, 0) scale(1); opacity: 0.82; }
+  to   { transform: translate3d(-3%, 2%, 0) scale(1.14); opacity: 1; }
+}
+
+/* Reduced motion: no card sweep/lift transforms, no breathing (already gated) */
+@media (prefers-reduced-motion: reduce) {
+  .project:hover { transform: none; }
+  .project::after, .pcard::after { display: none; }
+  .hero.intro-anim .hero__title .line__inner,
+  .hero.intro-anim .hero__title .accent::after { transition-duration: 0.001s; }
 }

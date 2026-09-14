@@ -10,6 +10,59 @@
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var mobileMq = window.matchMedia("(max-width: 860px)");
 
+  /* ---------- Cinematic hero intro (title sequence) ----------
+     Masked name reveal + self-drawing accent + typing stamp.
+     Degrades to a fully-revealed static hero; the Replay control
+     force-plays even when Reduce Motion is on (user opted in). */
+  (function heroIntro() {
+    var hero = document.querySelector(".hero");
+    if (!hero) return;
+    var stamp = document.getElementById("heroStamp");
+    var replayBtn = document.getElementById("replayIntro");
+    var stampText = stamp ? stamp.textContent : "";
+    var stampTimer = null;
+
+    function typeStamp() {
+      if (!stamp) return;
+      if (stampTimer) { clearTimeout(stampTimer); stampTimer = null; }
+      var i = 0;
+      stamp.textContent = "";
+      (function step() {
+        stamp.textContent = stampText.slice(0, i);
+        if (i < stampText.length) { i++; stampTimer = setTimeout(step, 26); }
+      })();
+    }
+
+    function playIntro(force) {
+      if (prefersReduced && !force) {
+        hero.classList.remove("intro-armed", "intro-anim");
+        if (stamp) stamp.textContent = stampText;
+        return;
+      }
+      // 1) Arm to the hidden start state with no transition.
+      hero.classList.remove("intro-anim");
+      hero.classList.add("intro-armed");
+      if (stamp) stamp.textContent = "";
+      // 2) Commit the armed state, then release with transitions on.
+      //    setTimeout (not rAF) so the release still fires if the page
+      //    loads while hidden — rAF is paused for non-rendered pages,
+      //    which would otherwise leave the title stuck hidden.
+      void hero.offsetWidth;
+      setTimeout(function () {
+        hero.classList.add("intro-anim");
+        hero.classList.remove("intro-armed");
+      }, 40);
+      // 3) Type the stamp once the name is on its way in.
+      if (stampTimer) clearTimeout(stampTimer);
+      stampTimer = setTimeout(typeStamp, 480);
+    }
+
+    if (replayBtn) {
+      replayBtn.addEventListener("click", function () { playIntro(true); });
+    }
+    playIntro(false); // auto-play only when motion is welcome
+  })();
+
   /* ---------- Theme toggle (persist + system preference) ----------
      The initial theme is set by a blocking script in <head> to avoid FOUC.
      Here we only sync the toggle's state and handle clicks. */
@@ -260,11 +313,14 @@
     roleEl.style.borderRight = "none";
   }
 
-  /* ---------- Contact form (mailto compose + optional Formspree) ---------- */
+  /* ---------- Contact form (Web3Forms with mailto fallback) ---------- */
   var form = document.getElementById("contactForm");
   var status = document.getElementById("formStatus");
-  // To use Formspree instead of the mailto fallback, set the endpoint below:
-  var FORMSPREE_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxx"
+
+  // Paste your free Web3Forms access key here to send messages straight to your inbox.
+  // Get one in 30s at https://web3forms.com (enter your email → key is emailed to you).
+  // While this is empty, the form gracefully falls back to opening the visitor's email app.
+  var WEB3FORMS_ACCESS_KEY = "";
 
   function setStatus(msg, ok) {
     if (!status) return;
@@ -279,6 +335,8 @@
   }
 
   if (form) {
+    var submitBtn = form.querySelector('button[type="submit"]');
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.checkValidity()) {
@@ -286,6 +344,9 @@
         form.reportValidity();
         return;
       }
+      // Honeypot: real users never tick this hidden box.
+      if (form.elements["botcheck"] && form.elements["botcheck"].checked) return;
+
       var data = {
         name: fieldVal("name"),
         email: fieldVal("email"),
@@ -293,21 +354,37 @@
         message: fieldVal("message")
       };
 
-      if (FORMSPREE_ENDPOINT) {
+      if (WEB3FORMS_ACCESS_KEY) {
+        var btnLabel = submitBtn ? submitBtn.innerHTML : "";
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
         setStatus("Sending…");
-        fetch(FORMSPREE_ENDPOINT, {
+        fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: { "Accept": "application/json", "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        }).then(function (r) {
-          if (r.ok) { form.reset(); setStatus("Thanks! Your message is on its way. ✦", true); }
-          else { throw new Error("bad response"); }
-        }).catch(function () {
-          setStatus("Couldn't send — email me directly at codewithowais@gmail.com", false);
-        });
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            name: data.name,
+            email: data.email,
+            subject: data.subject,
+            message: data.message,
+            from_name: data.name + " (portfolio)",
+            replyto: data.email
+          })
+        }).then(function (r) { return r.json(); })
+          .then(function (res) {
+            if (res && res.success) {
+              form.reset();
+              setStatus("Thanks, " + data.name.split(" ")[0] + " — your message is on its way. I'll reply within a day or two. ✦", true);
+            } else { throw new Error("bad response"); }
+          }).catch(function () {
+            setStatus("Couldn't send just now — please email me directly at codewithowais@gmail.com", false);
+          }).then(function () {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = btnLabel; }
+          });
         return;
       }
 
+      // Fallback: compose in the visitor's email app.
       var body = "Name: " + data.name + "\n" + "Email: " + data.email + "\n\n" + data.message;
       var href = "mailto:codewithowais@gmail.com" +
         "?subject=" + encodeURIComponent(data.subject) +

@@ -72,7 +72,7 @@
   <meta name="twitter:image" content="https://codewithowais.github.io/assets/img/og-image.png" />
   <meta name="twitter:image:alt" content="Muhammad Owais Ahmed — Senior Software Engineer, Full-Stack & Flutter" />
 
-  <link rel="stylesheet" href="/assets/css/style.css?v=24" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=26" />
 
   <!-- Structured data (Person + WebSite + ProfilePage + FAQPage) -->
   <script type="application/ld+json">
@@ -244,6 +244,7 @@
     <!-- ===================== HERO ===================== -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
       <div class="hero__marks" aria-hidden="true">
         <span class="mark mark--1">+</span>
         <span class="mark mark--2">+</span>
@@ -256,12 +257,18 @@
             <span class="status-dot" aria-hidden="true"></span>
             Open to freelance &amp; full-time work
           </span>
-          <span class="hero__stamp" aria-hidden="true">Full-Stack · Flutter · AI &nbsp;—&nbsp; Karachi, PK</span>
+          <span class="hero__topbar-right">
+            <span class="hero__stamp" id="heroStamp" aria-hidden="true">Full-Stack · Flutter · AI &nbsp;—&nbsp; Karachi, PK</span>
+            <button class="hero__replay" id="replayIntro" type="button" aria-label="Replay intro animation" title="Replay intro">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>
+              <span>Replay</span>
+            </button>
+          </span>
         </div>
 
         <h1 class="hero__title" id="hero-title">
-          <span class="line" data-enter style="--enter-delay:100ms">Muhammad</span>
-          <span class="line" data-enter style="--enter-delay:180ms">Owais <span class="accent">Ahmed</span></span>
+          <span class="line"><span class="line__inner" style="--line-delay:60ms">Muhammad</span></span>
+          <span class="line"><span class="line__inner" style="--line-delay:190ms">Owais <span class="accent">Ahmed</span></span></span>
         </h1>
 
         <div class="hero__belt">
@@ -279,7 +286,12 @@
               <strong>SimpliEd</strong>, used by more than 25,000 people.
             </p>
 
-            <div class="hero__cta" data-enter style="--enter-delay:400ms">
+            <p class="hero__avail" data-enter style="--enter-delay:360ms">
+              <span class="hero__avail-tag">Open to relocation</span>
+              <span class="hero__avail-text">Gulf — <strong>UAE / KSA</strong> · visa sponsorship · <strong>~30&nbsp;days notice</strong> · remote worldwide</span>
+            </p>
+
+            <div class="hero__cta" data-enter style="--enter-delay:440ms">
               <a class="btn btn--primary" href="#projects">
                 View my work
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -422,8 +434,8 @@
               <ul class="exp__points">
                 <li>Grew SimpliEd from zero to <strong>25,000+ users across 10 institutions</strong> as founding engineer, building the platform end to end on Angular, Node.js and Flutter.</li>
                 <li>Retired manual roll-call for thousands of parents and teachers by shipping the Flutter <strong>QR attendance</strong> and <strong>parent–student</strong> apps, now the daily touchpoint of the product.</li>
-                <li>Cut load times across the app's main flows through code splitting, lazy loading and bundle-size reduction in the Angular web app.</li>
-                <li>Held API response times steady under real production load by architecting the Node.js + MongoDB backend and its REST APIs.</li>
+                <li>Made the Angular web app noticeably faster to open by introducing route-level code splitting, lazy loading and bundle-size trimming — so data-heavy dashboards load quickly even on slow school networks.</li>
+                <li>Kept the platform responsive at peak by architecting the Node.js + MongoDB backend and its REST APIs, with the indexing and query tuning that hold up during attendance and fee-collection rushes.</li>
                 <li>Replaced manual deploys with automated <strong>CI/CD</strong> (GitHub Actions + Docker) on AWS (EC2, RDS, S3), so releases ship reliably and on demand.</li>
                 <li>Set the technical direction for a team of <strong>5–6 engineers</strong>, owning architecture decisions and code reviews.</li>
               </ul>
@@ -1019,12 +1031,13 @@
               <label for="cf-message">Message <span class="req" aria-hidden="true">*</span></label>
               <textarea id="cf-message" name="message" placeholder="Tell me a bit about what you're building…" required></textarea>
             </div>
+            <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <button class="btn btn--primary btn--block" type="submit">
               Send message
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
             </button>
             <p class="form__status" id="formStatus" role="status"></p>
-            <p class="form__note">This opens your email app pre-filled. Prefer direct? <a class="accent" href="mailto:codewithowais@gmail.com">codewithowais@gmail.com</a></p>
+            <p class="form__note">I read every message and reply within a day or two. Prefer direct? <a class="accent" href="mailto:codewithowais@gmail.com">codewithowais@gmail.com</a></p>
           </form>
         </div>
       </div>
@@ -1077,6 +1090,6 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
   </a>
 
-  <script src="/assets/js/main.js?v=12" defer></script>
+  <script src="/assets/js/main.js?v=14" defer></script>
 </body>
 </html>
