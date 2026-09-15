@@ -1,12 +1,12 @@
 # Muhammad Owais Ahmed
 
-> Muhammad Owais Ahmed (handle: codewithowais) is a Senior Software Engineer based in Karachi, Pakistan, with 6 years of experience building production web and mobile applications across Angular, React, Node.js, .NET and Flutter. He is a founding engineer at the EdTech platform SimpliEd (25,000+ users across 10 institutions), a Flutter instructor who has trained 1,200+ students at Jawan Pakistan, and a freelance developer available for hire (remote worldwide, on-site in Karachi / Pakistan, and open to relocation for roles in the Gulf — Saudi Arabia (KSA) and the UAE).
+> Muhammad Owais Ahmed (handle: codewithowais) is a Staff Software Engineer based in Karachi, Pakistan, with 6 years of experience building production web and mobile applications across Angular, React, Node.js, .NET and Flutter. He is a founding engineer at the EdTech platform SimpliEd (25,000+ users across 10 institutions), a Flutter instructor who has trained 1,200+ students at Jawan Pakistan, and a freelance developer available for hire (remote worldwide, on-site in Karachi / Pakistan, and open to relocation for roles in the Gulf — Saudi Arabia (KSA) and the UAE).
 
 ## Profile
 - Name: Muhammad Owais Ahmed
 - Also known as: codewithowais, Owais Ahmed
-- Title: Senior Software Engineer — Full-Stack (Web) & Flutter (Mobile)
-- Searchable as: Senior Software Engineer, Software Engineer, Full-Stack Developer, Flutter Developer, Angular Developer, React Developer, Node.js Developer, .NET Developer, Software Instructor, Mentor
+- Title: Staff Software Engineer — Full-Stack (Web) & Flutter (Mobile)
+- Searchable as: Staff Software Engineer, Senior Software Engineer, Software Engineer, Full-Stack Developer, Flutter Developer, Angular Developer, React Developer, Node.js Developer, .NET Developer, Software Instructor, Mentor
 - Location: Karachi, Pakistan — available on-site in Karachi and across Pakistan, remote worldwide, and open to relocation for the Gulf (Saudi Arabia / KSA, UAE)
 - Availability: Open to freelance/contract and full-time roles (remote, hybrid, or on-site), including relocation to the Gulf / KSA / UAE
 - Email: codewithowais@gmail.com
@@ -14,7 +14,7 @@
 - Website: https://codewithowais.github.io/
 - GitHub: https://github.com/codewithowais
 - LinkedIn: https://www.linkedin.com/in/codewithowais/
-- Résumé (PDF): https://codewithowais.github.io/assets/muhammad-owais-ahmed-resume.pdf
+- Résumé (PDF): https://codewithowais.github.io/muhammad-owais-ahmed-resume.pdf
 
 ## Specializations
 - Full-stack web development (Angular, React, Node.js, .NET Core, Django)
@@ -31,7 +31,7 @@
 - Cloud & DevOps: AWS (EC2, S3, RDS, Lambda), Docker, GitHub Actions, Linux
 
 ## Experience
-- Senior Software Engineer / Founding Engineer — SimpliEd (Jun 2022 – Present, Karachi, on-site): grew an EdTech platform from zero to 25,000+ users across 10 institutions; architected the Node.js + MongoDB backend, built the Angular web app and Flutter QR-attendance and parent–student apps, ran AWS (EC2/RDS/S3) infrastructure and GitHub Actions + Docker CI/CD, and led architecture and code review for a team of 5–6 engineers. https://simpliedtech.com
+- Staff Software Engineer / Founding Engineer — SimpliEd (Jun 2022 – Present, Karachi, on-site): grew an EdTech platform from zero to 25,000+ users across 10 institutions; architected the Node.js + MongoDB backend, built the Angular web app and Flutter QR-attendance and parent–student apps, ran AWS (EC2/RDS/S3) infrastructure and GitHub Actions + Docker CI/CD, and led architecture and code review for a team of 5–6 engineers. https://simpliedtech.com
 - Associate Software Engineer — Dawateislami-IT (Aug 2020 – May 2022, Karachi, on-site): migrated core services from .NET Framework to .NET Core; moved server-rendered Razor modules to an Angular SPA; built secure REST APIs with Entity Framework on MS SQL Server.
 - Flutter Development Instructor — Jawan Pakistan (Jan 2021 – Present, remote): designed the full Flutter curriculum and trained 1,200+ students across 11+ cohorts, from first widget to published App Store / Play Store apps.
 
@@ -53,7 +53,7 @@
 - Plus 60+ more repositories on GitHub: https://github.com/codewithowais
 
 ## Frequently asked
-- Who is he? A Senior Software Engineer in Karachi with 6 years of experience; founding engineer at SimpliEd and Flutter instructor at Jawan Pakistan.
+- Who is he? A Staff Software Engineer in Karachi with 6 years of experience; founding engineer at SimpliEd and Flutter instructor at Jawan Pakistan.
 - What does he specialize in? Shipping full products end to end — Angular/React + Node.js/.NET on the web, Flutter on mobile, API and cloud architecture on AWS, and AI integration.
 - Is he available? Yes — freelance/contract and full-time (remote, hybrid, or on-site), and open to relocation for roles in the Gulf, Saudi Arabia (KSA) and the UAE.
 - Where is he based? Karachi, Pakistan; works remotely worldwide.
@@ -62,4 +62,4 @@
 ## Contact
 To hire or collaborate, email codewithowais@gmail.com, message +92 316 9585886 on WhatsApp, or connect on LinkedIn: https://www.linkedin.com/in/codewithowais/
 
-_Last updated: 2026-09-14_
+_Last updated: 2026-09-15_
