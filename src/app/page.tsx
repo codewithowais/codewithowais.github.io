@@ -13,11 +13,11 @@ export default function Home() {
           <div className="eyebrow">Staff Software Engineer · Full-Stack + Flutter + AI · Karachi, PK</div>
           <h1>I build products people <span className="u">rely on every day.</span></h1>
           <p className="sub">
-            Founding engineer at SimpliEd, the EdTech platform I took from an empty repo to 25,000+
-            students, parents and teachers across 10 schools. I own its technical direction end to end
-            and lead a team of five. Six years building full products on Angular, React, Node.js, .NET
-            and Flutter, from the mobile apps to the AWS they run on. On weekends I&apos;ve trained over
-            1,200 developers across 11 cohorts.
+            I&apos;m the founding engineer at SimpliEd. I took it from an empty repo to an EdTech
+            platform that 25,000+ students, parents and teachers use across 10 schools. I run the tech
+            end to end and lead a team of five. For six years I&apos;ve built full products with Angular,
+            React, Node.js, .NET and Flutter: the web apps, the mobile apps, and the AWS they run on.
+            On weekends I teach, and I&apos;ve trained 1,200+ developers so far.
           </p>
           <div className="facts">
             <div className="fact"><div className="v">6+</div><div className="k">Years shipping</div></div>
@@ -35,8 +35,8 @@ export default function Home() {
           <div className="eyebrow">01 / About</div>
           <h2 className="big">Engineer on weekdays, teacher on weekends.</h2>
           <div className="prose">
-            <p>I&apos;m a staff software engineer in Karachi. For six years I&apos;ve owned the hard technical calls behind products people actually use: an EdTech platform serving 25,000 people, and the mobile apps that took daily paperwork off teachers&apos; and parents&apos; hands.</p>
-            <p>As founding engineer at <strong>SimpliEd</strong> I shaped the whole platform: the Angular/Node web app, the Flutter apps, and the AWS infrastructure and CI/CD behind them. I lead the engineering team and stay hands-on in the code every week. On weekends I teach Flutter to the next batch of developers, and I bring the same standards to a lesson that I bring to production code.</p>
+            <p>I&apos;m a staff software engineer in Karachi. For six years I&apos;ve made the hard technical calls behind products people actually use: an EdTech platform that serves 25,000 people, and the mobile apps that took daily paperwork off teachers and parents.</p>
+            <p>As the founding engineer at <strong>SimpliEd</strong>, I built the whole platform: the Angular and Node web app, the Flutter apps, and the AWS setup and CI/CD behind them. I lead the team and still write code every week. On weekends I teach Flutter to new developers, and I hold a lesson to the same standard as production code.</p>
           </div>
         </section>
 
@@ -53,7 +53,7 @@ export default function Home() {
               <span className="feat__flag">Flagship</span>
               <h3>SimpliEd — School Management Platform</h3>
               <div className="feat__metric">25,000+ daily users · 10 schools · built end to end</div>
-              <p>Attendance, fee invoicing, announcements and a full LMS across web and mobile. I built the first version alone and set its architecture, and now it runs the daily operations of 10 schools for 25,000+ students, parents and teachers.</p>
+              <p>Attendance, fee invoicing, announcements and a full LMS, across web and mobile. I built the first version alone and set the architecture. Today it runs daily operations for 10 schools and 25,000+ students, parents and teachers.</p>
               <div className="pcard__stack">
                 <span className="tag">Angular</span><span className="tag">Node.js</span><span className="tag">Flutter</span><span className="tag">MongoDB</span><span className="tag">AWS</span>
               </div>
@@ -63,9 +63,9 @@ export default function Home() {
           <details className="casestudy">
             <summary>The hard calls behind SimpliEd</summary>
             <ul>
-              <li><b>Node.js + MongoDB over a heavier stack:</b> one language across the API and tooling let a small team ship fast, and the document model absorbed how differently each school structures its data.</li>
+              <li><b>Node.js + MongoDB over a heavier stack:</b> one language across the API and tooling let a small team ship fast, and the flexible document model fit how differently each school structures its data.</li>
               <li><b>Flutter for one mobile codebase:</b> the attendance and parent apps had to reach every family on iOS and Android without doubling the team.</li>
-              <li><b>Docker + GitHub Actions on lean AWS (EC2/RDS/S3):</b> reproducible, low-overhead deploys sized to an early-stage EdTech&apos;s budget, not a managed platform&apos;s bill.</li>
+              <li><b>Docker + GitHub Actions on lean AWS (EC2/RDS/S3):</b> reproducible, low-cost deploys sized to an early-stage budget, not a managed platform&apos;s bill.</li>
             </ul>
           </details>
 
@@ -77,7 +77,7 @@ export default function Home() {
               <span className="feat__flag">Open source · AI</span>
               <h3>Ledgerly — Finance App with an AI Assistant</h3>
               <div className="feat__metric">100% offline · open source</div>
-              <p>A privacy-first money manager that runs entirely in your browser, with an AI assistant that turns receipts and statements into clean transactions. Self-hostable, with no data ever leaving your device.</p>
+              <p>A privacy-first money manager that runs entirely in your browser. Its AI assistant turns receipts and statements into clean transactions, and you can self-host it. No data ever leaves your device.</p>
               <div className="pcard__stack">
                 <span className="tag">Next.js 16</span><span className="tag">React 19</span><span className="tag">TypeScript</span><span className="tag">IndexedDB</span>
               </div>
@@ -92,7 +92,7 @@ export default function Home() {
               <span className="feat__flag">Open source · Local-first</span>
               <h3>AI Study Partner — Learn From Your Own Notes</h3>
               <div className="feat__metric">Runs 100% on your machine · your notes never leave it</div>
-              <p>Upload your PDFs and notes and it builds a course around them — chapters, plain-language explanations, quizzes and mock exams, and revision that targets your weak topics. A local AI companion does the work, so nothing is uploaded.</p>
+              <p>Upload your PDFs and notes and it builds a course around them: chapters, plain explanations, quizzes and mock exams, and revision aimed at your weak topics. A local AI companion does the work, so nothing leaves your machine.</p>
               <div className="pcard__stack">
                 <span className="tag">Next.js</span><span className="tag">TypeScript</span><span className="tag">Tailwind</span><span className="tag">Local AI</span>
               </div>
@@ -103,7 +103,7 @@ export default function Home() {
             {[
               { img: "decidr.jpg", t: "Decidr", type: "AI · Next.js", m: "Bias-aware decisions", d: "AI decision assistant that weighs your options, surfaces the trade-offs, and flags where bias is tilting the call.", s: ["Next.js", "Supabase"], href: "https://decidr-black.vercel.app" },
               { img: "cadence.jpg", t: "Cadence", type: "AI video", m: "Prompt-native editing", d: "A prompt-native video editor: describe the cut you want and an AI director edits the footage for you.", s: ["Next.js", "AI"], href: "https://github.com/codewithowais/Cadence" },
-              { img: "devpath.jpg", t: "DevPath", type: "EdTech", m: "200+ lessons", d: "A learning hub for early-career devs — roadmaps, a career ladder, and 200+ runnable lessons.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app" },
+              { img: "devpath.jpg", t: "DevPath", type: "EdTech", m: "200+ lessons", d: "A learning hub for early-career devs: roadmaps, a career ladder, and 200+ runnable lessons.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app" },
               { img: "agentic.jpg", t: "Agentic AI Course", type: "Teaching", m: "16-week course", d: "A hands-on course on building AI agents, from your first tool-using agent to full multi-agent systems.", s: ["LangGraph", "Python"], href: "https://codewithowais.github.io/agentic-ai/" },
             ].map((p) => (
               <a className="pcard" key={p.t} href={p.href} target="_blank" rel="noopener noreferrer">
@@ -148,7 +148,7 @@ export default function Home() {
               <div>
                 <div className="exp__place">Dawateislami-IT</div>
                 <div className="exp__title">Associate Software Engineer</div>
-                <p className="exp__impact">Modernized a legacy enterprise stack — <b>migrated core services to .NET Core</b> and rebuilt server-rendered modules as a modern Angular SPA.</p>
+                <p className="exp__impact">Modernized a legacy enterprise stack: <b>migrated core services to .NET Core</b> and rebuilt server-rendered modules as a modern Angular SPA.</p>
                 <ul>
                   <li>Led the migration from .NET Framework to .NET Core with a 10-person team.</li>
                   <li>Built secure REST APIs on Entity Framework and MS SQL Server, and rebuilt the server-rendered Razor UI as an Angular SPA.</li>
@@ -169,7 +169,7 @@ export default function Home() {
         {/* SKILLS */}
         <section id="skills" className="sec">
           <div className="eyebrow">04 / Stack</div>
-          <h2 className="big">A full-stack toolkit across three worlds.</h2>
+          <h2 className="big">The stack I build with.</h2>
           <div className="spec">
             {[
               ["Languages", "core", [["TypeScript", "daily"], ["Dart", "daily"], ["C#", "fluent"], ["Python", "fluent"], ["SQL", "fluent"]]],
@@ -194,9 +194,9 @@ export default function Home() {
         {/* TEACHING */}
         <section id="teaching" className="sec">
           <div className="eyebrow">05 / Teaching</div>
-          <h2 className="big">I built the Flutter curriculum 1,200+ developers learned on, from first widget to published app.</h2>
+          <h2 className="big">I built the Flutter course 1,200+ developers learned on.</h2>
           <div className="prose">
-            <p>As Flutter instructor at Jawan Pakistan I designed all 11 cohorts of it: the syllabus, the projects, and the assessments that get a developer to a store-ready app.</p>
+            <p>As the Flutter instructor at Jawan Pakistan, I designed all 11 cohorts: the syllabus, the projects, and the assessments that take a developer from their first widget to a store-ready app.</p>
             <p>I teach the way I build: project-based, covering state management, API integration, Firebase, and the patterns that separate a demo from a production app.</p>
           </div>
           <div className="facts">
@@ -242,7 +242,7 @@ export default function Home() {
           <div className="contact__card">
             <div className="contact__lead">
               <h2>Have a role, a project, or a <span className="u">workshop</span> in mind?</h2>
-              <p>I read every message and reply within a day or two — whether it&apos;s a full-time role, a freelance project, or a workshop.</p>
+              <p>I read every message and reply within a day or two, whether it&apos;s a full-time role, a freelance project, or a workshop.</p>
               <div className="contact__cta">
                 <a className="btn btn--lg" href="mailto:codewithowais@gmail.com">Email me <span aria-hidden="true">→</span></a>
                 <a className="btn btn--ghost btn--lg" href="https://wa.me/923169585886" aria-label="Message on WhatsApp">WhatsApp</a>
