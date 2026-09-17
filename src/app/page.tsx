@@ -134,10 +134,7 @@ export default function Home() {
               <div className="exp__when">Jun 2022 — now · Karachi</div>
               <div>
                 <div className="exp__place">SimpliEd</div>
-                <ol className="exp__roles">
-                  <li className="is-current"><span className="exp__roledate">Sep 2026 — now</span><span className="exp__rolename">Staff Software Engineer</span></li>
-                  <li><span className="exp__roledate">Jun 2022</span><span className="exp__rolename">Founding Engineer</span></li>
-                </ol>
+                <div className="exp__title">Staff Software Engineer (Founding Engineer)</div>
                 <p className="exp__impact">Took an EdTech platform from an empty repo to <b>25,000+ daily users across 10 schools</b>, and still run it end to end.</p>
                 <ul>
                   <li>Set the platform&apos;s <strong>technical direction and coding standards</strong>, and lead architecture and code review for a team of five.</li>
