@@ -60,7 +60,7 @@ img { max-width: 100%; display: block; }
 .font-mono { font-family: var(--font-jetbrains), ui-monospace, monospace; }
 
 /* ---------------- SHELL ---------------- */
-.shell { display: grid; grid-template-columns: 340px 1fr; align-items: start; max-width: 1340px; margin: 0 auto; }
+.shell { display: grid; grid-template-columns: 340px 1fr; align-items: start; max-width: 1500px; margin: 0 auto; }
 
 /* ---------------- LEFT RAIL ---------------- */
 .rail { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; padding: 2.2rem 2.1rem; border-right: 1px solid var(--line); overflow-y: auto; }
@@ -259,6 +259,18 @@ img { max-width: 100%; display: block; }
   background-size: 0% 1.5px; transition: background-size 0.25s var(--ease), color 0.2s; padding-bottom: 2px; }
 .copybtn:hover, .copybtn:focus-visible { background-size: 100% 1.5px; }
 .copybtn.copied { color: var(--a-2); background-size: 100% 1.5px; }
+
+/* Large screens — scale the composition up so wide monitors read as intentional, not empty */
+@media (min-width: 1440px) {
+  .shell { grid-template-columns: 380px 1fr; }
+  .content { padding: 0 clamp(4rem, 4.5vw, 6.5rem); }
+  .hero h1 { font-size: 4.9rem; }
+  .hero .sub { font-size: 1.36rem; max-width: 58ch; }
+  .facts { gap: 3rem; }
+  .fact .v { font-size: 2.9rem; }
+  .big { font-size: 3rem; }
+  .contact h2 { font-size: 3rem; }
+}
 
 @media (max-width: 760px) {
   .contact__card { grid-template-columns: 1fr; }
