@@ -1,0 +1,23 @@
+{
+  "id": "/",
+  "name": "Muhammad Owais Ahmed — Staff Software Engineer",
+  "short_name": "Owais Ahmed",
+  "description": "Staff Software Engineer & Full-Stack / Flutter developer based in Karachi, Pakistan. Founding engineer at SimpliEd, open to Gulf / KSA / UAE roles.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f3f2ee",
+  "theme_color": "#7c2233",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["portfolio", "developer", "productivity", "business"],
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "/img/og-image.png", "sizes": "1200x630", "type": "image/png", "form_factor": "wide", "label": "Muhammad Owais Ahmed — Staff Software Engineer" }
+  ]
+}

@@ -1,117 +1,169 @@
 import Image from "next/image";
 import Rail from "@/components/Rail";
+import CopyEmail from "@/components/CopyEmail";
 
 export default function Home() {
   return (
     <div className="shell">
+      <a href="#main-content" className="skip">Skip to content</a>
       <Rail />
-      <main className="content">
+      <main id="main-content" tabIndex={-1} className="content">
         {/* HERO */}
         <section id="hero" className="sec hero">
-          <div className="eyebrow">Full-Stack · Flutter · AI — Karachi, PK</div>
-          <h1>I build products that real schools <span className="u">run on every day.</span></h1>
+          <div className="eyebrow">Staff Software Engineer · Full-Stack + Flutter + AI · Karachi, PK</div>
+          <h1>I build products people <span className="u">rely on every day.</span></h1>
           <p className="sub">
-            Founding engineer at SimpliEd — an EdTech platform used by 25,000+ students, parents and
-            teachers. Six years shipping across Angular, React, Node.js, .NET and Flutter, and I train
-            the developers who build them.
+            Founding engineer at SimpliEd, the EdTech platform I took from an empty repo to 25,000+
+            students, parents and teachers across 10 schools. I own its technical direction end to end
+            and lead a team of five. Six years building full products on Angular, React, Node.js, .NET
+            and Flutter, from the mobile apps to the AWS they run on. On weekends I&apos;ve trained over
+            1,200 developers across 11 cohorts.
           </p>
           <div className="facts">
             <div className="fact"><div className="v">6+</div><div className="k">Years shipping</div></div>
-            <div className="fact"><div className="v">25k+</div><div className="k">Users served</div></div>
-            <div className="fact"><div className="v">1,200+</div><div className="k">Students taught</div></div>
+            <div className="fact"><div className="v">25k+</div><div className="k">Daily users</div></div>
+            <div className="fact"><div className="v">1,200+</div><div className="k">Developers trained</div></div>
           </div>
-          <div className="avail">Open to relocation — <b>Gulf / UAE / KSA</b> · visa sponsorship · <b>~30 days notice</b> · remote worldwide</div>
+          <div className="avail">
+            Open to full-time &amp; freelance · <b>Gulf relocation (UAE / KSA), sponsorship welcome</b> · remote worldwide · ~30-day notice
+          </div>
+          <p className="now"><b>Currently:</b> scaling SimpliEd and building Ledgerly in the open.</p>
         </section>
 
         {/* ABOUT */}
         <section id="about" className="sec">
-          <div className="eyebrow">About</div>
+          <div className="eyebrow">01 / About</div>
           <h2 className="big">Engineer on weekdays, teacher on weekends.</h2>
           <div className="prose">
-            <p>I&apos;m a software engineer in Karachi. For six years I&apos;ve turned ideas into products people use every day — from an EdTech platform serving thousands to mobile apps that took real paperwork off teachers&apos; and parents&apos; hands.</p>
-            <p>As founding engineer at <strong>SimpliEd</strong> I own the full stack — the Angular/Node web app, the Flutter apps, the AWS infrastructure and CI/CD — and lead architecture and code review. On weekends I teach Flutter; I care as much about clear explanations as clean architecture.</p>
+            <p>I&apos;m a staff software engineer in Karachi. For six years I&apos;ve owned the hard technical calls behind products people actually use: an EdTech platform serving 25,000 people, and the mobile apps that took daily paperwork off teachers&apos; and parents&apos; hands.</p>
+            <p>As founding engineer at <strong>SimpliEd</strong> I shaped the whole platform: the Angular/Node web app, the Flutter apps, and the AWS infrastructure and CI/CD behind them. I lead the engineering team and stay hands-on in the code every week. On weekends I teach Flutter to the next batch of developers, and I bring the same standards to a lesson that I bring to production code.</p>
           </div>
         </section>
 
         {/* WORK */}
         <section id="work" className="sec">
-          <div className="eyebrow">Selected work</div>
+          <div className="eyebrow">02 / Selected work</div>
+          <h2 className="big">Products I&apos;ve shipped end to end.</h2>
 
           <a className="feat" href="https://simpliedtech.com" target="_blank" rel="noopener noreferrer">
             <div className="feat__media">
-              <Image src="/img/projects/simplied-platform.png" alt="SimpliEd platform" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
+              <Image src="/img/projects/simplied-platform.jpg" alt="SimpliEd school-management platform dashboard" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
             </div>
             <div className="feat__body">
               <span className="feat__flag">Flagship</span>
               <h3>SimpliEd — School Management Platform</h3>
-              <p>Attendance, fee invoicing, announcements and a full LMS, on web and mobile. Built end to end since day one; runs the daily operations of 10 schools for 25,000+ people.</p>
+              <div className="feat__metric">25,000+ daily users · 10 schools · built end to end</div>
+              <p>Attendance, fee invoicing, announcements and a full LMS across web and mobile. I built the first version alone and set its architecture, and now it runs the daily operations of 10 schools for 25,000+ students, parents and teachers.</p>
               <div className="pcard__stack">
                 <span className="tag">Angular</span><span className="tag">Node.js</span><span className="tag">Flutter</span><span className="tag">MongoDB</span><span className="tag">AWS</span>
               </div>
             </div>
           </a>
 
+          <details className="casestudy">
+            <summary>The hard calls behind SimpliEd</summary>
+            <ul>
+              <li><b>Node.js + MongoDB over a heavier stack:</b> one language across the API and tooling let a small team ship fast, and the document model absorbed how differently each school structures its data.</li>
+              <li><b>Flutter for one mobile codebase:</b> the attendance and parent apps had to reach every family on iOS and Android without doubling the team.</li>
+              <li><b>Docker + GitHub Actions on lean AWS (EC2/RDS/S3):</b> reproducible, low-overhead deploys sized to an early-stage EdTech&apos;s budget, not a managed platform&apos;s bill.</li>
+            </ul>
+          </details>
+
+          <a className="feat feat--reverse" href="https://github.com/codewithowais/expense-tracker" target="_blank" rel="noopener noreferrer">
+            <div className="feat__media">
+              <Image src="/img/projects/ledgerly-dashboard.jpg" alt="Ledgerly finance app dashboard" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
+            </div>
+            <div className="feat__body">
+              <span className="feat__flag">Open source · AI</span>
+              <h3>Ledgerly — Finance App with an AI Assistant</h3>
+              <div className="feat__metric">100% offline · open source</div>
+              <p>A privacy-first money manager that runs entirely in your browser, with an AI assistant that turns receipts and statements into clean transactions. Self-hostable, with no data ever leaving your device.</p>
+              <div className="pcard__stack">
+                <span className="tag">Next.js 16</span><span className="tag">React 19</span><span className="tag">TypeScript</span><span className="tag">IndexedDB</span>
+              </div>
+            </div>
+          </a>
+
+          <a className="feat" href="https://github.com/codewithowais/ai-study-planner" target="_blank" rel="noopener noreferrer">
+            <div className="feat__media">
+              <Image src="/img/projects/ai-study-partner.jpg" alt="AI Study Partner — open-source, local-first AI study app" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
+            </div>
+            <div className="feat__body">
+              <span className="feat__flag">Open source · Local-first</span>
+              <h3>AI Study Partner — Learn From Your Own Notes</h3>
+              <div className="feat__metric">Runs 100% on your machine · your notes never leave it</div>
+              <p>Upload your PDFs and notes and it builds a course around them — chapters, plain-language explanations, quizzes and mock exams, and revision that targets your weak topics. A local AI companion does the work, so nothing is uploaded.</p>
+              <div className="pcard__stack">
+                <span className="tag">Next.js</span><span className="tag">TypeScript</span><span className="tag">Tailwind</span><span className="tag">Local AI</span>
+              </div>
+            </div>
+          </a>
+
           <div className="cards">
             {[
-              { img: "ledgerly-dashboard.jpg", t: "Ledgerly", type: "Open source · AI", d: "Privacy-first money manager with an AI assistant — runs fully offline, reads receipts and statements.", s: ["Next.js 16", "React 19", "IndexedDB"], href: "https://github.com/codewithowais/expense-tracker" },
-              { img: "decidr.jpg", t: "Decidr", type: "AI · Next.js", d: "AI decision assistant — weigh options, see trade-offs, sensitivity, and where bias tilts the call.", s: ["Next.js", "Supabase"], href: "https://decidr-black.vercel.app" },
-              { img: "cadence.jpg", t: "Cadence", type: "AI video", d: "A prompt-native video editor: describe the edit and an AI director cuts your footage.", s: ["Next.js", "AI"], href: "https://github.com/codewithowais/Cadence" },
-              { img: "devpath.jpg", t: "DevPath", type: "EdTech", d: "Learning hub for early-career devs: roadmaps, a career ladder, 200+ runnable lessons.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app" },
-              { img: "agentic.jpg", t: "Agentic AI Course", type: "Teaching", d: "A 16-week hands-on course on building AI agents, from first tool-using agent to multi-agent systems.", s: ["LangGraph", "Python"], href: "https://codewithowais.github.io/agentic-ai/" },
+              { img: "decidr.jpg", t: "Decidr", type: "AI · Next.js", m: "Bias-aware decisions", d: "AI decision assistant that weighs your options, surfaces the trade-offs, and flags where bias is tilting the call.", s: ["Next.js", "Supabase"], href: "https://decidr-black.vercel.app" },
+              { img: "cadence.jpg", t: "Cadence", type: "AI video", m: "Prompt-native editing", d: "A prompt-native video editor: describe the cut you want and an AI director edits the footage for you.", s: ["Next.js", "AI"], href: "https://github.com/codewithowais/Cadence" },
+              { img: "devpath.jpg", t: "DevPath", type: "EdTech", m: "200+ lessons", d: "A learning hub for early-career devs — roadmaps, a career ladder, and 200+ runnable lessons.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app" },
+              { img: "agentic.jpg", t: "Agentic AI Course", type: "Teaching", m: "16-week course", d: "A hands-on course on building AI agents, from your first tool-using agent to full multi-agent systems.", s: ["LangGraph", "Python"], href: "https://codewithowais.github.io/agentic-ai/" },
             ].map((p) => (
               <a className="pcard" key={p.t} href={p.href} target="_blank" rel="noopener noreferrer">
                 <div className="pcard__media">
-                  <Image src={`/img/projects/${p.img}`} alt={p.t} fill sizes="(max-width:900px) 100vw, 30vw" style={{ objectFit: "cover" }} />
+                  <Image src={`/img/projects/${p.img}`} alt={`${p.t} — ${p.type} project`} fill sizes="(max-width:900px) 100vw, 30vw" style={{ objectFit: "cover" }} />
                 </div>
                 <div className="pcard__body">
                   <div className="pcard__head">
                     <h4>{p.t}</h4>
                     <span className="pcard__type">{p.type}</span>
                   </div>
+                  <div className="pcard__metric">{p.m}</div>
                   <p>{p.d}</p>
                   <div className="pcard__stack">{p.s.map((x) => <span className="tag" key={x}>{x}</span>)}</div>
                 </div>
               </a>
             ))}
           </div>
-          <p className="more">Plus Shanghai Trip Assistant, Mini Gantt, ERMS, and 60+ more — <a href="https://github.com/codewithowais" target="_blank" rel="noopener noreferrer">see all on GitHub ↗</a></p>
+          <p className="more">60+ more repos — Shanghai Trip Assistant, Mini Gantt, ERMS and the rest — <a href="https://github.com/codewithowais" target="_blank" rel="noopener noreferrer">browse them on GitHub ↗</a></p>
         </section>
 
         {/* EXPERIENCE */}
         <section id="experience" className="sec">
-          <div className="eyebrow">Experience</div>
+          <div className="eyebrow">03 / Experience</div>
+          <h2 className="big">Where I&apos;ve made an impact.</h2>
           <div className="exp">
             <div className="exp__row">
-              <div className="exp__when">Jun 2022 — now<br />Karachi · On-site</div>
+              <div className="exp__when">Jun 2022 — now · Karachi</div>
               <div>
                 <div className="exp__place">SimpliEd</div>
-                <div className="exp__title">Senior Software Engineer · Founding Engineer</div>
+                <ol className="exp__roles">
+                  <li className="is-current"><span className="exp__roledate">Sep 2026 — now</span><span className="exp__rolename">Staff Software Engineer</span></li>
+                  <li><span className="exp__roledate">Jun 2022</span><span className="exp__rolename">Founding Engineer</span></li>
+                </ol>
+                <p className="exp__impact">Took an EdTech platform from an empty repo to <b>25,000+ daily users across 10 schools</b>, and still run it end to end.</p>
                 <ul>
-                  <li>Grew SimpliEd from zero to 25,000+ users across 10 institutions, building the platform end to end.</li>
-                  <li>Retired manual roll-call by shipping the Flutter QR-attendance and parent apps — now the product&apos;s daily touchpoint.</li>
-                  <li>Architected the Node.js + MongoDB backend and automated CI/CD on AWS; set technical direction for a team of 5–6.</li>
+                  <li>Set the platform&apos;s <strong>technical direction and coding standards</strong>, and lead architecture and code review for a team of five.</li>
+                  <li>Chose the stack it runs on: a Node.js + MongoDB backend and Docker CI/CD on AWS (EC2/RDS/S3), with trade-offs a small team can maintain for years.</li>
+                  <li>Shipped the Flutter QR-attendance and parent apps that <strong>replaced manual roll-call</strong>, now the product&apos;s daily touchpoint for thousands of families.</li>
                 </ul>
               </div>
             </div>
             <div className="exp__row">
-              <div className="exp__when">Aug 2020 — May 2022<br />Karachi · On-site</div>
+              <div className="exp__when">Aug 2020 — May 2022 · Karachi</div>
               <div>
                 <div className="exp__place">Dawateislami-IT</div>
                 <div className="exp__title">Associate Software Engineer</div>
+                <p className="exp__impact">Modernized a legacy enterprise stack — <b>migrated core services to .NET Core</b> and rebuilt server-rendered modules as a modern Angular SPA.</p>
                 <ul>
-                  <li>Migrated core services from .NET Framework to .NET Core and moved Razor modules to an Angular SPA.</li>
-                  <li>Built secure REST APIs with Entity Framework on MS SQL Server.</li>
+                  <li>Led the migration from .NET Framework to .NET Core with a 10-person team.</li>
+                  <li>Built secure REST APIs on Entity Framework and MS SQL Server, and rebuilt the server-rendered Razor UI as an Angular SPA.</li>
                 </ul>
               </div>
             </div>
             <div className="exp__row">
-              <div className="exp__when">Jan 2021 — now<br />Remote · Weekends</div>
+              <div className="exp__when">Jan 2021 — now · Remote</div>
               <div>
                 <div className="exp__place">Jawan Pakistan</div>
                 <div className="exp__title">Flutter Development Instructor</div>
-                <ul>
-                  <li>Designed the full Flutter curriculum and trained 1,200+ students across 11+ cohorts to published App/Play Store apps.</li>
-                </ul>
+                <p className="exp__impact">Built a Flutter curriculum from scratch and took <b>1,200+ developers across 11 cohorts</b> from their first widget to a published App Store / Play Store app.</p>
               </div>
             </div>
           </div>
@@ -119,7 +171,7 @@ export default function Home() {
 
         {/* SKILLS */}
         <section id="skills" className="sec">
-          <div className="eyebrow">Stack</div>
+          <div className="eyebrow">04 / Stack</div>
           <h2 className="big">A full-stack toolkit across three worlds.</h2>
           <div className="spec">
             {[
@@ -128,7 +180,7 @@ export default function Home() {
               ["Backend", "apis", [["Node.js", "expert"], [".NET Core", "expert"], ["Django", "fluent"], ["REST / GraphQL", "expert"]]],
               ["Data", "sql · nosql", [["MongoDB", "daily"], ["PostgreSQL", "fluent"], ["MS SQL", "fluent"], ["Redis", "fluent"]]],
               ["Cloud / DevOps", "ship", [["AWS", "daily"], ["Docker", "daily"], ["GitHub Actions", "daily"], ["Linux", "fluent"]]],
-              ["Practice", "how i work", [["System design", "·"], ["Code review", "·"], ["Mentoring", "·"], ["AI-assisted dev", "·"]]],
+              ["Practice", "how i work", [["System design", "core"], ["Code review", "weekly"], ["Mentoring", "weekly"], ["AI-assisted dev", "daily"]]],
             ].map(([h, sub, items]) => (
               <div className="spec__group" key={h as string}>
                 <div className="spec__h"><span>{h as string}</span><span>{sub as string}</span></div>
@@ -144,50 +196,69 @@ export default function Home() {
 
         {/* TEACHING */}
         <section id="teaching" className="sec">
-          <div className="eyebrow">Teaching</div>
-          <h2 className="big">Over a thousand developers, from first widget to published app.</h2>
+          <div className="eyebrow">05 / Teaching</div>
+          <h2 className="big">I built the Flutter curriculum 1,200+ developers learned on, from first widget to published app.</h2>
           <div className="prose">
-            <p>As a Flutter instructor at Jawan Pakistan I designed a full curriculum and have taken <strong>1,200+ students</strong> across 11+ cohorts from their first widget to a published App Store / Play Store app.</p>
-            <p>I focus on project-based learning — state management, API integration, Firebase, and the patterns that separate a demo from a production app — with structured video, exercises and assessments.</p>
+            <p>As Flutter instructor at Jawan Pakistan I designed all 11 cohorts of it: the syllabus, the projects, and the assessments that get a developer to a store-ready app.</p>
+            <p>I teach the way I build: project-based, covering state management, API integration, Firebase, and the patterns that separate a demo from a production app.</p>
           </div>
           <div className="facts">
-            <div className="fact"><div className="v">1,200+</div><div className="k">Students trained</div></div>
-            <div className="fact"><div className="v">11+</div><div className="k">Cohorts delivered</div></div>
-            <div className="fact"><div className="v">100%</div><div className="k">Project-based</div></div>
+            <div className="fact"><div className="v">1,200+</div><div className="k">Developers trained</div></div>
+            <div className="fact"><div className="v">11</div><div className="k">Cohorts delivered</div></div>
+            <div className="fact"><div className="v">100%</div><div className="k">Hands-on, project-based</div></div>
           </div>
         </section>
 
         {/* FAQ */}
         <section id="faq" className="sec faq">
-          <div className="eyebrow">FAQ</div>
+          <div className="eyebrow">06 / FAQ</div>
           <h2 className="big">Quick answers.</h2>
           <details>
             <summary>Is he available for freelance or full-time work?</summary>
-            <p>Yes — freelance/contract and full-time (remote, hybrid, or on-site), and open to relocation for roles in the Gulf, Saudi Arabia (KSA) and the UAE.</p>
+            <p>Yes. I take on full-time roles and freelance or contract work (remote, hybrid, or on-site), and I&apos;m open to relocating to the Gulf (UAE / KSA) for the right role, with visa sponsorship welcome and around 30 days&apos; notice.</p>
           </details>
           <details>
-            <summary>Is he open to relocation or Gulf (KSA / UAE) roles?</summary>
-            <p>Yes. I work remotely with teams worldwide from Karachi, and I&apos;m open to relocation for the right role — including on-site positions in the Gulf, KSA and the UAE, with employer visa sponsorship.</p>
+            <summary>How quickly can he start?</summary>
+            <p>Around 30 days&apos; notice for a full-time role. For freelance or contract work I can usually start within a week.</p>
+          </details>
+          <details>
+            <summary>Can he lead a team or own a product solo?</summary>
+            <p>Both. At SimpliEd I built the first version alone and now lead a team of five — I set the architecture, review the code, and stay hands-on shipping.</p>
           </details>
           <details>
             <summary>What does he specialize in?</summary>
-            <p>Shipping full products end to end — Angular/React + Node.js/.NET on the web, Flutter on mobile, API and cloud architecture on AWS, and AI integration.</p>
+            <p>Shipping full products end to end: Angular/React and Node.js/.NET on the web, Flutter on mobile, API and cloud architecture on AWS, and AI features on top.</p>
           </details>
           <details>
             <summary>Does he offer training or mentorship?</summary>
-            <p>Yes — Flutter instruction, workshops and 1:1 mentorship for individuals and teams.</p>
+            <p>Yes. Flutter courses, team workshops and 1:1 mentorship — I&apos;ve trained 1,200+ developers to date.</p>
+          </details>
+          <details>
+            <summary>Is he open to on-site work in the UAE or Saudi Arabia?</summary>
+            <p>Yes. I&apos;m open to relocating on-site to the Gulf with visa sponsorship, and I also work fully remote. Typical notice is around 30 days.</p>
           </details>
         </section>
 
         {/* CONTACT */}
         <section id="contact" className="sec contact">
-          <div className="eyebrow">Contact</div>
-          <h2>Have a role, a project, or a <span className="u">workshop</span> in mind?</h2>
-          <div className="prose"><p>I read every message and reply within a day or two. Open to freelance, full-time, and relocation for the right role in the Gulf.</p></div>
-          <div className="ways">
-            <div><div className="k">Email</div><div className="val"><a href="mailto:codewithowais@gmail.com">codewithowais@gmail.com</a></div></div>
-            <div><div className="k">WhatsApp</div><div className="val"><a href="https://wa.me/923169585886">+92 316 9585886</a></div></div>
-            <div><div className="k">Based in</div><div className="val">Karachi, PK · remote-friendly</div></div>
+          <div className="eyebrow">07 / Contact</div>
+          <div className="contact__card">
+            <div className="contact__lead">
+              <h2>Have a role, a project, or a <span className="u">workshop</span> in mind?</h2>
+              <p>I read every message and reply within a day or two — whether it&apos;s a full-time role, a freelance project, or a workshop.</p>
+              <div className="contact__cta">
+                <a className="btn btn--lg" href="mailto:codewithowais@gmail.com">Email me <span aria-hidden="true">→</span></a>
+                <a className="btn btn--ghost btn--lg" href="https://wa.me/923169585886" aria-label="Message on WhatsApp">WhatsApp</a>
+              </div>
+              <p className="contact__avail"><span className="status-dot" aria-hidden="true" /> Open to full-time &amp; freelance · Gulf relocation (UAE / KSA), sponsorship welcome · ~30-day notice</p>
+            </div>
+            <div className="contact__side">
+              <div className="contact__row"><span className="k">Email</span><CopyEmail email="codewithowais@gmail.com" /></div>
+              <div className="contact__row"><span className="k">WhatsApp</span><a href="https://wa.me/923169585886" aria-label="WhatsApp +92 316 9585886">+92 316 9585886</a></div>
+              <div className="contact__row"><span className="k">Résumé</span><a href="/muhammad-owais-ahmed-resume.pdf" download>Download PDF</a></div>
+              <div className="contact__row"><span className="k">Elsewhere</span><span className="contact__links"><a href="https://github.com/codewithowais" target="_blank" rel="noopener noreferrer">GitHub</a> <a href="https://www.linkedin.com/in/codewithowais/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span></div>
+              <div className="contact__row"><span className="k">Based in</span><span>Karachi, PK · remote worldwide</span></div>
+            </div>
           </div>
         </section>
       </main>

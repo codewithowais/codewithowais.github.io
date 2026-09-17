@@ -12,7 +12,7 @@ export function toggleTheme() {
     localStorage.setItem("owais-theme", next);
   } catch {}
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute("content", next === "dark" ? "#0b0b0d" : "#f4f1ea");
+  if (meta) meta.setAttribute("content", next === "dark" ? "#14130f" : "#f3f2ee");
 }
 
 /** Reads the current theme and stays in sync with any toggle (observes the attribute). */
