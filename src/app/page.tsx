@@ -14,7 +14,7 @@ export default function Home() {
           <h1>I build products people <span className="u">rely on every day.</span></h1>
           <p className="sub">
             I&apos;m the founding engineer at SimpliEd. I took it from an empty repo to an EdTech
-            platform that 25,000+ students, parents and teachers use across 10 schools. I run the tech
+            platform that 25,000+ students, parents and teachers use across 10 schools. I own the tech
             end to end and lead a team of five. For six years I&apos;ve built full products with Angular,
             React, Node.js, .NET and Flutter: the web apps, the mobile apps, and the AWS they run on.
             On weekends I teach, and I&apos;ve trained 1,200+ developers so far.
@@ -35,7 +35,7 @@ export default function Home() {
           <div className="eyebrow">01 / About</div>
           <h2 className="big">Engineer on weekdays, teacher on weekends.</h2>
           <div className="prose">
-            <p>I&apos;m a staff software engineer in Karachi. For six years I&apos;ve made the hard technical calls behind products people actually use: an EdTech platform that serves 25,000 people, and the mobile apps that took daily paperwork off teachers and parents.</p>
+            <p>I&apos;m a staff software engineer in Karachi. For six years I&apos;ve owned the hard technical calls behind products people actually use: an EdTech platform that serves 25,000 people, and the mobile apps that took daily paperwork off teachers and parents.</p>
             <p>As the founding engineer at <strong>SimpliEd</strong>, I built the whole platform: the Angular and Node web app, the Flutter apps, and the AWS setup and CI/CD behind them. I lead the team and still write code every week. On weekends I teach Flutter to new developers, and I hold a lesson to the same standard as production code.</p>
           </div>
         </section>
