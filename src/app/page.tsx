@@ -101,10 +101,12 @@ export default function Home() {
 
           <div className="cards">
             {[
+              { img: "devpath.jpg", t: "DevPath", type: "EdTech", m: "Live algorithm visualizer", d: "A learning hub for early-career devs: roadmaps, a career ladder, and 200+ runnable lessons. Its 'Watch it sort' player animates each algorithm straight from the lesson's own code.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app" },
               { img: "decidr.jpg", t: "Decidr", type: "AI · Next.js", m: "Bias-aware decisions", d: "AI decision assistant that weighs your options, surfaces the trade-offs, and flags where bias is tilting the call.", s: ["Next.js", "Supabase"], href: "https://decidr-black.vercel.app" },
               { img: "cadence.jpg", t: "Cadence", type: "AI video", m: "Prompt-native editing", d: "A prompt-native video editor: describe the cut you want and an AI director edits the footage for you.", s: ["Next.js", "AI"], href: "https://github.com/codewithowais/Cadence" },
-              { img: "devpath.jpg", t: "DevPath", type: "EdTech", m: "200+ lessons", d: "A learning hub for early-career devs: roadmaps, a career ladder, and 200+ runnable lessons.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app" },
               { img: "agentic.jpg", t: "Agentic AI Course", type: "Teaching", m: "16-week course", d: "A hands-on course on building AI agents, from your first tool-using agent to full multi-agent systems.", s: ["LangGraph", "Python"], href: "https://codewithowais.github.io/agentic-ai/" },
+              { img: "invoicebook.jpg", t: "InvoiceBook", type: "SaaS · Full-stack", m: "Recurring billing + PDF", d: "Team invoicing: create invoices, attach proof of payment, and auto-generate monthly recurring bills. Roles, reminders, an audit log, and PDF export.", s: ["Next.js", "Postgres"], href: "https://github.com/codewithowais/InvoiceBook" },
+              { img: "crispcast.jpg", t: "CrispCast", type: "Desktop · Electron", m: "Offline screen recorder", d: "A cross-platform screen recorder that captures system audio and an isolated mic, cleans up your voice, and merges it into one crisp MP4. Fully offline.", s: ["Electron", "ffmpeg"], href: "https://github.com/codewithowais/CrispCast" },
             ].map((p) => (
               <a className="pcard" key={p.t} href={p.href} target="_blank" rel="noopener noreferrer">
                 <div className="pcard__media">

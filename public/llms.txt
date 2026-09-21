@@ -45,7 +45,9 @@
 - AI Study Partner — Open-source, local-first study app: upload your own PDFs/notes and it builds a course (chapters, plain-language explanations, quizzes and mock exams, weak-topic revision, progress tracking) with a local AI companion, so your data never leaves your machine (Next.js, TypeScript, Tailwind, Docker). Code: https://github.com/codewithowais/ai-study-planner
 - Decidr — AI decision-making assistant (Next.js, TypeScript, Supabase). Live: https://decidr-black.vercel.app · Code: https://github.com/codewithowais/Decidr
 - Cadence — Prompt-native AI video editor (Next.js, TypeScript). Live: https://web-theta-five-lnuv05pt7e.vercel.app · Code: https://github.com/codewithowais/Cadence
-- DevPath — Beginner-friendly learning & career platform (Next.js, TypeScript, Tailwind). Live: https://dev-path-by-codewithowais.vercel.app · Code: https://github.com/codewithowais/dev-path
+- DevPath — Beginner-friendly learning & career platform (Next.js, TypeScript, Tailwind): roadmaps, a career ladder, and 200+ runnable lessons. Signature feature: a "Watch it sort" live algorithm visualizer that animates each sorting algorithm step by step from the lesson's own code, counting comparisons, writes and steps with play/step/shuffle and speed/size controls. Live: https://dev-path-by-codewithowais.vercel.app · Code: https://github.com/codewithowais/dev-path
+- InvoiceBook — Full-stack invoicing SaaS for a small team (Next.js 16, React 19, TypeScript, Neon Postgres + Drizzle ORM, Better Auth, Vercel Blob/Cron): create invoices, track manual payments with proof attachments, auto-generate monthly recurring bills, PDF invoices, Admin/Staff roles, team invites, payment reminders, reporting + CSV export, and an audit log. Code: https://github.com/codewithowais/InvoiceBook
+- CrispCast — Cross-platform desktop screen recorder (Electron, ffmpeg, JavaScript): captures the screen at native resolution with system audio and an isolated microphone track, denoises the voice, and merges everything into one clean H.264 MP4, fully offline. macOS, Windows and Linux. Download: https://codewithowais.github.io/CrispCast · Code: https://github.com/codewithowais/CrispCast
 - Agentic AI Course — 16-week hands-on course on building AI agents (LangGraph, Python, LLMs). Live: https://codewithowais.github.io/agentic-ai/ · Code: https://github.com/codewithowais/agentic-ai
 - Shanghai Trip Assistant — Offline-first Flutter travel app with on-device EN↔中文 translation (Flutter, Hive, ML Kit, Riverpod). Code: https://github.com/codewithowais/china-trip-app
 - Mini Gantt — Dependency-free drag-and-resize Gantt chart tool (Next.js, TypeScript, Tailwind). Live: https://mini-gantt-chart.vercel.app · Code: https://github.com/codewithowais/mini-gantt-chart
@@ -63,4 +65,4 @@
 ## Contact
 To hire or collaborate, email codewithowais@gmail.com, message +92 316 9585886 on WhatsApp, or connect on LinkedIn: https://www.linkedin.com/in/codewithowais/
 
-_Last updated: 2026-09-17_
+_Last updated: 2026-09-21_
