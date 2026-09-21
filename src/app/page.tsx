@@ -35,7 +35,7 @@ export default function Home() {
           <div className="eyebrow">01 / About</div>
           <h2 className="big">Engineer on weekdays, teacher on weekends.</h2>
           <div className="prose">
-            <p>I&apos;m a staff software engineer in Karachi. For six years I&apos;ve owned the hard technical calls behind products people actually use: an EdTech platform that serves 25,000 people, and the mobile apps that took daily paperwork off teachers and parents.</p>
+            <p>I&apos;m a staff software engineer in Karachi. For six years I&apos;ve owned the hard technical calls behind products people actually use: an EdTech platform that serves 25,000+ people, and the mobile apps that took daily paperwork off teachers and parents.</p>
             <p>As the founding engineer at <strong>SimpliEd</strong>, I built the whole platform: the Angular and Node web app, the Flutter apps, and the AWS setup and CI/CD behind them. I lead the team and still write code every week. On weekends I teach Flutter to new developers, and I hold a lesson to the same standard as production code.</p>
           </div>
         </section>
@@ -52,7 +52,7 @@ export default function Home() {
             <div className="feat__body">
               <span className="feat__flag">Flagship</span>
               <h3>SimpliEd — School Management Platform</h3>
-              <div className="feat__metric">25,000+ daily users · 10 schools · built end to end</div>
+              <div className="feat__metric">25,000+ daily users · 10 schools · 4+ years in production</div>
               <p>Attendance, fee invoicing, announcements and a full LMS, across web and mobile. I built the first version alone and set the architecture. Today it runs daily operations for 10 schools and 25,000+ students, parents and teachers.</p>
               <div className="pcard__stack">
                 <span className="tag">Angular</span><span className="tag">Node.js</span><span className="tag">Flutter</span><span className="tag">MongoDB</span><span className="tag">AWS</span>
@@ -124,7 +124,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <p className="more">60+ more repos — Shanghai Trip Assistant, Mini Gantt, ERMS and the rest — <a href="https://github.com/codewithowais" target="_blank" rel="noopener noreferrer">browse them on GitHub ↗</a></p>
+          <p className="more">Another 60+ repos on GitHub: Shanghai Trip Assistant, Mini Gantt, ERMS and more. <a href="https://github.com/codewithowais" target="_blank" rel="noopener noreferrer">Browse them ↗</a></p>
         </section>
 
         {/* EXPERIENCE */}
@@ -222,7 +222,7 @@ export default function Home() {
           </details>
           <details>
             <summary>Can he lead a team or own a product solo?</summary>
-            <p>Both. At SimpliEd I built the first version alone and now lead a team of five — I set the architecture, review the code, and stay hands-on shipping.</p>
+            <p>Both. At SimpliEd I built the first version alone and now lead a team of five. I set the architecture, review the code, and stay hands-on shipping.</p>
           </details>
           <details>
             <summary>What does he specialize in?</summary>
@@ -230,7 +230,7 @@ export default function Home() {
           </details>
           <details>
             <summary>Does he offer training or mentorship?</summary>
-            <p>Yes. Flutter courses, team workshops and 1:1 mentorship — I&apos;ve trained 1,200+ developers to date.</p>
+            <p>Yes. Flutter courses, team workshops and 1:1 mentorship. I&apos;ve trained 1,200+ developers so far.</p>
           </details>
           <details>
             <summary>Is he open to on-site work in the UAE or Saudi Arabia?</summary>
