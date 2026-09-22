@@ -60,7 +60,7 @@ img { max-width: 100%; display: block; }
 .font-mono { font-family: var(--font-jetbrains), ui-monospace, monospace; }
 
 /* ---------------- SHELL ---------------- */
-.shell { display: grid; grid-template-columns: 340px 1fr; align-items: start; max-width: 1500px; margin: 0 auto; }
+.shell { display: grid; grid-template-columns: 340px 1fr; align-items: start; max-width: 1680px; margin: 0 auto; }
 
 /* ---------------- LEFT RAIL ---------------- */
 .rail { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; padding: 2.2rem 2.1rem; border-right: 1px solid var(--line); overflow-y: auto; }
@@ -270,6 +270,11 @@ img { max-width: 100%; display: block; }
   .fact .v { font-size: 2.9rem; }
   .big { font-size: 3rem; }
   .contact h2 { font-size: 3rem; }
+}
+
+/* Very wide screens — use the extra width instead of leaving big empty gutters */
+@media (min-width: 1600px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 760px) {
