@@ -21,35 +21,38 @@ export default function Rail() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const ratios = new Map<string, number>();
-    const lastId = SECTIONS[SECTIONS.length - 1][0];
+    const ids = SECTIONS.map((s) => s[0]);
+    const lastId = ids[ids.length - 1];
+    let ticking = false;
 
-    const update = () => {
-      // At (or near) the bottom of the page the last, short section can never
-      // reach the observer's band — so force it active when scrolled to the end.
-      const atBottom =
-        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-      if (atBottom) { setActive(lastId); return; }
-      let best = "";
-      let top = 0;
-      ratios.forEach((r, id) => {
-        if (r > top) { top = r; best = id; }
-      });
-      if (best) setActive(best);
+    // Scroll-position based: the active section is the last one whose top has
+    // crossed a reference line ~30% down the viewport. Robust everywhere —
+    // it doesn't depend on IntersectionObserver callbacks firing.
+    const pick = () => {
+      ticking = false;
+      const line = window.innerHeight * 0.3;
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= line) current = id;
+      }
+      // At the very bottom, the last (short) section may never reach the line.
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        current = lastId;
+      }
+      setActive(current);
     };
 
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => ratios.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0));
-        update();
-      },
-      { threshold: [0, 0.25, 0.5, 0.75, 1], rootMargin: "-20% 0px -35% 0px" }
-    );
-    document.querySelectorAll("section[id]").forEach((s) => obs.observe(s));
-    window.addEventListener("scroll", update, { passive: true });
+    const onScroll = () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(pick); }
+    };
+
+    pick();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
-      obs.disconnect();
-      window.removeEventListener("scroll", update);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, []);
 
