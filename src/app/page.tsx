@@ -2,13 +2,18 @@ import Image from "next/image";
 import Rail from "@/components/Rail";
 import CopyEmail from "@/components/CopyEmail";
 import Reveal from "@/components/Reveal";
+import ScrollProgress from "@/components/ScrollProgress";
+import CountUp from "@/components/CountUp";
 
 export default function Home() {
   return (
     <div className="shell">
+      <div id="scroll-progress" aria-hidden="true" />
       <a href="#main-content" className="skip">Skip to content</a>
       <Rail />
       <Reveal />
+      <ScrollProgress />
+      <CountUp />
       <main id="main-content" tabIndex={-1} className="content">
         {/* HERO */}
         <section id="hero" className="sec hero">

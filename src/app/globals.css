@@ -423,6 +423,21 @@ img { max-width: 100%; display: block; }
 body { transition: background-color 0.4s var(--ease), color 0.4s var(--ease); }
 .pcard:hover, .feat:hover { box-shadow: 0 20px 44px -26px color-mix(in srgb, var(--ink) 42%, transparent); }
 
+/* Reading-progress bar */
+#scroll-progress {
+  position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 300;
+  background: linear-gradient(90deg, var(--a), var(--a-2));
+  transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform 0.08s linear; pointer-events: none;
+}
+
+/* Subtle "open link" arrow that slides in on card hover */
+.feat__body h3::after, .pcard__head h4::after {
+  content: "↗"; display: inline-block; margin-left: 0.28em; color: var(--a-2); font-weight: 600;
+  opacity: 0; transform: translate(-4px, 2px); transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.feat:hover .feat__body h3::after, .pcard:hover .pcard__head h4::after { opacity: 0.75; transform: none; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
