@@ -95,6 +95,9 @@ export const metadata: Metadata = {
   other: {
     "msapplication-TileColor": "#7c2233",
   },
+  verification: {
+    google: "9aaPN77PzvyjifGzYkIwXJ7RzLDmgfWaYGhRUQhzTHk",
+  },
 };
 
 const jsonLd = {
