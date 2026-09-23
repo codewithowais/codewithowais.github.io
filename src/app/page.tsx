@@ -4,6 +4,7 @@ import CopyEmail from "@/components/CopyEmail";
 import Reveal from "@/components/Reveal";
 import ScrollProgress from "@/components/ScrollProgress";
 import CountUp from "@/components/CountUp";
+import CommandPalette from "@/components/CommandPalette";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Reveal />
       <ScrollProgress />
       <CountUp />
+      <CommandPalette />
       <main id="main-content" tabIndex={-1} className="content">
         {/* HERO */}
         <section id="hero" className="sec hero">

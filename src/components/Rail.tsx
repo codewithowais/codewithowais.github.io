@@ -83,6 +83,17 @@ export default function Rail() {
       <div className="rail__role">Staff Software Engineer</div>
       <div className="status"><span className="d" /> Open to work</div>
 
+      <button
+        className="rail__search"
+        type="button"
+        onClick={() => window.dispatchEvent(new CustomEvent("open-cmdk"))}
+        aria-label="Open command menu"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
+        <span>Search</span>
+        <kbd>⌘K</kbd>
+      </button>
+
       <nav className="idx" id="rail-nav" aria-label="Sections">
         {SECTIONS.map(([id, n, label]) => (
           <a key={id} href={`#${id}`} aria-current={active === id ? "location" : undefined} className={active === id ? "on" : ""} onClick={() => setMenuOpen(false)}>

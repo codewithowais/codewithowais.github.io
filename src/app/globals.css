@@ -333,6 +333,7 @@ img { max-width: 100%; display: block; }
 
   /* collapsible menu — reveal animation when open */
   .rail.is-open .status { animation: menuIn 0.28s var(--ease) both; }
+  .rail.is-open .rail__search { animation: menuIn 0.28s var(--ease) 0.045s both; }
   .rail.is-open .idx { animation: menuIn 0.28s var(--ease) 0.03s both; }
   .rail.is-open .rail__foot { animation: menuIn 0.28s var(--ease) 0.06s both; }
 
@@ -453,8 +454,55 @@ body { transition: background-color 0.4s var(--ease), color 0.4s var(--ease); }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 
+/* ---- Command palette (⌘K) ---- */
+.rail__search {
+  display: flex; align-items: center; gap: 0.55rem; width: 100%;
+  margin: 1.4rem 0 0.1rem; padding: 0.55rem 0.7rem;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  color: var(--muted); font-family: var(--font-hanken); font-size: 0.86rem;
+  cursor: pointer; transition: border-color 0.2s var(--ease), color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.rail__search:hover, .rail__search:focus-visible { border-color: var(--a); color: var(--ink-2); box-shadow: 0 8px 22px -16px color-mix(in srgb, var(--ink) 50%, transparent); }
+.rail__search svg { color: var(--faint); flex: none; }
+.rail__search span { flex: 1; text-align: left; }
+.rail__search kbd, .cmdk kbd {
+  font-family: var(--font-jetbrains); font-size: 0.62rem; letter-spacing: 0.03em; color: var(--muted);
+  background: color-mix(in srgb, var(--ink) 7%, transparent); border: 1px solid var(--line);
+  border-radius: 5px; padding: 0.14em 0.42em; line-height: 1;
+}
+
+.cmdk {
+  position: fixed; inset: 0; z-index: 400; display: flex; align-items: flex-start; justify-content: center;
+  padding: 13vh 1rem 1rem; background: color-mix(in srgb, var(--ink) 42%, transparent); backdrop-filter: blur(3px);
+}
+.cmdk__panel {
+  width: min(560px, 100%); background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.5); overflow: hidden;
+}
+.cmdk__search { display: flex; align-items: center; gap: 0.65rem; padding: 0 1.1rem; border-bottom: 1px solid var(--line); }
+.cmdk__search > svg { color: var(--muted); flex: none; }
+.cmdk__input { flex: 1; min-width: 0; border: none; background: transparent; outline: none; padding: 1.05rem 0; font-family: var(--font-hanken); font-size: 1.02rem; color: var(--ink); }
+.cmdk__input::placeholder { color: var(--faint); }
+.cmdk__esc { flex: none; }
+.cmdk__list { list-style: none; margin: 0; padding: 0.4rem; max-height: 46vh; overflow-y: auto; }
+.cmdk__item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.62rem 0.85rem; border-radius: 9px; cursor: pointer; color: var(--ink-2); font-size: 0.95rem; }
+.cmdk__item.is-active { background: color-mix(in srgb, var(--a) 12%, transparent); color: var(--a-2); }
+.cmdk__kind { font-family: var(--font-jetbrains); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--faint); }
+.cmdk__item.is-active .cmdk__kind { color: var(--a-2); }
+.cmdk__empty { padding: 1rem 0.85rem; color: var(--muted); font-size: 0.92rem; }
+.cmdk__foot { display: flex; gap: 1.3rem; padding: 0.6rem 1.1rem; border-top: 1px solid var(--line); font-family: var(--font-jetbrains); font-size: 0.62rem; color: var(--faint); }
+.cmdk__foot span { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .cmdk { animation: cmdkFade 0.16s var(--ease); }
+  .cmdk__panel { animation: cmdkPop 0.18s var(--ease); }
+}
+@keyframes cmdkFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cmdkPop { from { opacity: 0; transform: translateY(-10px) scale(0.98); } to { opacity: 1; transform: none; } }
+
 /* PRINT — clean one-file leave-behind for recruiters */
 @media print {
+  .rail__search, .cmdk { display: none !important; }
   :root, :root[data-theme="dark"] {
     --paper: #fff; --card: #fff; --ink: #111; --ink-2: #222; --muted: #444; --faint: #666;
     --line: #ccc; --line-2: #bbb; --a: #7c2233; --a-2: #7c2233; --a-tint: #f0e4e2;
