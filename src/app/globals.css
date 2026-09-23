@@ -140,7 +140,7 @@ img { max-width: 100%; display: block; }
 .feat__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
 .feat:hover .feat__media img { transform: scale(1.03); }
 .feat__body { padding: clamp(1.4rem, 3vw, 2.4rem) clamp(1.4rem,3vw,2.4rem) clamp(1.4rem,3vw,2.4rem) 0; }
-.feat { transition: border-color 0.25s; }
+.feat { transition: border-color 0.25s, box-shadow 0.3s; }
 .feat:hover { border-color: var(--a); }
 .feat + .feat, .feat + .casestudy, .casestudy + .feat { margin-top: clamp(1.2rem, 2.5vw, 1.8rem); }
 .feat--reverse { grid-template-columns: 0.95fr 1.05fr; }
@@ -165,7 +165,7 @@ img { max-width: 100%; display: block; }
 .feat p { color: var(--muted); margin: 0 0 1rem; max-width: 46ch; text-wrap: pretty; }
 
 .cards { margin-top: clamp(1.2rem,2.5vw,1.8rem); display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1rem,2vw,1.5rem); }
-.pcard { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); text-decoration: none; transition: border-color 0.25s, transform 0.25s; }
+.pcard { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); text-decoration: none; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; }
 .pcard:hover, .pcard:focus-visible { border-color: var(--a); transform: translateY(-3px); }
 .feat:focus-visible { border-color: var(--a); }
 .pcard__media { position: relative; overflow: hidden; aspect-ratio: 16/10; border-bottom: 1px solid var(--line); }
@@ -390,6 +390,39 @@ img { max-width: 100%; display: block; }
   .hero .eyebrow { letter-spacing: 0.08em; }
   .hero .eyebrow::before { display: none; }
 }
+/* ---- Entrance & scroll-reveal motion (progressive enhancement) ----
+   The hidden state is armed by a pre-paint inline script (html.reveal-init) so
+   there is no flash, and only when motion is allowed. JS (Reveal.tsx) adds .in
+   as elements enter view; even if a transition can't animate, the end state is
+   visible. No-JS / reduced-motion / the script's own failsafe all render fully
+   visible, so content can never get stuck hidden. */
+@media (prefers-reduced-motion: no-preference) {
+  html.reveal-init :is(#hero > *, .sec:not(.hero) .eyebrow, .big, .feat, .casestudy, .exp__row, .spec__group, .prose p, #teaching .facts, .more, .cards, .contact__card) {
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    will-change: opacity, transform;
+  }
+  html.reveal-init :is(#hero > *, .sec:not(.hero) .eyebrow, .big, .feat, .casestudy, .exp__row, .spec__group, .prose p, #teaching .facts, .more, .cards, .contact__card).in {
+    opacity: 1; transform: none;
+  }
+  /* hero: gentle staggered load-in */
+  html.reveal-init #hero > *:nth-child(2) { transition-delay: 0.06s; }
+  html.reveal-init #hero > *:nth-child(3) { transition-delay: 0.13s; }
+  html.reveal-init #hero > *:nth-child(4) { transition-delay: 0.20s; }
+  html.reveal-init #hero > *:nth-child(5) { transition-delay: 0.27s; }
+  html.reveal-init #hero > *:nth-child(6) { transition-delay: 0.33s; }
+  /* skills grid cascade */
+  html.reveal-init .spec__group:nth-child(2) { transition-delay: 0.05s; }
+  html.reveal-init .spec__group:nth-child(3) { transition-delay: 0.10s; }
+  html.reveal-init .spec__group:nth-child(4) { transition-delay: 0.15s; }
+  html.reveal-init .spec__group:nth-child(5) { transition-delay: 0.20s; }
+  html.reveal-init .spec__group:nth-child(6) { transition-delay: 0.25s; }
+}
+
+/* Smooth theme change + a touch more depth on card hover */
+body { transition: background-color 0.4s var(--ease), color 0.4s var(--ease); }
+.pcard:hover, .feat:hover { box-shadow: 0 20px 44px -26px color-mix(in srgb, var(--ink) 42%, transparent); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }

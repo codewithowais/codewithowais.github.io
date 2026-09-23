@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Rail from "@/components/Rail";
 import CopyEmail from "@/components/CopyEmail";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
     <div className="shell">
       <a href="#main-content" className="skip">Skip to content</a>
       <Rail />
+      <Reveal />
       <main id="main-content" tabIndex={-1} className="content">
         {/* HERO */}
         <section id="hero" className="sec hero">

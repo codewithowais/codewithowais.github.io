@@ -273,6 +273,10 @@ const jsonLd = {
 
 const themeScript = `(function(){try{var t=localStorage.getItem('owais-theme')||'light';document.documentElement.setAttribute('data-theme',t);var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',t==='dark'?'#14130f':'#f3f2ee');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;
 
+// Arm scroll-reveal before first paint (no flash), only when motion is allowed.
+// Failsafe un-hides everything if the reveal JS never takes over.
+const revealScript = `(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var r=document.documentElement;r.classList.add('reveal-init');window.__revealFailsafe=setTimeout(function(){r.classList.remove('reveal-init');},4000);}catch(e){}})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -287,6 +291,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="me" href="https://www.linkedin.com/in/codewithowais/" />
         <link rel="me" href="mailto:codewithowais@gmail.com" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: revealScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
