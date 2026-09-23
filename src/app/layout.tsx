@@ -21,25 +21,26 @@ const jetbrains = JetBrains_Mono({
 });
 
 const SITE = "https://codewithowais.github.io";
+const SITE_URL = `${SITE}/`; // canonical form (trailingSlash: true) — must match og:url
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
-  title: "Muhammad Owais Ahmed — Staff Software Engineer | codewithowais",
+  title: "Muhammad Owais Ahmed — Staff Software Engineer, Karachi",
   description:
-    "Muhammad Owais Ahmed (codewithowais) — Staff Software Engineer in Karachi. Full-Stack (Angular, React, Node, .NET) & Flutter. Founding engineer at SimpliEd.",
+    "Muhammad Owais Ahmed (codewithowais) — Staff Software Engineer & Flutter developer in Karachi, Pakistan. Full-stack Angular/React/Node/.NET. Founding engineer at SimpliEd. Open to Gulf roles.",
   keywords: [
     "Muhammad Owais Ahmed", "codewithowais", "Staff Software Engineer", "Full-Stack Developer",
-    "Flutter Developer", "Angular", "React", "Node.js", ".NET", "Karachi", "Pakistan", "SimpliEd",
-    "Gulf", "UAE", "KSA", "Saudi Arabia", "software engineer for hire",
+    "Flutter Developer", "Flutter developer Karachi", "Angular", "React", "Node.js", ".NET", "Karachi", "Pakistan", "SimpliEd",
+    "Gulf", "UAE", "Dubai", "KSA", "Saudi Arabia", "software engineer for hire",
   ],
-  authors: [{ name: "Muhammad Owais Ahmed", url: SITE }],
+  authors: [{ name: "Muhammad Owais Ahmed", url: SITE_URL }],
   creator: "Muhammad Owais Ahmed",
   publisher: "Muhammad Owais Ahmed",
   category: "technology",
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
-    url: SITE,
+    url: SITE_URL,
     locale: "en_US",
     title: "Muhammad Owais Ahmed — Staff Software Engineer",
     description:
@@ -109,34 +110,55 @@ const jsonLd = {
       jobTitle: "Staff Software Engineer",
       description:
         "Staff Software Engineer with 6 years of experience shipping production web and mobile products across Angular, React, Node.js, .NET and Flutter. Founding engineer at SimpliEd and Flutter instructor at Jawan Pakistan.",
-      url: SITE,
+      url: SITE_URL,
       mainEntityOfPage: { "@id": `${SITE}/#profilepage` },
       image: `${SITE}/img/profilepic.jpg`,
       email: "mailto:codewithowais@gmail.com",
       telephone: "+92-316-9585886",
       nationality: { "@type": "Country", name: "Pakistan" },
       knowsLanguage: ["English", "Urdu"],
-      address: { "@type": "PostalAddress", addressLocality: "Karachi", addressCountry: "PK" },
+      address: { "@type": "PostalAddress", addressLocality: "Karachi", addressRegion: "Sindh", addressCountry: "PK" },
       homeLocation: { "@type": "Place", name: "Karachi, Pakistan" },
-      hasOccupation: {
-        "@type": "Occupation",
-        name: "Software Engineer",
-        occupationalCategory: "15-1252.00 Software Developers",
-        skills:
-          "Full-Stack Web Development, Flutter, Angular, React, Node.js, .NET Core, TypeScript, AWS, System Design, AI integration",
+      disambiguatingDescription: "Staff Software Engineer and Flutter instructor in Karachi, Pakistan; founding engineer at SimpliEd.",
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "Hiring and project inquiries",
+        email: "codewithowais@gmail.com",
+        telephone: "+92-316-9585886",
+        availableLanguage: ["English", "Urdu"],
+        areaServed: ["Remote worldwide", "Pakistan", "United Arab Emirates", "Saudi Arabia"],
       },
+      seeks: {
+        "@type": "Demand",
+        name: "Full-time, contract, or freelance software engineering roles",
+        eligibleRegion: ["Remote worldwide", "Pakistan", "United Arab Emirates", "Saudi Arabia"],
+        description: "Open to relocation to the Gulf (UAE / KSA) with visa sponsorship; around 30 days' notice.",
+      },
+      hasOccupation: [
+        {
+          "@type": "Occupation",
+          name: "Software Engineer",
+          occupationalCategory: "15-1252.00 Software Developers",
+          skills:
+            "Full-Stack Web Development, Flutter, Angular, React, Node.js, .NET Core, TypeScript, AWS, System Design, AI integration",
+          occupationLocation: [
+            { "@type": "City", name: "Karachi" },
+            { "@type": "Country", name: "United Arab Emirates" },
+            { "@type": "Country", name: "Saudi Arabia" },
+          ],
+        },
+        {
+          "@type": "Occupation",
+          name: "Software Development Instructor",
+          occupationalCategory: "25-1021.00 Computer Science Teachers, Postsecondary",
+          skills: "Flutter, Dart, mobile app development, curriculum design, mentorship",
+        },
+      ],
       worksFor: [
         {
           "@type": "OrganizationRole",
-          roleName: "Staff Software Engineer",
-          startDate: "2026-09",
-          worksFor: { "@id": `${SITE}/#simplied` },
-        },
-        {
-          "@type": "OrganizationRole",
-          roleName: "Founding Engineer",
+          roleName: "Staff Software Engineer (Founding Engineer)",
           startDate: "2022-06",
-          endDate: "2026-09",
           worksFor: { "@id": `${SITE}/#simplied` },
         },
         {
@@ -153,11 +175,17 @@ const jsonLd = {
           worksFor: { "@id": `${SITE}/#dawateislami` },
         },
       ],
-      alumniOf: {
-        "@type": "CollegeOrUniversity",
-        name: "Virtual University of Pakistan",
-        url: "https://www.vu.edu.pk/",
-      },
+      alumniOf: [
+        {
+          "@type": "CollegeOrUniversity",
+          name: "Virtual University of Pakistan",
+          url: "https://www.vu.edu.pk/",
+        },
+        {
+          "@type": "EducationalOrganization",
+          name: "Superior Govt College, Karachi",
+        },
+      ],
       makesOffer: [
         {
           "@type": "Offer",
@@ -175,6 +203,7 @@ const jsonLd = {
             name: "Flutter training & mentorship",
             serviceType: "Developer training, workshops and 1:1 mentorship",
           },
+          areaServed: ["Remote worldwide", "Pakistan"],
         },
       ],
       subjectOf: {
@@ -182,7 +211,11 @@ const jsonLd = {
         name: "Muhammad Owais Ahmed — Résumé",
         url: `${SITE}/muhammad-owais-ahmed-resume.pdf`,
       },
-      sameAs: ["https://github.com/codewithowais", "https://www.linkedin.com/in/codewithowais/"],
+      sameAs: [
+        "https://github.com/codewithowais",
+        "https://www.linkedin.com/in/codewithowais/",
+        SITE_URL,
+      ],
       knowsAbout: [
         "Full-Stack Development", "Angular", "React", "Node.js", ".NET Core", "Flutter",
         "TypeScript", "AWS", "MongoDB", "AI integration", "System Design",
@@ -193,7 +226,7 @@ const jsonLd = {
       "@id": `${SITE}/#simplied`,
       name: "SimpliEd",
       url: "https://simpliedtech.com",
-      description: "EdTech / school-management platform serving 25,000+ users across 10 institutions.",
+      description: "EdTech / school-management platform serving 25,000+ users across 10 schools.",
     },
     {
       "@type": "EducationalOrganization",
@@ -210,7 +243,7 @@ const jsonLd = {
     {
       "@type": "WebSite",
       "@id": `${SITE}/#website`,
-      url: SITE,
+      url: SITE_URL,
       name: "Muhammad Owais Ahmed",
       inLanguage: "en-US",
       publisher: { "@id": `${SITE}/#person` },
@@ -218,9 +251,10 @@ const jsonLd = {
     {
       "@type": "ProfilePage",
       "@id": `${SITE}/#profilepage`,
-      url: SITE,
+      url: SITE_URL,
       name: "Muhammad Owais Ahmed — Staff Software Engineer",
-      dateModified: "2026-09-15",
+      datePublished: "2026-09-15",
+      dateModified: "2026-09-23",
       inLanguage: "en-US",
       about: { "@id": `${SITE}/#person` },
       mainEntity: { "@id": `${SITE}/#person` },
@@ -238,6 +272,11 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
+          name: "Who is Muhammad Owais Ahmed (codewithowais)?",
+          acceptedAnswer: { "@type": "Answer", text: "Muhammad Owais Ahmed, known online as codewithowais, is a Staff Software Engineer in Karachi, Pakistan with 6 years of experience. He is the founding engineer at the EdTech platform SimpliEd (25,000+ users across 10 schools) and the Flutter instructor at Jawan Pakistan, where he has trained 1,200+ developers across 11 cohorts." },
+        },
+        {
+          "@type": "Question",
           name: "Is he available for freelance or full-time work?",
           acceptedAnswer: { "@type": "Answer", text: "Yes. I take on full-time roles and freelance or contract work (remote, hybrid, or on-site), and I'm open to relocating to the Gulf (UAE / KSA) for the right role, with visa sponsorship welcome and around 30 days' notice." },
         },
@@ -248,8 +287,18 @@ const jsonLd = {
         },
         {
           "@type": "Question",
+          name: "Is he a good Flutter developer to hire in Karachi or Pakistan?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. I built and teach the Flutter curriculum at Jawan Pakistan (1,200+ developers across 11 cohorts), and I ship production Flutter apps, including SimpliEd's QR-attendance and parent apps used every day by thousands of families." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I hire a full-stack engineer in the Gulf (Dubai, UAE, or Saudi Arabia)?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. I'm open to relocating to the Gulf, including Dubai (UAE) and Saudi Arabia (KSA), for full-time or contract roles, with visa sponsorship welcome and around 30 days' notice. I also work fully remote." },
+        },
+        {
+          "@type": "Question",
           name: "Can he lead a team or own a product solo?",
-          acceptedAnswer: { "@type": "Answer", text: "Both. At SimpliEd I built the first version alone and now lead a team of five — I set the architecture, review the code, and stay hands-on shipping." },
+          acceptedAnswer: { "@type": "Answer", text: "Both. At SimpliEd I built the first version alone and now lead a team of five. I set the architecture, review the code, and stay hands-on shipping." },
         },
         {
           "@type": "Question",
@@ -259,14 +308,64 @@ const jsonLd = {
         {
           "@type": "Question",
           name: "Does he offer training or mentorship?",
-          acceptedAnswer: { "@type": "Answer", text: "Yes. Flutter courses, team workshops and 1:1 mentorship — I've trained 1,200+ developers to date." },
-        },
-        {
-          "@type": "Question",
-          name: "Is he open to on-site work in the UAE or Saudi Arabia?",
-          acceptedAnswer: { "@type": "Answer", text: "Yes. I'm open to relocating on-site to the Gulf with visa sponsorship, and I also work fully remote. Typical notice is around 30 days." },
+          acceptedAnswer: { "@type": "Answer", text: "Yes. Flutter courses, team workshops and 1:1 mentorship. I've trained 1,200+ developers so far." },
         },
       ],
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "SimpliEd",
+      applicationCategory: "EducationApplication",
+      operatingSystem: "Web, iOS, Android",
+      url: "https://simpliedtech.com",
+      author: { "@id": `${SITE}/#person` },
+      description: "School-management EdTech platform serving 25,000+ users across 10 schools: attendance, fee invoicing, announcements and a full LMS across web and mobile.",
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      name: "Ledgerly",
+      codeRepository: "https://github.com/codewithowais/expense-tracker",
+      programmingLanguage: ["TypeScript"],
+      runtimePlatform: "Next.js",
+      author: { "@id": `${SITE}/#person` },
+      description: "Offline-first, privacy-first finance PWA with an AI assistant that turns receipts and statements into clean transactions.",
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      name: "AI Study Partner",
+      codeRepository: "https://github.com/codewithowais/ai-study-planner",
+      programmingLanguage: ["TypeScript"],
+      runtimePlatform: "Next.js",
+      author: { "@id": `${SITE}/#person` },
+      description: "Open-source, local-first study app that turns your own PDFs and notes into a course with quizzes and revision, using a local AI companion.",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "DevPath",
+      applicationCategory: "EducationApplication",
+      operatingSystem: "Web Browser",
+      url: "https://dev-path-by-codewithowais.vercel.app",
+      author: { "@id": `${SITE}/#person` },
+      description: "Beginner-friendly learning platform with 200+ runnable lessons and a live 'Watch it sort' algorithm visualizer.",
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      name: "InvoiceBook",
+      codeRepository: "https://github.com/codewithowais/InvoiceBook",
+      programmingLanguage: ["TypeScript"],
+      runtimePlatform: "Next.js",
+      author: { "@id": `${SITE}/#person` },
+      description: "Full-stack invoicing SaaS: invoices, proof-of-payment, automatic monthly recurring billing, PDF export, roles, reminders and an audit log.",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "CrispCast",
+      applicationCategory: "MultimediaApplication",
+      operatingSystem: "macOS, Windows, Linux",
+      url: "https://codewithowais.github.io/CrispCast/",
+      license: "https://opensource.org/licenses/MIT",
+      author: { "@id": `${SITE}/#person` },
+      description: "Cross-platform desktop screen recorder that captures system audio and an isolated mic, denoises the voice, and merges everything into one clean MP4, fully offline.",
     },
   ],
 };

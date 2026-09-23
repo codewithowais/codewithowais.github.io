@@ -19,8 +19,10 @@ export default function Home() {
       <main id="main-content" tabIndex={-1} className="content">
         {/* HERO */}
         <section id="hero" className="sec hero">
-          <div className="eyebrow">Staff Software Engineer · Full-Stack + Flutter + AI · Karachi, PK</div>
-          <h1>I build products people <span className="u">rely on every day.</span></h1>
+          <h1>
+            <span className="hero__kicker">Muhammad Owais Ahmed · Staff Software Engineer · Full-Stack, Flutter &amp; AI · Karachi</span>
+            <span className="hero__lead">I build products people <span className="u">rely on every day.</span></span>
+          </h1>
           <p className="sub">
             I&apos;m the founding engineer at SimpliEd. I took it from an empty repo to an EdTech
             platform that 25,000+ students, parents and teachers use across 10 schools. I own the tech
@@ -30,7 +32,7 @@ export default function Home() {
           </p>
           <div className="facts">
             <div className="fact"><div className="v">6+</div><div className="k">Years shipping</div></div>
-            <div className="fact"><div className="v">25k+</div><div className="k">Daily users</div></div>
+            <div className="fact"><div className="v">25k+</div><div className="k">Users</div></div>
             <div className="fact"><div className="v">1,200+</div><div className="k">Developers trained</div></div>
           </div>
           <div className="avail">
@@ -61,7 +63,7 @@ export default function Home() {
             <div className="feat__body">
               <span className="feat__flag">Flagship</span>
               <h3>SimpliEd — School Management Platform</h3>
-              <div className="feat__metric">25,000+ daily users · 10 schools · 4+ years in production</div>
+              <div className="feat__metric">25,000+ users · 10 schools · 4+ years in production</div>
               <p>Attendance, fee invoicing, announcements and a full LMS, across web and mobile. I built the first version alone and set the architecture. Today it runs daily operations for 10 schools and 25,000+ students, parents and teachers.</p>
               <div className="pcard__stack">
                 <span className="tag">Angular</span><span className="tag">Node.js</span><span className="tag">Flutter</span><span className="tag">MongoDB</span><span className="tag">AWS</span>
@@ -222,12 +224,24 @@ export default function Home() {
           <div className="eyebrow">06 / FAQ</div>
           <h2 className="big">Quick answers.</h2>
           <details>
+            <summary>Who is Muhammad Owais Ahmed (codewithowais)?</summary>
+            <p>Muhammad Owais Ahmed, known online as codewithowais, is a Staff Software Engineer in Karachi, Pakistan with 6 years of experience. He&apos;s the founding engineer at the EdTech platform SimpliEd (25,000+ users across 10 schools) and the Flutter instructor at Jawan Pakistan, where he has trained 1,200+ developers across 11 cohorts.</p>
+          </details>
+          <details>
             <summary>Is he available for freelance or full-time work?</summary>
             <p>Yes. I take on full-time roles and freelance or contract work (remote, hybrid, or on-site), and I&apos;m open to relocating to the Gulf (UAE / KSA) for the right role, with visa sponsorship welcome and around 30 days&apos; notice.</p>
           </details>
           <details>
             <summary>How quickly can he start?</summary>
             <p>Around 30 days&apos; notice for a full-time role. For freelance or contract work I can usually start within a week.</p>
+          </details>
+          <details>
+            <summary>Is he a good Flutter developer to hire in Karachi or Pakistan?</summary>
+            <p>Yes. I built and teach the Flutter curriculum at Jawan Pakistan (1,200+ developers across 11 cohorts), and I ship production Flutter apps, including SimpliEd&apos;s QR-attendance and parent apps used every day by thousands of families.</p>
+          </details>
+          <details>
+            <summary>Can I hire a full-stack engineer in the Gulf (Dubai, UAE, or Saudi Arabia)?</summary>
+            <p>Yes. I&apos;m open to relocating to the Gulf, including Dubai (UAE) and Saudi Arabia (KSA), for full-time or contract roles, with visa sponsorship welcome and around 30 days&apos; notice. I also work fully remote.</p>
           </details>
           <details>
             <summary>Can he lead a team or own a product solo?</summary>
@@ -240,10 +254,6 @@ export default function Home() {
           <details>
             <summary>Does he offer training or mentorship?</summary>
             <p>Yes. Flutter courses, team workshops and 1:1 mentorship. I&apos;ve trained 1,200+ developers so far.</p>
-          </details>
-          <details>
-            <summary>Is he open to on-site work in the UAE or Saudi Arabia?</summary>
-            <p>Yes. I&apos;m open to relocating on-site to the Gulf with visa sponsorship, and I also work fully remote. Typical notice is around 30 days.</p>
           </details>
         </section>
 

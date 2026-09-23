@@ -118,7 +118,9 @@ img { max-width: 100%; display: block; }
 
 /* HERO */
 .hero { padding-top: clamp(3rem, 9vh, 6rem); }
-.hero h1 { font-family: var(--font-schibsted); font-weight: 800; font-size: clamp(2.3rem, 5vw, 4.3rem); line-height: 1.04; letter-spacing: -0.03em; margin: 0; text-wrap: balance; max-width: 15ch; }
+.hero h1 { margin: 0; }
+.hero__kicker { display: block; font-family: var(--font-jetbrains); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--a-2); line-height: 1.5; margin-bottom: 1.4rem; }
+.hero__lead { display: block; font-family: var(--font-schibsted); font-weight: 800; font-size: clamp(2.3rem, 5vw, 4.3rem); line-height: 1.04; letter-spacing: -0.03em; text-wrap: balance; max-width: 15ch; }
 .hero h1 .u { background-image: linear-gradient(var(--a), var(--a)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 0.09em; padding-bottom: 0.02em; }
 .hero .sub { margin-top: 1.6rem; font-size: clamp(1.05rem, 1.4vw, 1.28rem); color: var(--ink-2); max-width: 54ch; line-height: 1.6; text-wrap: pretty; }
 .hero .now { margin-top: 1.1rem; font-family: var(--font-jetbrains); font-size: 0.8rem; color: var(--muted); }
@@ -264,7 +266,7 @@ img { max-width: 100%; display: block; }
 @media (min-width: 1440px) {
   .shell { grid-template-columns: 380px 1fr; }
   .content { padding: 0 clamp(4rem, 4.5vw, 6.5rem); }
-  .hero h1 { font-size: 4.9rem; }
+  .hero__lead { font-size: 4.9rem; }
   .hero .sub { font-size: 1.36rem; max-width: 58ch; }
   .facts { gap: 3rem; }
   .fact .v { font-size: 2.9rem; }
@@ -388,8 +390,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 600px) {
-  .hero .eyebrow { letter-spacing: 0.08em; }
-  .hero .eyebrow::before { display: none; }
+  .hero__kicker { letter-spacing: 0.08em; }
 }
 /* ---- Entrance & scroll-reveal motion (progressive enhancement) ----
    The hidden state is armed by a pre-paint inline script (html.reveal-init) so
@@ -398,20 +399,22 @@ img { max-width: 100%; display: block; }
    visible. No-JS / reduced-motion / the script's own failsafe all render fully
    visible, so content can never get stuck hidden. */
 @media (prefers-reduced-motion: no-preference) {
-  html.reveal-init :is(#hero > *, .sec:not(.hero) .eyebrow, .big, .feat, .casestudy, .exp__row, .spec__group, .prose p, #teaching .facts, .more, .cards, .contact__card) {
+  /* NOTE: the hero <h1> is deliberately NOT hidden — it is the LCP element and
+     must paint at first render for Core Web Vitals. Only the supporting hero
+     lines and below-the-fold sections animate in. */
+  html.reveal-init :is(.hero .sub, .hero .facts, .hero .avail, .hero .now, .sec:not(.hero) .eyebrow, .big, .feat, .casestudy, .exp__row, .spec__group, .prose p, #teaching .facts, .more, .cards, .contact__card) {
     opacity: 0; transform: translateY(22px);
     transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
     will-change: opacity, transform;
   }
-  html.reveal-init :is(#hero > *, .sec:not(.hero) .eyebrow, .big, .feat, .casestudy, .exp__row, .spec__group, .prose p, #teaching .facts, .more, .cards, .contact__card).in {
+  html.reveal-init :is(.hero .sub, .hero .facts, .hero .avail, .hero .now, .sec:not(.hero) .eyebrow, .big, .feat, .casestudy, .exp__row, .spec__group, .prose p, #teaching .facts, .more, .cards, .contact__card).in {
     opacity: 1; transform: none;
   }
-  /* hero: gentle staggered load-in */
-  html.reveal-init #hero > *:nth-child(2) { transition-delay: 0.06s; }
-  html.reveal-init #hero > *:nth-child(3) { transition-delay: 0.13s; }
-  html.reveal-init #hero > *:nth-child(4) { transition-delay: 0.20s; }
-  html.reveal-init #hero > *:nth-child(5) { transition-delay: 0.27s; }
-  html.reveal-init #hero > *:nth-child(6) { transition-delay: 0.33s; }
+  /* hero supporting lines: gentle staggered load-in */
+  html.reveal-init .hero .sub { transition-delay: 0.05s; }
+  html.reveal-init .hero .facts { transition-delay: 0.13s; }
+  html.reveal-init .hero .avail { transition-delay: 0.21s; }
+  html.reveal-init .hero .now { transition-delay: 0.27s; }
   /* skills grid cascade */
   html.reveal-init .spec__group:nth-child(2) { transition-delay: 0.05s; }
   html.reveal-init .spec__group:nth-child(3) { transition-delay: 0.10s; }
@@ -419,13 +422,12 @@ img { max-width: 100%; display: block; }
   html.reveal-init .spec__group:nth-child(5) { transition-delay: 0.20s; }
   html.reveal-init .spec__group:nth-child(6) { transition-delay: 0.25s; }
 
-  /* Headline underline draws in left→right once the heading has arrived */
-  html.reveal-init .hero h1 .u,
-  html.reveal-init .contact h2 .u {
-    background-size: 0% 0.09em;
-    transition: background-size 0.85s var(--ease) 0.45s;
-  }
-  html.reveal-init .hero h1.in .u,
+  /* Hero underline draws in on load (LCP-safe — the h1 text itself is visible
+     immediately; only the underline background animates). */
+  html.reveal-init .hero h1 .u { animation: drawUnderline 0.85s var(--ease) 0.55s both; }
+  @keyframes drawUnderline { from { background-size: 0% 0.09em; } to { background-size: 100% 0.09em; } }
+  /* Contact heading underline draws when its card reveals on scroll */
+  html.reveal-init .contact h2 .u { background-size: 0% 0.09em; transition: background-size 0.85s var(--ease) 0.45s; }
   html.reveal-init .contact__card.in .u { background-size: 100% 0.09em; }
 }
 

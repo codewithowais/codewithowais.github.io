@@ -8,7 +8,7 @@ declare global {
 
 // Must match the :is(...) selector list in globals.css exactly.
 const SEL =
-  "#hero > *, .sec:not(.hero) .eyebrow, .big, .feat, .casestudy, .exp__row, .spec__group, .prose p, #teaching .facts, .more, .cards, .contact__card";
+  ".hero .sub, .hero .facts, .hero .avail, .hero .now, .sec:not(.hero) .eyebrow, .big, .feat, .casestudy, .exp__row, .spec__group, .prose p, #teaching .facts, .more, .cards, .contact__card";
 
 export default function Reveal() {
   useEffect(() => {
