@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const FILTERS: { key: string; label: string }[] = [
   { key: "all", label: "All" },
+  { key: "live", label: "Live" },
   { key: "ai", label: "AI" },
   { key: "fullstack", label: "Full-stack" },
   { key: "mobile", label: "Mobile" },
@@ -13,6 +14,7 @@ const FILTERS: { key: string; label: string }[] = [
 export default function ProjectFilter() {
   const [active, setActive] = useState("all");
   const [counts, setCounts] = useState<Record<string, number>>({});
+  const [showing, setShowing] = useState<number | null>(null);
   const barRef = useRef<HTMLDivElement | null>(null);
 
   // Count how many projects fall under each filter (for the subtle number on each chip).
@@ -28,6 +30,7 @@ export default function ProjectFilter() {
         c[f.key] = els.filter((el) => (el.dataset.cat || "").split(" ").includes(f.key)).length;
       }
       setCounts(c);
+      setShowing(els.length);
     } catch {
       /* no-op */
     }
@@ -65,6 +68,16 @@ export default function ProjectFilter() {
         el.classList.remove("pf-show");
       }
     }
+    // "Showing N" reflects real project cards only (not the case-study expander).
+    try {
+      setShowing(
+        document.querySelectorAll(
+          "#work .feat[data-cat]:not(.pf-hide), #work .pcard[data-cat]:not(.pf-hide)"
+        ).length
+      );
+    } catch {
+      /* no-op */
+    }
   }
 
   return (
@@ -81,6 +94,11 @@ export default function ProjectFilter() {
           {counts[f.key] != null && <span className="pfilter__n">{counts[f.key]}</span>}
         </button>
       ))}
+      {showing != null && (
+        <span className="pfilter__showing" aria-live="polite">
+          Showing {showing} {showing === 1 ? "project" : "projects"}
+        </span>
+      )}
     </div>
   );
 }

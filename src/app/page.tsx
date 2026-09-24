@@ -59,7 +59,7 @@ export default function Home() {
 
           <ProjectFilter />
 
-          <a className="feat" data-cat="fullstack mobile" href="https://simpliedtech.com" target="_blank" rel="noopener noreferrer">
+          <a className="feat" data-cat="fullstack mobile live" href="https://simpliedtech.com" target="_blank" rel="noopener noreferrer">
             <div className="feat__media">
               <Image src="/img/projects/simplied-platform.jpg" alt="SimpliEd school-management platform dashboard" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
             </div>
@@ -74,7 +74,7 @@ export default function Home() {
             </div>
           </a>
 
-          <details className="casestudy" data-cat="fullstack mobile">
+          <details className="casestudy" data-cat="fullstack mobile live">
             <summary>The hard calls behind SimpliEd</summary>
             <ul>
               <li><b>Node.js + MongoDB over a heavier stack:</b> one language across the API and tooling let a small team ship fast, and the flexible document model fit how differently each school structures its data.</li>
@@ -113,7 +113,7 @@ export default function Home() {
             </div>
           </a>
 
-          <a className="feat feat--reverse" data-cat="ai" href="https://codewithowais.github.io/flutter-prompt-builder/" target="_blank" rel="noopener noreferrer">
+          <a className="feat feat--reverse" data-cat="ai live" href="https://codewithowais.github.io/flutter-prompt-builder/" target="_blank" rel="noopener noreferrer">
             <div className="feat__media">
               <Image src="/img/projects/prompt-builder.jpg" alt="AI Prompt Builder — 60+ fill-in-the-blank prompt templates for code, chat, image, video and voice" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
             </div>
@@ -137,11 +137,11 @@ export default function Home() {
 
           <div className="cards">
             {[
-              { img: "devpath.jpg", t: "DevPath", type: "EdTech", m: "Live algorithm visualizer", d: "A learning hub for early-career devs: roadmaps, a career ladder, and 200+ runnable lessons. Its 'Watch it sort' player animates each algorithm straight from the lesson's own code.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app", cat: "fullstack" },
-              { img: "decidr.jpg", t: "Decidr", type: "AI · Next.js", m: "Bias-aware decisions", d: "AI decision assistant that weighs your options, surfaces the trade-offs, and flags where bias is tilting the call.", s: ["Next.js", "Supabase"], href: "https://decidr-black.vercel.app", cat: "ai fullstack" },
+              { img: "devpath.jpg", t: "DevPath", type: "EdTech", m: "Live algorithm visualizer", d: "A learning hub for early-career devs: roadmaps, a career ladder, and 200+ runnable lessons. Its 'Watch it sort' player animates each algorithm straight from the lesson's own code.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app", cat: "fullstack live" },
+              { img: "decidr.jpg", t: "Decidr", type: "AI · Next.js", m: "Bias-aware decisions", d: "AI decision assistant that weighs your options, surfaces the trade-offs, and flags where bias is tilting the call.", s: ["Next.js", "Supabase"], href: "https://decidr-black.vercel.app", cat: "ai fullstack live" },
               { img: "cadence.jpg", t: "Cadence", type: "AI video", m: "Prompt-native editing", d: "A prompt-native video editor: describe the cut you want and an AI director edits the footage for you.", s: ["Next.js", "AI"], href: "https://github.com/codewithowais/Cadence", cat: "ai" },
               { img: "shanghai.jpg", t: "Shanghai Trip Assistant", type: "Mobile · Flutter", m: "Offline · on-device translation", d: "An offline-first travel app: on-device EN↔中文 translation, a PIN/biometric document vault, expenses and itinerary. Everything works with no signal.", s: ["Flutter", "ML Kit"], href: "https://github.com/codewithowais/china-trip-app", cat: "mobile opensource" },
-              { img: "agentic.jpg", t: "Agentic AI Course", type: "Teaching", m: "16-week course", d: "A hands-on course on building AI agents, from your first tool-using agent to full multi-agent systems.", s: ["LangGraph", "Python"], href: "https://codewithowais.github.io/agentic-ai/", cat: "ai" },
+              { img: "agentic.jpg", t: "Agentic AI Course", type: "Teaching", m: "16-week course", d: "A hands-on course on building AI agents, from your first tool-using agent to full multi-agent systems.", s: ["LangGraph", "Python"], href: "https://codewithowais.github.io/agentic-ai/", cat: "ai live" },
               { img: "invoicebook.jpg", t: "InvoiceBook", type: "SaaS · Full-stack", m: "Recurring billing + PDF", d: "Team invoicing: create invoices, attach proof of payment, and auto-generate monthly recurring bills. Roles, reminders, an audit log, and PDF export.", s: ["Next.js", "Postgres"], href: "https://github.com/codewithowais/InvoiceBook", cat: "fullstack" },
               { img: "crispcast.jpg", t: "CrispCast", type: "Desktop · Electron", m: "Offline screen recorder", d: "A cross-platform screen recorder that captures system audio and an isolated mic, cleans up your voice, and merges it into one crisp MP4. Fully offline.", s: ["Electron", "ffmpeg"], href: "https://github.com/codewithowais/CrispCast", cat: "opensource" },
             ].map((p) => (
@@ -174,7 +174,7 @@ export default function Home() {
               <div>
                 <div className="exp__place">SimpliEd</div>
                 <div className="exp__title">Staff Software Engineer (Founding Engineer)</div>
-                <p className="exp__impact">Took an EdTech platform from an empty repo to <b>25,000+ daily users across 10 schools</b>, and still run it end to end.</p>
+                <p className="exp__impact">Took an EdTech platform from an empty repo to <b>25,000+ users across 10 schools</b>, and still run it end to end.</p>
                 <ul>
                   <li>Set the platform&apos;s <strong>technical direction and coding standards</strong>, and lead architecture and code review for a team of five.</li>
                   <li>Chose the stack it runs on: a Node.js + MongoDB backend and Docker CI/CD on AWS (EC2/RDS/S3), with trade-offs a small team can maintain for years.</li>
