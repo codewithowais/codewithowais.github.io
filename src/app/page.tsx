@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import ScrollProgress from "@/components/ScrollProgress";
 import CountUp from "@/components/CountUp";
 import CommandPalette from "@/components/CommandPalette";
+import ProjectFilter from "@/components/ProjectFilter";
 
 export default function Home() {
   return (
@@ -56,7 +57,9 @@ export default function Home() {
           <div className="eyebrow">02 / Selected work</div>
           <h2 className="big">Products I&apos;ve shipped end to end.</h2>
 
-          <a className="feat" href="https://simpliedtech.com" target="_blank" rel="noopener noreferrer">
+          <ProjectFilter />
+
+          <a className="feat" data-cat="fullstack mobile" href="https://simpliedtech.com" target="_blank" rel="noopener noreferrer">
             <div className="feat__media">
               <Image src="/img/projects/simplied-platform.jpg" alt="SimpliEd school-management platform dashboard" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
             </div>
@@ -71,7 +74,7 @@ export default function Home() {
             </div>
           </a>
 
-          <details className="casestudy">
+          <details className="casestudy" data-cat="fullstack mobile">
             <summary>The hard calls behind SimpliEd</summary>
             <ul>
               <li><b>Node.js + MongoDB over a heavier stack:</b> one language across the API and tooling let a small team ship fast, and the flexible document model fit how differently each school structures its data.</li>
@@ -80,7 +83,7 @@ export default function Home() {
             </ul>
           </details>
 
-          <a className="feat feat--reverse" href="https://github.com/codewithowais/expense-tracker" target="_blank" rel="noopener noreferrer">
+          <a className="feat feat--reverse" data-cat="ai fullstack opensource" href="https://github.com/codewithowais/expense-tracker" target="_blank" rel="noopener noreferrer">
             <div className="feat__media">
               <Image src="/img/projects/ledgerly-dashboard.jpg" alt="Ledgerly finance app dashboard" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
             </div>
@@ -95,7 +98,7 @@ export default function Home() {
             </div>
           </a>
 
-          <a className="feat" href="https://github.com/codewithowais/ai-study-planner" target="_blank" rel="noopener noreferrer">
+          <a className="feat" data-cat="ai fullstack opensource" href="https://github.com/codewithowais/ai-study-planner" target="_blank" rel="noopener noreferrer">
             <div className="feat__media">
               <Image src="/img/projects/ai-study-partner.jpg" alt="AI Study Partner — open-source, local-first AI study app" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
             </div>
@@ -112,14 +115,16 @@ export default function Home() {
 
           <div className="cards">
             {[
-              { img: "devpath.jpg", t: "DevPath", type: "EdTech", m: "Live algorithm visualizer", d: "A learning hub for early-career devs: roadmaps, a career ladder, and 200+ runnable lessons. Its 'Watch it sort' player animates each algorithm straight from the lesson's own code.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app" },
-              { img: "decidr.jpg", t: "Decidr", type: "AI · Next.js", m: "Bias-aware decisions", d: "AI decision assistant that weighs your options, surfaces the trade-offs, and flags where bias is tilting the call.", s: ["Next.js", "Supabase"], href: "https://decidr-black.vercel.app" },
-              { img: "cadence.jpg", t: "Cadence", type: "AI video", m: "Prompt-native editing", d: "A prompt-native video editor: describe the cut you want and an AI director edits the footage for you.", s: ["Next.js", "AI"], href: "https://github.com/codewithowais/Cadence" },
-              { img: "agentic.jpg", t: "Agentic AI Course", type: "Teaching", m: "16-week course", d: "A hands-on course on building AI agents, from your first tool-using agent to full multi-agent systems.", s: ["LangGraph", "Python"], href: "https://codewithowais.github.io/agentic-ai/" },
-              { img: "invoicebook.jpg", t: "InvoiceBook", type: "SaaS · Full-stack", m: "Recurring billing + PDF", d: "Team invoicing: create invoices, attach proof of payment, and auto-generate monthly recurring bills. Roles, reminders, an audit log, and PDF export.", s: ["Next.js", "Postgres"], href: "https://github.com/codewithowais/InvoiceBook" },
-              { img: "crispcast.jpg", t: "CrispCast", type: "Desktop · Electron", m: "Offline screen recorder", d: "A cross-platform screen recorder that captures system audio and an isolated mic, cleans up your voice, and merges it into one crisp MP4. Fully offline.", s: ["Electron", "ffmpeg"], href: "https://github.com/codewithowais/CrispCast" },
+              { img: "prompt-builder.jpg", t: "AI Prompt Builder", type: "AI tool · Live", m: "60+ prompt templates", d: "A live tool that builds production-ready prompts across 60+ templates: code (17 frameworks), chat personas, image, video and voice models, plus a multi-model context-handoff wizard. No sign-up.", s: ["AI", "Live"], href: "https://codewithowais.github.io/flutter-prompt-builder/", cat: "ai" },
+              { img: "devpath.jpg", t: "DevPath", type: "EdTech", m: "Live algorithm visualizer", d: "A learning hub for early-career devs: roadmaps, a career ladder, and 200+ runnable lessons. Its 'Watch it sort' player animates each algorithm straight from the lesson's own code.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app", cat: "fullstack" },
+              { img: "decidr.jpg", t: "Decidr", type: "AI · Next.js", m: "Bias-aware decisions", d: "AI decision assistant that weighs your options, surfaces the trade-offs, and flags where bias is tilting the call.", s: ["Next.js", "Supabase"], href: "https://decidr-black.vercel.app", cat: "ai fullstack" },
+              { img: "cadence.jpg", t: "Cadence", type: "AI video", m: "Prompt-native editing", d: "A prompt-native video editor: describe the cut you want and an AI director edits the footage for you.", s: ["Next.js", "AI"], href: "https://github.com/codewithowais/Cadence", cat: "ai" },
+              { img: "shanghai.jpg", t: "Shanghai Trip Assistant", type: "Mobile · Flutter", m: "Offline · on-device translation", d: "An offline-first travel app: on-device EN↔中文 translation, a PIN/biometric document vault, expenses and itinerary. Everything works with no signal.", s: ["Flutter", "ML Kit"], href: "https://github.com/codewithowais/china-trip-app", cat: "mobile opensource" },
+              { img: "agentic.jpg", t: "Agentic AI Course", type: "Teaching", m: "16-week course", d: "A hands-on course on building AI agents, from your first tool-using agent to full multi-agent systems.", s: ["LangGraph", "Python"], href: "https://codewithowais.github.io/agentic-ai/", cat: "ai" },
+              { img: "invoicebook.jpg", t: "InvoiceBook", type: "SaaS · Full-stack", m: "Recurring billing + PDF", d: "Team invoicing: create invoices, attach proof of payment, and auto-generate monthly recurring bills. Roles, reminders, an audit log, and PDF export.", s: ["Next.js", "Postgres"], href: "https://github.com/codewithowais/InvoiceBook", cat: "fullstack" },
+              { img: "crispcast.jpg", t: "CrispCast", type: "Desktop · Electron", m: "Offline screen recorder", d: "A cross-platform screen recorder that captures system audio and an isolated mic, cleans up your voice, and merges it into one crisp MP4. Fully offline.", s: ["Electron", "ffmpeg"], href: "https://github.com/codewithowais/CrispCast", cat: "opensource" },
             ].map((p) => (
-              <a className="pcard" key={p.t} href={p.href} target="_blank" rel="noopener noreferrer">
+              <a className="pcard" data-cat={p.cat} key={p.t} href={p.href} target="_blank" rel="noopener noreferrer">
                 <div className="pcard__media">
                   <Image src={`/img/projects/${p.img}`} alt={`${p.t} — ${p.type} project`} fill sizes="(max-width:900px) 100vw, 30vw" style={{ objectFit: "cover" }} />
                 </div>
@@ -135,7 +140,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <p className="more">Another 60+ repos on GitHub: Shanghai Trip Assistant, Mini Gantt, ERMS and more. <a href="https://github.com/codewithowais" target="_blank" rel="noopener noreferrer">Browse them ↗</a></p>
+          <p className="more">170+ public repositories on GitHub: Mini Gantt, ERMS, a MERN OLX clone, and 11 Flutter teaching cohorts. <a href="https://github.com/codewithowais" target="_blank" rel="noopener noreferrer">Browse them ↗</a></p>
         </section>
 
         {/* EXPERIENCE */}

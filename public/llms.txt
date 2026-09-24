@@ -41,6 +41,7 @@
 
 ## Selected projects
 - SimpliEd — School-management EdTech platform (Angular, Node.js, Flutter, MongoDB, AWS). Live: https://simpliedtech.com
+- AI Prompt Builder — Free, live, no-sign-up tool that builds production-ready AI prompts from 60+ fill-in-the-blank templates: code (17 frameworks incl. Flutter, React, Next.js, SwiftUI), chat personas (Claude, ChatGPT, Gemini), image, video and voice models, plus a multi-model context-handoff wizard. Live: https://codewithowais.github.io/flutter-prompt-builder/
 - Ledgerly — Open-source, privacy-first finance app with an AI assistant; offline-first PWA (Next.js 16, React 19, TypeScript, IndexedDB/Dexie, optional Neon Postgres). Live: https://expense-tracker-ochre-one-65.vercel.app · Code: https://github.com/codewithowais/expense-tracker
 - AI Study Partner — Open-source, local-first study app: upload your own PDFs/notes and it builds a course (chapters, plain-language explanations, quizzes and mock exams, weak-topic revision, progress tracking) with a local AI companion, so your data never leaves your machine (Next.js, TypeScript, Tailwind, Docker). Code: https://github.com/codewithowais/ai-study-planner
 - Decidr — AI decision-making assistant (Next.js, TypeScript, Supabase). Live: https://decidr-black.vercel.app · Code: https://github.com/codewithowais/Decidr
@@ -67,4 +68,4 @@
 ## Contact
 To hire or collaborate, email codewithowais@gmail.com, message +92 316 9585886 on WhatsApp, or connect on LinkedIn: https://www.linkedin.com/in/codewithowais/
 
-_Last updated: 2026-09-23_
+_Last updated: 2026-09-24_

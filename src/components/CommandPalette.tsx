@@ -29,6 +29,7 @@ const ACTIONS: Action[] = [
   { id: "copy", label: "Copy email address", kind: "action", run: () => { navigator.clipboard?.writeText("codewithowais@gmail.com").catch(() => {}); }, keywords: "clipboard mail" },
   { id: "whatsapp", label: "Message on WhatsApp", kind: "action", run: openTab("https://wa.me/923169585886"), keywords: "phone chat message" },
   { id: "resume", label: "Download résumé (PDF)", kind: "action", run: openTab("/muhammad-owais-ahmed-resume.pdf"), keywords: "cv pdf" },
+  { id: "prompt-builder", label: "Try the AI Prompt Builder", kind: "link", run: openTab("https://codewithowais.github.io/flutter-prompt-builder/"), keywords: "prompt ai tool templates claude chatgpt live" },
   { id: "github", label: "Open GitHub", kind: "link", run: openTab("https://github.com/codewithowais"), keywords: "code repos" },
   { id: "linkedin", label: "Open LinkedIn", kind: "link", run: openTab("https://www.linkedin.com/in/codewithowais/"), keywords: "profile network" },
   { id: "theme", label: "Toggle theme (light / dark)", kind: "action", run: () => toggleTheme(), keywords: "dark light mode appearance" },
