@@ -113,9 +113,30 @@ export default function Home() {
             </div>
           </a>
 
+          <a className="feat feat--reverse" data-cat="ai" href="https://codewithowais.github.io/flutter-prompt-builder/" target="_blank" rel="noopener noreferrer">
+            <div className="feat__media">
+              <Image src="/img/projects/prompt-builder.jpg" alt="AI Prompt Builder — 60+ fill-in-the-blank prompt templates for code, chat, image, video and voice" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
+            </div>
+            <div className="feat__body">
+              <span className="feat__flag">Live tool · AI</span>
+              <h3>AI Prompt Builder — 60+ Templates, No Sign-Up</h3>
+              <div className="feat__metric">Free · runs in the browser · nothing to install</div>
+              <p>A tool I built to turn a blank prompt box into fill-in-the-blank templates. It covers 17 code frameworks, chat personas for Claude, ChatGPT and Gemini, and the major image, video and voice models. Its context-handoff wizard hands your work to a fresh model in under 1k tokens, instead of re-paying 50k to rebuild the same context.</p>
+              <ul className="feat__spec">
+                <li><b>17</b> code frameworks</li>
+                <li><b>11</b> chat personas</li>
+                <li><b>9</b> image models</li>
+                <li><b>7</b> video models</li>
+                <li><b>7</b> voice models</li>
+              </ul>
+              <div className="pcard__stack">
+                <span className="tag">AI</span><span className="tag">Prompt engineering</span><span className="tag">Live</span>
+              </div>
+            </div>
+          </a>
+
           <div className="cards">
             {[
-              { img: "prompt-builder.jpg", t: "AI Prompt Builder", type: "AI tool · Live", m: "60+ prompt templates", d: "A live tool that builds production-ready prompts across 60+ templates: code (17 frameworks), chat personas, image, video and voice models, plus a multi-model context-handoff wizard. No sign-up.", s: ["AI", "Live"], href: "https://codewithowais.github.io/flutter-prompt-builder/", cat: "ai" },
               { img: "devpath.jpg", t: "DevPath", type: "EdTech", m: "Live algorithm visualizer", d: "A learning hub for early-career devs: roadmaps, a career ladder, and 200+ runnable lessons. Its 'Watch it sort' player animates each algorithm straight from the lesson's own code.", s: ["Next.js", "Tailwind"], href: "https://dev-path-by-codewithowais.vercel.app", cat: "fullstack" },
               { img: "decidr.jpg", t: "Decidr", type: "AI · Next.js", m: "Bias-aware decisions", d: "AI decision assistant that weighs your options, surfaces the trade-offs, and flags where bias is tilting the call.", s: ["Next.js", "Supabase"], href: "https://decidr-black.vercel.app", cat: "ai fullstack" },
               { img: "cadence.jpg", t: "Cadence", type: "AI video", m: "Prompt-native editing", d: "A prompt-native video editor: describe the cut you want and an AI director edits the footage for you.", s: ["Next.js", "AI"], href: "https://github.com/codewithowais/Cadence", cat: "ai" },

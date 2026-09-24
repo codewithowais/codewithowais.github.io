@@ -166,6 +166,12 @@ img { max-width: 100%; display: block; }
 .feat__metric { font-family: var(--font-jetbrains); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--a-2); margin-bottom: 0.6rem; }
 .feat p { color: var(--muted); margin: 0 0 1rem; max-width: 46ch; text-wrap: pretty; }
 
+/* richer feature card: mode spec strip */
+.feat__spec { list-style: none; margin: 0 0 1.1rem; padding: 0.9rem 0 0; border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; max-width: 46ch; }
+.feat__spec li { font-family: var(--font-jetbrains); font-size: 0.72rem; letter-spacing: 0.02em; color: var(--muted); }
+.feat__spec b { color: var(--a-2); font-weight: 600; font-size: 0.86rem; margin-right: 0.15rem; }
+
 .cards { margin-top: clamp(1.2rem,2.5vw,1.8rem); display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1rem,2vw,1.5rem); }
 .pcard { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); text-decoration: none; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; }
 .pcard:hover, .pcard:focus-visible { border-color: var(--a); transform: translateY(-3px); }
