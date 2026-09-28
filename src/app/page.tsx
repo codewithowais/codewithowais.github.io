@@ -64,7 +64,7 @@ export default function Home() {
               <Image src="/img/projects/simplied-platform.jpg" alt="SimpliEd school-management platform dashboard" fill sizes="(max-width:900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
             </div>
             <div className="feat__body">
-              <span className="feat__flag">Flagship</span>
+              <span className="feat__flag">Flagship · Founding team</span>
               <h3>SimpliEd — School Management Platform</h3>
               <div className="feat__metric">25,000+ users · 10 schools · 4+ years in production</div>
               <p>Attendance, fee invoicing, announcements and a full LMS, across web and mobile. I built the first version alone and set the architecture. Today it runs daily operations for 10 schools and 25,000+ students, parents and teachers.</p>
@@ -174,7 +174,7 @@ export default function Home() {
               <div>
                 <div className="exp__place">SimpliEd</div>
                 <div className="exp__title">Staff Software Engineer (Founding Engineer)</div>
-                <p className="exp__impact">Took an EdTech platform from an empty repo to <b>25,000+ users across 10 schools</b>, and still run it end to end.</p>
+                <p className="exp__impact"><b>Founding, core team member since day one</b>, across every designation — I took an EdTech platform from an empty repo to 25,000+ users across 10 schools, and still run it end to end.</p>
                 <ul>
                   <li>Set the platform&apos;s <strong>technical direction and coding standards</strong>, and lead architecture and code review for a team of five.</li>
                   <li>Chose the stack it runs on: a Node.js + MongoDB backend and Docker CI/CD on AWS (EC2/RDS/S3), with trade-offs a small team can maintain for years.</li>
