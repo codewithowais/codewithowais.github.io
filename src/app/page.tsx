@@ -198,7 +198,7 @@ export default function Home() {
               <div className="exp__when">Jan 2021 — now · Remote</div>
               <div>
                 <div className="exp__place">Jawan Pakistan</div>
-                <div className="exp__title">Flutter Development Instructor</div>
+                <div className="exp__title">Lead Trainer</div>
                 <p className="exp__impact">Built a Flutter curriculum from scratch and took <b>1,200+ developers across 11 cohorts</b> from their first widget to a published App Store / Play Store app.</p>
               </div>
             </div>
@@ -235,7 +235,7 @@ export default function Home() {
           <div className="eyebrow">05 / Teaching</div>
           <h2 className="big">I built the Flutter course 1,200+ developers learned on.</h2>
           <div className="prose">
-            <p>As the Flutter instructor at Jawan Pakistan, I designed all 11 cohorts: the syllabus, the projects, and the assessments that take a developer from their first widget to a store-ready app.</p>
+            <p>As the Lead Trainer at Jawan Pakistan, I designed all 11 Flutter cohorts: the syllabus, the projects, and the assessments that take a developer from their first widget to a store-ready app.</p>
             <p>I teach the way I build: project-based, covering state management, API integration, Firebase, and the patterns that separate a demo from a production app.</p>
           </div>
           <div className="facts">
@@ -251,7 +251,7 @@ export default function Home() {
           <h2 className="big">Quick answers.</h2>
           <details>
             <summary>Who is Muhammad Owais Ahmed (codewithowais)?</summary>
-            <p>Muhammad Owais Ahmed, known online as codewithowais, is a Staff Software Engineer in Karachi, Pakistan with 6 years of experience. He&apos;s the founding engineer at the EdTech platform SimpliEd (25,000+ users across 10 schools) and the Flutter instructor at Jawan Pakistan, where he has trained 1,200+ developers across 11 cohorts.</p>
+            <p>Muhammad Owais Ahmed, known online as codewithowais, is a Staff Software Engineer in Karachi, Pakistan with 6 years of experience. He&apos;s the founding engineer at the EdTech platform SimpliEd (25,000+ users across 10 schools) and the Lead Trainer at Jawan Pakistan, where he built the Flutter curriculum and trained 1,200+ developers across 11 cohorts.</p>
           </details>
           <details>
             <summary>Is he available for freelance or full-time work?</summary>

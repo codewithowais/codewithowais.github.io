@@ -112,7 +112,7 @@ const jsonLd = {
       alternateName: ["codewithowais", "Owais Ahmed"],
       jobTitle: "Staff Software Engineer",
       description:
-        "Staff Software Engineer with 6 years of experience shipping production web and mobile products across Angular, React, Node.js, .NET and Flutter. Founding engineer at SimpliEd and Flutter instructor at Jawan Pakistan.",
+        "Staff Software Engineer with 6 years of experience shipping production web and mobile products across Angular, React, Node.js, .NET and Flutter. Founding engineer at SimpliEd and Lead Trainer (Flutter) at Jawan Pakistan.",
       url: SITE_URL,
       mainEntityOfPage: { "@id": `${SITE}/#profilepage` },
       image: `${SITE}/img/profilepic.jpg`,
@@ -122,7 +122,7 @@ const jsonLd = {
       knowsLanguage: ["English", "Urdu"],
       address: { "@type": "PostalAddress", addressLocality: "Karachi", addressRegion: "Sindh", addressCountry: "PK" },
       homeLocation: { "@type": "Place", name: "Karachi, Pakistan" },
-      disambiguatingDescription: "Staff Software Engineer and Flutter instructor in Karachi, Pakistan; founding engineer at SimpliEd.",
+      disambiguatingDescription: "Staff Software Engineer and Flutter Lead Trainer in Karachi, Pakistan; founding engineer at SimpliEd.",
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "Hiring and project inquiries",
@@ -166,7 +166,7 @@ const jsonLd = {
         },
         {
           "@type": "OrganizationRole",
-          roleName: "Flutter Development Instructor",
+          roleName: "Lead Trainer",
           startDate: "2021-01",
           worksFor: { "@id": `${SITE}/#jawan` },
         },
@@ -257,7 +257,7 @@ const jsonLd = {
       url: SITE_URL,
       name: "Muhammad Owais Ahmed — Staff Software Engineer",
       datePublished: "2026-09-15T09:00:00+05:00",
-      dateModified: "2026-09-24T12:00:00+05:00",
+      dateModified: "2026-09-28T12:00:00+05:00",
       inLanguage: "en-US",
       about: { "@id": `${SITE}/#person` },
       mainEntity: { "@id": `${SITE}/#person` },
@@ -276,7 +276,7 @@ const jsonLd = {
         {
           "@type": "Question",
           name: "Who is Muhammad Owais Ahmed (codewithowais)?",
-          acceptedAnswer: { "@type": "Answer", text: "Muhammad Owais Ahmed, known online as codewithowais, is a Staff Software Engineer in Karachi, Pakistan with 6 years of experience. He is the founding engineer at the EdTech platform SimpliEd (25,000+ users across 10 schools) and the Flutter instructor at Jawan Pakistan, where he has trained 1,200+ developers across 11 cohorts." },
+          acceptedAnswer: { "@type": "Answer", text: "Muhammad Owais Ahmed, known online as codewithowais, is a Staff Software Engineer in Karachi, Pakistan with 6 years of experience. He is the founding engineer at the EdTech platform SimpliEd (25,000+ users across 10 schools) and the Lead Trainer at Jawan Pakistan, where he built the Flutter curriculum and trained 1,200+ developers across 11 cohorts." },
         },
         {
           "@type": "Question",
