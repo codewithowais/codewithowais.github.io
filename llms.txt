@@ -31,7 +31,7 @@
 - Cloud & DevOps: AWS (EC2, S3, RDS, Lambda), Docker, GitHub Actions, Linux
 
 ## Experience
-- Staff Software Engineer / Founding Engineer — SimpliEd (Jun 2022 – Present, Karachi, on-site): grew an EdTech platform from zero to 25,000+ users across 10 schools; architected the Node.js + MongoDB backend, built the Angular web app and Flutter QR-attendance and parent–student apps, ran AWS (EC2/RDS/S3) infrastructure and GitHub Actions + Docker CI/CD, and led architecture and code review for a team of 5–6 engineers. https://simpliedtech.com
+- Staff Software Engineer — SimpliEd (Jun 2022 – Present, Karachi, on-site): a founding, core team member since day one, and has remained on the core team across every designation (Software Engineer → Senior Software Engineer → Staff Software Engineer). Grew an EdTech platform from zero to 25,000+ users across 10 schools; architected the Node.js + MongoDB backend, built the Angular web app and Flutter QR-attendance and parent–student apps, ran AWS (EC2/RDS/S3) infrastructure and GitHub Actions + Docker CI/CD, and led architecture and code review for a team of 5–6 engineers. https://simpliedtech.com
 - Associate Software Engineer — Dawateislami-IT (Aug 2020 – May 2022, Karachi, on-site): migrated core services from .NET Framework to .NET Core; moved server-rendered Razor modules to an Angular SPA; built secure REST APIs with Entity Framework on MS SQL Server.
 - Lead Trainer — Jawan Pakistan (Jan 2021 – Present, remote; Flutter Development Instructor 2021–2022, promoted to Lead Trainer Jan 2023): designed the full Flutter curriculum and trained 1,200+ developers across 11 cohorts, from first widget to published App Store / Play Store apps.
 
