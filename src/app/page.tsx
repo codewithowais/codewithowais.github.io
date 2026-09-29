@@ -22,7 +22,7 @@ export default function Home() {
         <section id="hero" className="sec hero">
           <h1>
             <span className="hero__kicker">Muhammad Owais Ahmed · Staff Software Engineer · Full-Stack, Flutter &amp; AI · Karachi</span>
-            <span className="hero__lead">I build the software <span className="u">ten schools run on.</span></span>
+            <span className="hero__lead">I build products people <span className="u">rely on every day.</span></span>
           </h1>
           <p className="sub">
             Founding engineer at SimpliEd. I took it from an empty repo to a platform 25,000+ students,
