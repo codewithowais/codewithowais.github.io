@@ -25,7 +25,7 @@ export default function Home() {
             <span className="hero__lead">I take products <span className="u">from zero to thousands of users.</span></span>
           </h1>
           <p className="sub">
-            Founding engineer at SimpliEd. I took it from an empty repo to a platform 25,000+ students,
+            Staff Software Engineer at SimpliEd, on the founding team since day one. I took it from an empty repo to a platform 25,000+ students,
             parents and teachers use across 10 schools, and I still own it end to end, leading a team
             of five. Six years shipping full products in Angular, React, Node.js, .NET and Flutter:
             the web, the apps, and the AWS underneath. Weekends, I teach. 1,200+ developers so far.
@@ -47,7 +47,7 @@ export default function Home() {
           <h2 className="big">Engineer on weekdays, teacher on weekends.</h2>
           <div className="prose">
             <p>I&apos;m a staff software engineer in Karachi. For six years I&apos;ve owned the hard technical calls behind products people actually use: an EdTech platform that serves 25,000+ people, and the mobile apps that took daily paperwork off teachers and parents.</p>
-            <p>As the founding engineer at <strong>SimpliEd</strong>, I built the whole platform: the Angular and Node web app, the Flutter apps, and the AWS setup and CI/CD behind them. I lead the team and still write code every week. On weekends I teach Flutter to new developers, and I hold a lesson to the same standard as production code.</p>
+            <p>As part of <strong>SimpliEd</strong>&apos;s founding team, I built the whole platform: the Angular and Node web app, the Flutter apps, and the AWS setup and CI/CD behind them. I lead the team and still write code every week. On weekends I teach Flutter to new developers, and I hold a lesson to the same standard as production code.</p>
           </div>
         </section>
 
@@ -172,7 +172,7 @@ export default function Home() {
               <div className="exp__when">Jun 2022 — now · Karachi</div>
               <div>
                 <div className="exp__place">SimpliEd</div>
-                <div className="exp__title">Staff Software Engineer (Founding Engineer)</div>
+                <div className="exp__title">Staff Software Engineer</div>
                 <p className="exp__impact"><b>Founding, core team member since day one</b>, across every designation — I took an EdTech platform from an empty repo to 25,000+ users across 10 schools, and still run it end to end.</p>
                 <ul>
                   <li>Set the platform&apos;s <strong>technical direction and coding standards</strong>, and lead architecture and code review for a team of five.</li>
@@ -250,7 +250,7 @@ export default function Home() {
           <h2 className="big">Straight answers.</h2>
           <details>
             <summary>Who is Muhammad Owais Ahmed (codewithowais)?</summary>
-            <p>Muhammad Owais Ahmed, known online as codewithowais, is a Staff Software Engineer in Karachi, Pakistan with 6 years of experience. He&apos;s the founding engineer at the EdTech platform SimpliEd (25,000+ users across 10 schools) and the Lead Trainer at Jawan Pakistan, where he built the Flutter curriculum and trained 1,200+ developers across 11 cohorts.</p>
+            <p>Muhammad Owais Ahmed, known online as codewithowais, is a Staff Software Engineer in Karachi, Pakistan with 6 years of experience. He&apos;s a Staff Software Engineer at the EdTech platform SimpliEd (25,000+ users across 10 schools), where he has been on the founding team since day one, and the Lead Trainer at Jawan Pakistan, where he built the Flutter curriculum and trained 1,200+ developers across 11 cohorts.</p>
           </details>
           <details>
             <summary>Is he available for freelance or full-time work?</summary>
