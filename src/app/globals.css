@@ -120,7 +120,7 @@ img { max-width: 100%; display: block; }
 .hero { padding-top: clamp(3rem, 9vh, 6rem); }
 .hero h1 { margin: 0; }
 .hero__kicker { display: block; font-family: var(--font-jetbrains); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--a-2); line-height: 1.5; margin-bottom: 1.4rem; }
-.hero__lead { display: block; font-family: var(--font-schibsted); font-weight: 800; font-size: clamp(2.55rem, 5.5vw, 4.7rem); line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance; max-width: 15ch; }
+.hero__lead { display: block; font-family: var(--font-schibsted); font-weight: 800; font-size: clamp(2.55rem, 5.5vw, 4.7rem); line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance; max-width: 19ch; }
 .hero h1 .u { background-image: linear-gradient(var(--a), var(--a)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 0.09em; padding-bottom: 0.02em; }
 .hero .sub { margin-top: 1.6rem; font-size: clamp(1.05rem, 1.4vw, 1.28rem); color: var(--ink-2); max-width: 54ch; line-height: 1.6; text-wrap: pretty; }
 .hero .now { margin-top: 1.1rem; font-family: var(--font-jetbrains); font-size: 0.8rem; color: var(--muted); }
