@@ -22,14 +22,13 @@ export default function Home() {
         <section id="hero" className="sec hero">
           <h1>
             <span className="hero__kicker">Muhammad Owais Ahmed · Staff Software Engineer · Full-Stack, Flutter &amp; AI · Karachi</span>
-            <span className="hero__lead">I build products people <span className="u">rely on every day.</span></span>
+            <span className="hero__lead">I build the software <span className="u">ten schools run on.</span></span>
           </h1>
           <p className="sub">
-            I&apos;m the founding engineer at SimpliEd. I took it from an empty repo to an EdTech
-            platform that 25,000+ students, parents and teachers use across 10 schools. I own the tech
-            end to end and lead a team of five. For six years I&apos;ve built full products with Angular,
-            React, Node.js, .NET and Flutter: the web apps, the mobile apps, and the AWS they run on.
-            On weekends I teach, and I&apos;ve trained 1,200+ developers so far.
+            Founding engineer at SimpliEd. I took it from an empty repo to a platform 25,000+ students,
+            parents and teachers use across 10 schools, and I still own it end to end, leading a team
+            of five. Six years shipping full products in Angular, React, Node.js, .NET and Flutter:
+            the web, the apps, and the AWS underneath. Weekends, I teach. 1,200+ developers so far.
           </p>
           <div className="facts">
             <div className="fact"><div className="v">6+</div><div className="k">Years shipping</div></div>
@@ -39,7 +38,7 @@ export default function Home() {
           <div className="avail">
             Open to full-time &amp; freelance · <b>Gulf relocation (UAE / KSA), sponsorship welcome</b> · remote worldwide · ~30-day notice
           </div>
-          <p className="now"><b>Currently:</b> scaling SimpliEd and building Ledgerly in the open.</p>
+          <p className="now"><b>Currently:</b> keeping SimpliEd fast for 25,000 people, and building Ledgerly in the open.</p>
         </section>
 
         {/* ABOUT */}
@@ -55,7 +54,7 @@ export default function Home() {
         {/* WORK */}
         <section id="work" className="sec">
           <div className="eyebrow">02 / Selected work</div>
-          <h2 className="big">Products I&apos;ve shipped end to end.</h2>
+          <h2 className="big">Built it. Shipped it. Still running it.</h2>
 
           <ProjectFilter />
 
@@ -167,7 +166,7 @@ export default function Home() {
         {/* EXPERIENCE */}
         <section id="experience" className="sec">
           <div className="eyebrow">03 / Experience</div>
-          <h2 className="big">Where I&apos;ve made an impact.</h2>
+          <h2 className="big">The work behind the titles.</h2>
           <div className="exp">
             <div className="exp__row">
               <div className="exp__when">Jun 2022 — now · Karachi</div>
@@ -248,7 +247,7 @@ export default function Home() {
         {/* FAQ */}
         <section id="faq" className="sec faq">
           <div className="eyebrow">06 / FAQ</div>
-          <h2 className="big">Quick answers.</h2>
+          <h2 className="big">Straight answers.</h2>
           <details>
             <summary>Who is Muhammad Owais Ahmed (codewithowais)?</summary>
             <p>Muhammad Owais Ahmed, known online as codewithowais, is a Staff Software Engineer in Karachi, Pakistan with 6 years of experience. He&apos;s the founding engineer at the EdTech platform SimpliEd (25,000+ users across 10 schools) and the Lead Trainer at Jawan Pakistan, where he built the Flutter curriculum and trained 1,200+ developers across 11 cohorts.</p>

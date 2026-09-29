@@ -257,7 +257,7 @@ const jsonLd = {
       url: SITE_URL,
       name: "Muhammad Owais Ahmed — Staff Software Engineer",
       datePublished: "2026-09-15T09:00:00+05:00",
-      dateModified: "2026-09-28T12:00:00+05:00",
+      dateModified: "2026-09-29T12:00:00+05:00",
       inLanguage: "en-US",
       about: { "@id": `${SITE}/#person` },
       mainEntity: { "@id": `${SITE}/#person` },
