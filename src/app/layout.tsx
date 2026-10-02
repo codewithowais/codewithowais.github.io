@@ -355,8 +355,8 @@ const jsonLd = {
     },
     {
       "@type": "CreativeWork",
-      name: "Shady Business (concept site)",
-      url: "https://shady-business.vercel.app",
+      name: "Umbra Auto Studio (concept site)",
+      url: "https://umbra-auto-studio.vercel.app",
       author: { "@id": `${SITE}/#person` },
       description: "Concept website for a car tinting and detailing studio built with Next.js: services, tint-shade picker, membership plans, reviews and an estimate-to-booking form.",
     },
