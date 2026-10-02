@@ -354,6 +354,20 @@ const jsonLd = {
       description: "Brand website for a premium Pakistani water company: a three.js 3D hero, product range, custom-labeled bottle orders, and a React + Firebase admin for quotes, messages and products.",
     },
     {
+      "@type": "CreativeWork",
+      name: "Shady Business (concept site)",
+      url: "https://shady-business.vercel.app",
+      author: { "@id": `${SITE}/#person` },
+      description: "Concept website for a car tinting and detailing studio built with Next.js: services, tint-shade picker, membership plans, reviews and an estimate-to-booking form.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "Aura Aesthetics (concept site)",
+      url: "https://aesthic-clinic-demo.vercel.app",
+      author: { "@id": `${SITE}/#person` },
+      description: "Concept website for an aesthetic clinic built with React and Vite: filterable treatment menu with prices, packages, offers, team, booking and WhatsApp chat.",
+    },
+    {
       "@type": "MobileApplication",
       name: "Shanghai Trip Assistant",
       applicationCategory: "TravelApplication",
