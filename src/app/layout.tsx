@@ -339,7 +339,7 @@ const jsonLd = {
       name: "Tic-Tac-Toe Live",
       applicationCategory: "GameApplication",
       operatingSystem: "Web Browser",
-      url: "https://tic-tac-toe-kohl-pi-15.vercel.app",
+      url: "https://tictactoe-live.vercel.app",
       author: { "@id": `${SITE}/#person` },
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       description: "Real-time multiplayer tic-tac-toe for 2 to 4 players with rooms, spectators, peer-to-peer voice chat, computer opponents and a weekly leaderboard. Built with Next.js, Convex and WebRTC.",
