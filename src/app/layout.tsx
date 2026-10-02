@@ -345,6 +345,14 @@ const jsonLd = {
       description: "Real-time multiplayer tic-tac-toe for 2 to 4 players with rooms, spectators, peer-to-peer voice chat, computer opponents and a weekly leaderboard. Built with Next.js, Convex and WebRTC.",
     },
     {
+      "@type": "SoftwareSourceCode",
+      name: "Zulaal",
+      codeRepository: "https://github.com/codewithowais/zulaal",
+      programmingLanguage: ["JavaScript", "HTML"],
+      author: { "@id": `${SITE}/#person` },
+      description: "Brand website for a premium Pakistani water company: a three.js 3D hero, product range, custom-labeled bottle orders, and a React + Firebase admin for quotes, messages and products.",
+    },
+    {
       "@type": "MobileApplication",
       name: "Shanghai Trip Assistant",
       applicationCategory: "TravelApplication",
