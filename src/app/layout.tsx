@@ -347,6 +347,7 @@ const jsonLd = {
     {
       "@type": "SoftwareSourceCode",
       name: "Zulaal",
+      url: "https://zulaal.vercel.app",
       codeRepository: "https://github.com/codewithowais/zulaal",
       programmingLanguage: ["JavaScript", "HTML"],
       author: { "@id": `${SITE}/#person` },
