@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import ScrollProgress from "@/components/ScrollProgress";
 import CountUp from "@/components/CountUp";
 import CommandPalette from "@/components/CommandPalette";
+import AskBot from "@/components/AskBot";
 import ProjectFilter from "@/components/ProjectFilter";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <ScrollProgress />
       <CountUp />
       <CommandPalette />
+      <AskBot />
       <main id="main-content" tabIndex={-1} className="content">
         {/* HERO */}
         <section id="hero" className="sec hero">

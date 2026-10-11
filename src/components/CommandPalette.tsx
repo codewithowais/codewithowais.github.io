@@ -25,6 +25,7 @@ const ACTIONS: Action[] = [
   { id: "teaching", label: "Teaching", kind: "section", run: scrollTo("teaching"), keywords: "flutter course mentor" },
   { id: "faq", label: "FAQ", kind: "section", run: scrollTo("faq"), keywords: "questions availability" },
   { id: "contact", label: "Contact", kind: "section", run: scrollTo("contact"), keywords: "hire reach get in touch" },
+  { id: "askbot", label: "Ask the bot about Owais", kind: "action", run: () => window.dispatchEvent(new CustomEvent("open-askbot")), keywords: "chat help question faq assistant" },
   { id: "email", label: "Email me", kind: "action", run: () => { window.location.href = "mailto:codewithowais@gmail.com"; }, keywords: "mail hire contact" },
   { id: "copy", label: "Copy email address", kind: "action", run: () => { navigator.clipboard?.writeText("codewithowais@gmail.com").catch(() => {}); }, keywords: "clipboard mail" },
   { id: "whatsapp", label: "Message on WhatsApp", kind: "action", run: openTab("https://wa.me/923169585886"), keywords: "phone chat message" },
