@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { answerFor, FOLLOWUPS, GREETING, SUGGESTIONS, type Link } from "../data/askbot";
 
 type Msg = { id: number; from: "bot" | "me"; text: string; links?: Link[]; entry?: string; done: boolean };
@@ -11,26 +11,27 @@ const prefersReduced = () =>
 
 const THINKING = ["Searching the portfolio…", "Writing an answer…"];
 
-/** Reveals text word by word, like a streaming chat answer. Click to skip ahead. */
+/** Types text out character by character, pausing at punctuation. Click to skip ahead. */
 function Streamed({ text, onTick, onDone }: { text: string; onTick: () => void; onDone: () => void }) {
-  const parts = useMemo(() => text.split(/(\s+)/), [text]);
-  const [n, setN] = useState(0);
+  const [n, setN] = useState(() => (prefersReduced() ? text.length : 0));
 
   useEffect(() => {
-    if (n >= parts.length) {
+    if (n >= text.length) {
       onDone();
       return;
     }
+    const prev = text[n - 1];
+    const pause = prev && /[.?!]/.test(prev) ? 260 : prev && /[,:;]/.test(prev) ? 110 : 0;
     const t = window.setTimeout(() => {
-      setN((v) => v + 2);
+      setN((v) => Math.min(text.length, v + 2));
       onTick();
-    }, 24);
+    }, 18 + pause);
     return () => window.clearTimeout(t);
-  }, [n, parts.length, onTick, onDone]);
+  }, [n, text, onTick, onDone]);
 
   return (
-    <p onClick={() => setN(parts.length)} title="Click to skip">
-      {parts.slice(0, n).join("")}
+    <p onClick={() => setN(text.length)} title="Click to skip">
+      {text.slice(0, n)}
       <span className="askbot__caret" aria-hidden="true" />
     </p>
   );
@@ -39,7 +40,7 @@ function Streamed({ text, onTick, onDone }: { text: string; onTick: () => void; 
 export default function AskBot() {
   const [open, setOpen] = useState(false);
   const [teaser, setTeaser] = useState(false);
-  const [msgs, setMsgs] = useState<Msg[]>([{ id: 0, from: "bot", text: GREETING, done: true }]);
+  const [msgs, setMsgs] = useState<Msg[]>([{ id: 0, from: "bot", text: GREETING, done: false }]);
   const [q, setQ] = useState("");
   const [thinking, setThinking] = useState<number | null>(null); // index into THINKING
   const [streaming, setStreaming] = useState(false);
@@ -131,7 +132,7 @@ export default function AskBot() {
     timers.current = [];
     setThinking(null);
     setStreaming(false);
-    setMsgs([{ id: nextId.current++, from: "bot", text: GREETING, done: true }]);
+    setMsgs([{ id: nextId.current++, from: "bot", text: GREETING, done: prefersReduced() }]);
     setQ("");
     inputRef.current?.focus();
   };
@@ -148,7 +149,7 @@ export default function AskBot() {
 
   const last = msgs[msgs.length - 1];
   const chips =
-    msgs.length === 1 ? SUGGESTIONS : last.from === "bot" && last.done ? FOLLOWUPS[last.entry ?? "fallback"] ?? SUGGESTIONS : [];
+    msgs.length === 1 ? (last.done ? SUGGESTIONS : []) : last.from === "bot" && last.done ? FOLLOWUPS[last.entry ?? "fallback"] ?? SUGGESTIONS : [];
 
   return (
     <div className="askbot">
