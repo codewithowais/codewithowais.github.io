@@ -380,3 +380,23 @@ export function answerFor(question: string): Entry {
 
   return best && bestScore >= 1.5 ? best : FALLBACK;
 }
+
+/** Suggested next questions shown after an answer, keyed by entry id. */
+export const FOLLOWUPS: Record<string, string[]> = {
+  about: ["What is SimpliEd?", "What's his tech stack?", "Is he available to hire?"],
+  available: ["How can I contact him?", "How soon can he start?", "Can he relocate to the Gulf?"],
+  contact: ["Send me his résumé", "Is he available to hire?", "Where is he based?"],
+  resume: ["What's his experience?", "Show me his projects", "How can I contact him?"],
+  experience: ["What is SimpliEd?", "Does he teach?", "What's his education?"],
+  simplied: ["Can he lead a team?", "Does he know Flutter?", "Show me his projects"],
+  jawan: ["What's his experience?", "Does he know Flutter?", "How can I contact him?"],
+  stack: ["Does he know Flutter?", "Any AI projects?", "Show me his projects"],
+  flutter: ["What is SimpliEd?", "Does he teach?", "Show me his projects"],
+  ai: ["Tell me about Ledgerly", "What is AI Prompt Builder?", "What is AI Study Partner?"],
+  projects: ["Tell me about Ledgerly", "What is DevPath?", "Any AI projects?"],
+  ledgerly: ["What's his tech stack?", "Any AI projects?", "Show me his projects"],
+  promptbuilder: ["Any AI projects?", "Tell me about Ledgerly", "Show me his projects"],
+  location: ["Is he available to hire?", "How soon can he start?", "How can I contact him?"],
+  leadership: ["What is SimpliEd?", "What's his experience?", "Is he available to hire?"],
+  fallback: ["Show me his projects", "What's his tech stack?", "How can I contact him?"],
+};
