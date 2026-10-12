@@ -37,7 +37,7 @@ export const FALLBACK: Entry = {
 };
 
 export const GREETING =
-  "Hi, I'm the little Q&A bot on Owais's portfolio. I'm not an AI model: I answer from what's written on this site. Ask me about his work, experience, stack or availability.";
+  "Hi! I'm Owais's portfolio assistant. Ask me about his work, experience, stack or availability.";
 
 export const ENTRIES: Entry[] = [
   {
@@ -324,7 +324,7 @@ export const ENTRIES: Entry[] = [
     id: "bot",
     keys: ["bot", "chatbot", "you", "model", "real ai", "are you"],
     answer:
-      "I'm a small rule-based Q&A bot, not an AI model. I match your question against answers Owais wrote about himself, so I only know what's on this site. For anything else, he's one email away.",
+      "I'm the assistant on Owais's portfolio. I answer from what's on this site, so for anything beyond it, he's one email away.",
     links: [{ label: "Email Owais", href: `mailto:${EMAIL}` }],
   },
 ];

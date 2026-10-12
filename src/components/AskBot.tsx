@@ -160,7 +160,7 @@ export default function AskBot() {
               <span className="askbot__avatar" aria-hidden="true">CO<i /></span>
               <div>
                 <div className="askbot__title">Ask about Owais</div>
-                <div className="askbot__sub">From this site · not an AI model</div>
+                <div className="askbot__sub">Owais’s portfolio assistant</div>
               </div>
             </div>
             <div className="askbot__tools">
