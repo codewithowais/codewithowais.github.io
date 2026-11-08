@@ -185,6 +185,23 @@ export const ENTRIES: Entry[] = [
     links: [{ label: "Code", href: "https://github.com/codewithowais/ai-study-planner" }],
   },
   {
+    id: "knock",
+    keys: ["knock", "video call", "video chat", "screen sharing", "screen share", "camera", "meeting room"],
+    answer:
+      "Knock is a free camera and screen-sharing room tool: start a room, send the link, and approve each person who knocks. No accounts needed.",
+    links: [{ label: "Try Knock", href: "https://knock.codewithowais.workers.dev" }],
+  },
+  {
+    id: "filelens",
+    keys: ["filelens", "file lens", "metadata", "exif", "c2pa", "file inspector", "ai generated", "tools"],
+    answer:
+      "FileLens is a free file inspector that runs entirely in your browser. Drop in a photo, video, audio file, PDF or Office document and it shows who made it, when and on what, whether AI made it, whether its Content Credentials (C2PA) are genuine, and what it gives away, like GPS location. Nothing is uploaded.",
+    links: [
+      { label: "Try FileLens", href: "https://filelens-app.vercel.app" },
+      { label: "Code", href: "https://github.com/codewithowais/FileLens" },
+    ],
+  },
+  {
     id: "tictactoe",
     keys: ["tic tac toe", "tic-tac-toe", "tictactoe", "game", "games", "multiplayer", "convex", "webrtc", "leaderboard", "voice chat"],
     answer:
